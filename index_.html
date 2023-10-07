@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>学習メモ</title>
+  <style>
+    @charset "utf-8";
+
+    /* reset */
+
+    body,
+    h1,
+    h2,
+    p {
+      margin: 0;
+      font-weight: normal;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+
+    /* sp menu 360px 前提でデザインし直す */
+
+    /* element */
+
+    html {
+      /* 上下いっぱいまで領域を広げるため */
+      height: 100%;
+    }
+
+    body {
+      font-family: Verdana, 'Arial Black', メイリオ, sans-serif;
+      background: hwb(240 80% 0%);
+
+      /* 上下いっぱいまで領域を広げるため */
+      height: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h2::before {
+      content: "- ";
+    }
+
+    h2::after {
+      content: " -";
+    }
+
+    p {
+      margin-top: 12px;
+    }
+
+    a {
+      transition: all 0.2s;
+    }
+
+
+    /* container */
+
+    .container {
+      text-align: center;
+      width: 80%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-radius: 20px;
+      background: white;
+      margin: 0 auto;
+
+      /* 上下いっぱいまで領域を広げるため */
+      height: inherit;
+      flex: 1;
+    }
+
+
+    /* minigame_container */
+    /* ui_container */
+
+    .minigame_container,
+    .ui_container {
+      width: 350px;
+      margin: 32px auto 0;
+    }
+
+    .minigame_container>p {
+      text-align: left;
+    }
+
+    .minigame_container>ul>li:first-child,
+    .ui_container>ul>li:first-child {
+      margin-top: 16px;
+    }
+
+    .minigame_container>ul>li+li,
+    .ui_container>ul>li+li {
+      margin-top: 12px;
+    }
+
+    .minigame_container>ul a,
+    .ui_container>ul a {
+      display: block;
+      padding: 4px 0;
+      border-radius: 8px;
+      background: hwb(240 80% 0%);
+      margin: 0 auto;
+    }
+
+    .minigame_container>ul a:hover,
+    .ui_container>ul a:hover {
+      color: white;
+      background: hwb(240 50% 0%);
+    }
+
+
+    /* pc menu */
+
+    @media (min-width: 1000px) {
+      .ui_container {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 1000px;
+        padding: 0 20px;
+      }
+
+      .ui_container>ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        /* 3 列で表示 */
+        /* @media (min-width: 1000px) と max-width: 1000px; を指定してるから */
+        /* 以下の処理は必要ない */
+        /* gap: calc((100% - 250px * 3) / 2); */
+
+        /* container { width: 80%; } */
+        /* ui_container { width: 100%; padding: 0 20px; } */
+        /* if (width = 1000px) => ui_container>ul { width: 1000px * 80% } */
+        /* if (width = 1000px) => gap ((800px - 750px - 40px) / 2)  = 5px */
+        /* 750px = ui_container>ul>li-width 250px * 3 list */
+        /* 40px = ui_container-leftpadding 20px + ui_container-rightpadding 20px */
+      }
+
+      .ui_container>ul>li {
+        width: 250px;
+        margin-top: 20px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>学習メモ</h1>
+
+    <div class="minigame_container">
+      <h2>ミニゲーム</h2>
+      <p>※画面解像度 1920 x 1080<br>
+        　全画面表示（F11キーで切り替え）推奨</p>
+      <ul>
+        <li><a href="#">七並べ</a></li>
+        <li><a href="#">ポーカー</a></li>
+      </ul>
+    </div>
+
+    <div class="ui_container">
+      <h2>UI</h2>
+      <ul>
+        <li><a href="#">ハンバーガーメニュー</a></li>
+        <li><a href="#">カルーセル</a></li>
+        <li><a href="#">モーダルウィンドウ</a></li>
+        <li><a href="#">アコーディオンUI</a></li>
+        <li><a href="#">タブメニュー</a></li>
+        <li><a href="#">カレンダー</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
