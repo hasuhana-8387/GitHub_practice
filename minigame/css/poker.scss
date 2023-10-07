@@ -1,0 +1,1417 @@
+// variable
+
+$body_width: 1920px; // 370px + 500px + 550px + 500px 合計 1920px
+$body_height: 1080px;
+
+$hand_list_width: 370px;
+$center_container_width: 550px;
+$side_container_width: 500px;
+
+$center_card_width: 100px;
+
+// 計算が煩雑なため、デベロッパーで子要素の高さやネガティブマージンの値などを確認・調整したうえで算出
+// 概算式 (1 枚のカードの高さ ($side_card_height) * 5 枚) + (2 枚目以降の margin-top) = 590px
+// player_hand & player_discard > li+li を参照
+$side_hand_height: 590px;
+
+$side_card_width: 100px;
+$side_card_height: 150px;
+
+
+// mixin
+
+@mixin rule_result() {
+  width: 920px;
+  height: 670px;
+  position: absolute;
+
+  // 本来の表示位置 TypeScript で設定する
+  // top: 26.5%; // 画面解像度 1920 * 1200
+  // top: 19%; // 画面解像度 1920 * 1080
+  // top: -1300px; // とりあえず TypeScript で画面外に隠しておく
+
+  left: 35.7%;
+
+  transition-property: top;
+  transition-duration: 1s;
+}
+
+
+// element
+
+body {
+  width: $body_width;
+  height: $body_height;
+  position: relative;
+  user-select: none; // 範囲選択 禁止
+  overflow-x: hidden;
+
+  // 「全体禁止 → 部分部分で許可」ではなくて、部分部分で禁止していくほうが、マスク処理がうまくいく
+  // pointer-events: none; // クリックイベント禁止 ドラッグ＆ドロップ禁止
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+
+// #mask, rule_container
+
+#mask {
+  background: rgba(0, 0, 0, 0.1);
+
+  /* 領域を画面いっぱいに広げる処理 */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  z-index: 100;
+}
+
+.rule_container {
+  @include rule_result();
+
+  // 本来の表示位置 TypeScript で設定する
+  // top: 26.5%; // 画面解像度 1920 * 1200
+  top: 19%; // 画面解像度 1920 * 1080
+  // top: -1300px; // とりあえず TypeScript で画面外に隠しておく
+
+  outline: 2px solid blue;
+  border-radius: 30px;
+
+  padding: 20px 50px;
+  background: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
+  transition: transform 1s;
+  z-index: 101;
+
+  dl {
+    width: 800px; // 暫定値
+    margin: 20px auto 0;
+    line-height: 1.5;
+  }
+
+  dt {
+    font-weight: bold;
+
+    &::before {
+      content: '・';
+    }
+  }
+
+
+  >.page {
+    font-size: 20px;
+    width: 500px;
+    position: absolute;
+    bottom: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+
+    .pagePrev,
+    .pageNext {
+      font-size: 32px;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      background-color: hsl(180, 100%, 50%);
+      border: 3px solid hsl(180, 100%, 30%);
+      border-radius: 15px;
+    }
+
+    .pagePrev:hover,
+    .pageNext:hover {
+      cursor: pointer;
+      background-color: hsl(180, 100%, 40%);
+    }
+
+    .pageCurrent {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+    }
+  }
+
+  >.close {
+    bottom: 3%;
+    left: 50%;
+  }
+}
+
+
+// result_list
+
+.result_list {
+  @include rule_result();
+
+  // 本来の表示位置 TypeScript で設定する
+  // top: 26.5%; // 画面解像度 1920 * 1200
+  // top: 19%; // 画面解像度 1920 * 1080
+  top: -1300px; // とりあえず TypeScript で画面外に隠しておく
+
+  background-color: #fff;
+  z-index: 30;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  table,
+  td {
+    border-collapse: collapse;
+    border: solid 1px blue;
+  }
+}
+
+.rank_container {
+  text-align: center;
+  height: 150px;
+
+  >td {
+    box-sizing: border-box;
+  }
+
+  >.rank_rank {
+    width: 100px;
+    font-size: 28px;
+    font-weight: bold;
+    color: blue;
+  }
+
+  >.rank_image {
+    width: 150px;
+
+    >img {
+      width: 130px;
+      height: 130px;
+      border: 3px solid blue;
+      border-radius: 50%;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+  }
+
+  >.rank_name {
+    width: 100px;
+    font-size: 20px;
+  }
+
+  >.rank_handlist {
+    width: 100px;
+  }
+
+  >.rank_high_number {
+    width: 130px;
+
+    >img {
+      height: 130px;
+    }
+  }
+
+  >.rank_compare_number {
+    width: 300px;
+
+    >img {
+      width: 55px;
+    }
+  }
+}
+
+
+// container
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+
+// hand_list
+
+.hand_list {
+  border: none;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+
+
+  $hand_list_td_padding: 10px;
+
+  width: $hand_list_width;
+  background-color: #333;
+  text-align: center;
+
+  >tbody>tr {
+
+    >th {
+      color: #fff;
+      font-weight: bold;
+      padding: 0;
+    }
+
+    >td {
+      width: $hand_list_width;
+      display: flex;
+      justify-content: center;
+      padding: 0px;
+      padding-bottom: 10px;
+
+      >img {
+        // width: 60px; // 画面解像度 1920 * 1200
+        width: 52px; // 画面解像度 1920 * 1080
+      }
+
+      >img.notHand {
+        opacity: 0.7; // 役に関係ないカードは半透明にして区別しておく。
+      }
+
+      >img+img {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+
+// hand_list th td
+// 手札が役と一致したときに設定する 最初は JavaScript で HTML の class を外しておく。
+.match_hand {
+  background-color: hsl(100deg, 70%, 50%);
+}
+
+
+// center_container
+
+.center_container {
+  width: $center_container_width;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+// center_container > .table （場札）
+
+.table {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stock {
+  position: relative; // .startBtn を適切な位置に配置するため
+}
+
+
+// player_container
+
+.player0_container,
+.player1_container,
+.player2_container,
+.player3_container {
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+.player1_container,
+.player2_container,
+.player3_container {
+  align-items: center;
+}
+
+.player0_container,
+.player2_container {
+  flex-flow: column;
+}
+
+.player0_container {
+  flex-flow: column-reverse;
+  height: 400px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.player2_container {
+  height: 500px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.player1_container,
+.player3_container {
+  width: $side_container_width;
+}
+
+.player1_container {
+  padding-left: 10px;
+  padding-right: 30px;
+}
+
+.player3_container {
+  padding-left: 30px;
+  padding-right: 10px;
+  flex-flow: row-reverse;
+}
+
+
+// player_name
+
+.player0_name,
+.player1_name,
+.player2_name,
+.player3_name {
+  font-size: 20px;
+  position: absolute;
+}
+
+.player0_name {
+  top: 90%;
+  left: 47%;
+}
+
+.player2_name {
+  top: 13%;
+  left: 18%;
+}
+
+.player1_name,
+.player3_name {
+  top: 57%;
+}
+
+.player1_name {
+  left: 8%;
+}
+
+.player3_name {
+  left: 77%;
+}
+
+
+// player_image
+
+.player1_image,
+.player2_image,
+.player3_image {
+  >img {
+    width: 130px;
+    height: 130px;
+    border: 3px solid blue;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+
+// player_hand, player_discard, center_container > table > stock
+
+.player0_hand,
+.player0_discard,
+.player2_hand,
+.player2_discard {
+  display: flex;
+  // justify-content: center;
+  position: relative;
+
+  >li+li {
+    margin-left: calc(($center_container_width - $center_card_width * 5) / 4);
+  }
+}
+
+.player1_hand,
+.player1_discard,
+.player3_hand,
+.player3_discard {
+  height: $side_hand_height;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+
+  >li {
+    width: 100px;
+  }
+
+  >li+li {
+    // (rotate 前の高さ - rotate 後の高さ) + カード同士の間隔
+    margin-top: calc(($side_card_width - $side_card_height) + 10px);
+  }
+}
+
+.player0_hand,
+.player0_discard,
+.player2_hand,
+.player2_discard,
+.stock {
+  img {
+    width: $center_card_width;
+  }
+}
+
+.player1_hand,
+.player1_discard,
+.player3_hand,
+.player3_discard {
+  img {
+    width: $side_card_width;
+  }
+}
+
+.player1_hand,
+.player1_discard {
+  margin-right: 25px;
+}
+
+.player3_hand,
+.player3_discard {
+  margin-left: 25px;
+}
+
+.player0_hand {
+  height: 150px;
+
+  >li {
+    // typescript 側でメインプレイヤーのターンになったタイミングで auto に変更する。
+    pointer-events: none; // クリックイベント禁止 ドラッグ＆ドロップ禁止
+  }
+}
+
+
+// player_hand & player_discard > li > img
+
+// ※本来の画像サイズ W 100px * H 150px を前提に HTML・SASS の要素 ul & li & img の 幅・高さを割り当てる。
+// そのうえで、 img 画像のみ rotate() を適用する。
+
+.player1_hand,
+.player1_discard {
+  >li>img {
+    transform: rotate(90deg);
+  }
+}
+
+.player2_hand,
+.player2_discard {
+  >li>img {
+    transform: rotate(180deg);
+  }
+}
+
+.player3_hand,
+.player3_discard {
+  >li>img {
+    transform: rotate(270deg);
+  }
+}
+
+
+// player_message
+
+.message {
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 500px;
+  height: 200px;
+  border: 3px solid blue;
+  border-radius: 30px;
+  padding: 10px;
+  padding-top: 30px;
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 50; // 最前面に表示
+  opacity: 0.9; // メッセージで隠れてしまってる領域を透かして表示
+
+  // メッセージ領域内の文字情報, 最初は透明, showtext アニメーションで表示
+  >span {
+    opacity: 0;
+  }
+}
+
+.player0_message {
+  top: 10%;
+  left: -90%;
+}
+
+.player1_message {
+  // top: 13%; // 画面解像度 1920 * 1200
+  top: 8%; // 画面解像度 1920 * 1080
+  left: 1%;
+}
+
+.player2_message {
+  top: 3%;
+  left: 95%;
+}
+
+.player3_message {
+  // bottom: 13%; // 画面解像度 1920 * 1200
+  bottom: 11%; // 画面解像度 1920 * 1080
+  right: 1%;
+}
+
+/* 三角形の吹き出しを作る */
+.message::before {
+  content: '';
+  width: 0px;
+  height: 0px;
+  border: 15px solid transparent;
+  position: absolute;
+}
+
+.player0_message::before {
+  top: 196px;
+  left: 390px;
+  border-top-color: blue;
+}
+
+.player1_message::before {
+  top: 196px;
+  left: 50px;
+  border-top-color: blue;
+}
+
+.player2_message::before {
+  top: 70px;
+  left: -33px;
+  border-right-color: blue;
+}
+
+.player3_message::before {
+  top: -33px;
+  left: 415px;
+  border-bottom-color: blue;
+}
+
+.message_off {
+  opacity: 0;
+}
+
+// メッセージを 1 文字ずつ表示するためのアニメーション
+@keyframes showtext {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+// btn
+
+.btn {
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.1em;
+  background-color: hsl(180, 100%, 50%);
+  width: 150px;
+  height: 50px;
+  border: 3px solid hsl(180, 100%, 30%);
+  border-radius: 15px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.singleLineBtn {
+  font-size: 20px;
+  line-height: 50px;
+}
+
+.doubleLineBtn {
+  font-size: 18px;
+  line-height: normal;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: hsl(180, 100%, 40%);
+}
+
+.stock>.startBtn,
+.stock>.openBtn {
+  top: 50%;
+  left: 50%;
+}
+
+.player0_hand>.exchangeBtn {
+  top: 80%;
+  left: 130%;
+}
+
+.player1_hand>.exchangeBtn {
+  top: 80%;
+  left: 47%;
+}
+
+.player2_hand>.exchangeBtn {
+  top: 80%;
+  left: 130%;
+}
+
+.player3_hand>.exchangeBtn {
+  top: 80%;
+  left: 55%;
+}
+
+.player0_hand>.backToStartBtn {
+  top: 80%;
+  left: 130%;
+}
+
+.messageBtn {
+  top: 90%;
+  left: 35%;
+  z-index: 50;
+}
+
+.ruleBtn {
+  top: 90%;
+  left: 25%;
+  z-index: 50;
+}
+
+
+// javascript
+
+.selected {
+  transform: translateY(-20px);
+}
+
+.hide {
+  opacity: 0 !important;
+  // opacity: 0.1 !important; // ※挙動の確認用。一通り実装が完了したら 0.1 => 0 に修正しておく。
+}
+
+#mask.hide {
+  display: none;
+}
+
+.rule_container.hide {
+  transform: translate(0, -1300px); // 画面外に隠しておく .hide を外したら表示する
+  opacity: 1 !important;
+}
+
+.notClick {
+  pointer-events: none !important; // クリックイベント禁止 ドラッグ＆ドロップ禁止
+}
+
+
+
+
+
+// rotate 導入前 コード
+
+// $body_width: 1920px; // 370px + 500px + 550px + 500px 合計 1920px
+// $body_height: 1200px;
+
+// $hand_list_width: 370px;
+// $center_container_width: 550px;
+// $side_container_width: 500px;
+
+// $center_card_width: 100px;
+
+// $side_hand_height: 550px;
+
+// $side_card_width: 150px;
+// $side_card_height: 100px;
+
+// @mixin rule_result() {
+//   width: 920px;
+//   height: 670px;
+//   position: absolute;
+
+//   // top: -1300px; // とりあえず画面外に隠しておく
+//   // top: 26.5%; // 本来の表示位置 TypeScript で設定する
+//   left: 35.7%;
+
+//   transition-property: top;
+//   transition-duration: 1s;
+// }
+
+// body {
+//   width: $body_width;
+//   height: $body_height;
+//   position: relative;
+//   user-select: none; // 範囲選択 禁止
+//   overflow-x: hidden;
+
+//   // 「全体禁止 → 部分部分で許可」ではなくて、部分部分で禁止していくほうが、マスク処理がうまくいく
+//   // pointer-events: none; // クリックイベント禁止 ドラッグ＆ドロップ禁止
+// }
+
+// ul {
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+// }
+
+// img {
+//   max-width: 100%;
+//   vertical-align: bottom;
+// }
+
+// .hide {
+//   opacity: 0.1 !important;
+// }
+
+
+// // rule_container, #mask
+
+// #mask {
+//   background: rgba(0, 0, 0, 0.1);
+
+//   /* 領域を画面いっぱいに広げる処理 */
+//   position: fixed;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+
+//   z-index: 100;
+// }
+
+// .rule_container {
+//   @include rule_result();
+
+//   // @mixin ? を使用してみる。
+//   /* result_list と同じサイズ */
+//   // width: 920px;
+//   // height: 670px;
+//   // position: absolute;
+
+//   // top: -1300px; // とりあえず画面外に隠しておく
+//   // left: 35.7%;
+
+//   // transition-property: top;
+//   // transition-duration: 1s;
+
+
+//   top: 26.5%; // 本来の表示位置 TypeScript で設定する
+//   // top: -1300px; // とりあえず画面外に隠しておく
+
+//   outline: 2px solid blue;
+//   border-radius: 30px;
+
+//   padding: 20px 50px;
+//   background: rgba(255, 255, 255, 0.9);
+//   box-sizing: border-box;
+//   transition: transform 1s;
+//   z-index: 101;
+
+//   dl {
+//     width: 800px; // 暫定値
+//     margin: 20px auto 0;
+//     line-height: 1.5;
+//   }
+
+//   dt {
+//     font-weight: bold;
+
+//     &::before {
+//       content: '・';
+//     }
+//   }
+
+
+//   >.page {
+//     font-size: 20px;
+//     width: 500px;
+//     position: absolute;
+//     bottom: 13%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     display: flex;
+//     justify-content: space-between;
+
+//     .pagePrev,
+//     .pageNext {
+//       font-size: 32px;
+//       display: inline-block;
+//       width: 50px;
+//       height: 50px;
+//       cursor: pointer;
+//       color: #fff;
+//       text-align: center;
+//       line-height: 50px;
+//       background-color: hsl(180, 100%, 50%);
+//       border: 3px solid hsl(180, 100%, 30%);
+//       border-radius: 15px;
+//     }
+
+//     .pagePrev:hover,
+//     .pageNext:hover {
+//       cursor: pointer;
+//       background-color: hsl(180, 100%, 40%);
+//     }
+
+//     .pageCurrent {
+//       display: inline-block;
+//       width: 50px;
+//       height: 50px;
+//       text-align: center;
+//       line-height: 50px;
+//     }
+//   }
+
+//   >.close {
+//     bottom: 3%;
+//     left: 50%;
+//     }
+// }
+
+
+// // result_list
+
+// .result_list {
+//   @include rule_result();
+
+//   // width: 920px;
+//   // height: 670px;
+//   // position: absolute;
+
+//   // top: -1300px; // とりあえず画面外に隠しておく
+//   // left: 35.7%;
+
+//   // transition-property: top;
+//   // transition-duration: 1s;
+
+
+//   // top: 26.5%; // 本来の表示位置 TypeScript で設定する
+//   top: -1300px; // とりあえず画面外に隠しておく
+
+//   background-color: #fff;
+//   z-index: 30;
+
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+
+
+//   table,
+//   td {
+//     border-collapse: collapse;
+//     border: solid 1px blue;
+//   }
+// }
+
+// .rank_container {
+//   text-align: center;
+//   height: 150px;
+
+//   >td {
+//     box-sizing: border-box;
+//   }
+
+//   >.rank_rank {
+//     width: 100px;
+//     font-size: 28px;
+//     font-weight: bold;
+//     color: blue;
+//   }
+
+//   >.rank_image {
+//     width: 150px;
+
+//     >img {
+//       width: 130px;
+//       height: 130px;
+//       border: 3px solid blue;
+//       border-radius: 50%;
+//       -o-object-fit: cover;
+//       object-fit: cover;
+//     }
+//   }
+
+//   >.rank_name {
+//     width: 100px;
+//     font-size: 20px;
+//   }
+
+//   >.rank_handlist {
+//     width: 100px;
+//   }
+
+//   >.rank_high_number {
+//     width: 130px;
+
+//     >img {
+//       height: 130px;
+//     }
+//   }
+
+//   >.rank_compare_number {
+//     width: 300px;
+
+//     >img {
+//       width: 55px;
+//     }
+//   }
+// }
+
+
+
+// // container
+
+// .container {
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+// }
+
+
+// // hand_list
+
+// .hand_list {
+//   outline: 1px solid blue;
+//   border: none;
+//   border-collapse: collapse;
+//   box-sizing: border-box;
+//   display: flex;
+//   align-items: center;
+// }
+
+// .hand_list {
+//   $hand_list_td_padding: 10px;
+
+//   width: $hand_list_width;
+//   background-color: #333;
+//   text-align: center;
+
+//   >tbody>tr {
+
+
+//     >th {
+//       color: #fff;
+//       font-weight: bold;
+//       padding: 0;
+//     }
+
+//     >td {
+//       width: $hand_list_width;
+//       display: flex;
+//       justify-content: center;
+//       padding: 0px;
+//       padding-bottom: 10px;
+
+//       >img {
+//         width: 60px; // 画面解像度 1920 * 1200
+//       }
+
+//       >img+img {
+//         margin-left: 5px;
+//       }
+//     }
+//   }
+// }
+
+
+// // hand_list th td
+// // 手札が役と一致したときに設定する 最初は JavaScript で HTML の class を外しておく。
+// .match_hand {
+//   background-color: hsl(100deg, 70%, 50%);
+// }
+
+
+// // center_container
+
+// .center_container {
+//   width: $center_container_width;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+// }
+
+
+// // center_container > .table （場札）
+
+// .table {
+//   height: 150px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .stock {
+//   position: relative; // .startBtn を適切な位置に配置するため
+// }
+
+
+// // player_container
+
+// .player0_container,
+// .player1_container,
+// .player2_container,
+// .player3_container {
+//   box-sizing: border-box;
+//   display: flex;
+//   position: relative;
+//   justify-content: space-between;
+// }
+
+// .player1_container,
+// .player2_container,
+// .player3_container {
+//   align-items: center;
+// }
+
+// .player0_container,
+// .player2_container {
+//   flex-flow: column;
+// }
+
+// .player0_container {
+//   flex-flow: column-reverse;
+//   height: 400px;
+//   padding-top: 30px;
+//   padding-bottom: 50px;
+// }
+
+// .player2_container {
+//   height: 500px;
+//   padding-top: 10px;
+//   padding-bottom: 30px;
+// }
+
+// .player1_container,
+// .player3_container {
+//   width: $side_container_width;
+// }
+
+// .player1_container {
+//   padding-left: 10px;
+//   padding-right: 30px;
+// }
+
+// .player3_container {
+//   padding-left: 30px;
+//   padding-right: 10px;
+//   flex-flow: row-reverse;
+// }
+
+
+// // player_name
+
+// .player0_name,
+// .player1_name,
+// .player2_name,
+// .player3_name {
+//   font-size: 20px;
+//   position: absolute;
+// }
+
+// .player0_name {
+//   top: 90%;
+//   left: 47%;
+// }
+
+// .player2_name {
+//   top: 13%;
+//   left: 18%;
+// }
+
+// .player1_name,
+// .player3_name {
+//   top: 57%;
+// }
+
+// .player1_name {
+//   left: 8%;
+// }
+
+// .player3_name {
+//   left: 77%;
+// }
+
+
+// // player_image
+
+// .player1_image,
+// .player2_image,
+// .player3_image {
+//   >img {
+//     width: 130px;
+//     height: 130px;
+//     border: 3px solid blue;
+//     border-radius: 50%;
+//     object-fit: cover;
+//   }
+// }
+
+
+// // player_hand player_discard  center_container > table > stock
+
+// .player0_hand,
+// .player0_discard,
+// .player2_hand,
+// .player2_discard {
+//   display: flex;
+//   // justify-content: center;
+//   position: relative;
+
+//   >li+li {
+//     margin-left: calc(($center_container_width - $center_card_width * 5) / 4);
+//   }
+// }
+
+// .player1_hand,
+// .player1_discard,
+// .player3_hand,
+// .player3_discard {
+//   height: 550px;
+//   display: flex;
+//   flex-flow: column;
+//   justify-content: center;
+
+//   >li+li {
+//     margin-top: calc(($side_hand_height - $side_card_height * 5) / 4);
+//   }
+// }
+
+// .player0_hand,
+// .player0_discard,
+// .player2_hand,
+// .player2_discard,
+// .stock {
+//   img {
+//     width: $center_card_width;
+//   }
+// }
+
+// .player1_hand,
+// .player1_discard,
+// .player3_hand,
+// .player3_discard {
+//   img {
+//     width: $side_card_width;
+//   }
+// }
+
+// .player0_hand {
+//   height: 150px;
+
+//   >li {
+//     // typescript 側でメインプレイヤーのターンになったタイミングで auto に変更する。
+//     pointer-events: none; // クリックイベント禁止 ドラッグ＆ドロップ禁止
+//   }
+
+//   // >.exchangeBtn {
+//   // }
+// }
+
+
+// // player_message
+
+// .message {
+//   color: #333;
+//   font-size: 20px;
+//   font-weight: bold;
+//   text-align: center;
+//   line-height: 1.5;
+//   background-color: rgba(255, 255, 255, 0.8);
+//   width: 500px;
+//   height: 200px;
+//   border: 3px solid blue;
+//   border-radius: 30px;
+//   padding: 10px;
+//   padding-top: 30px;
+//   position: absolute;
+//   box-sizing: border-box;
+//   z-index: 50; // 最前面に表示
+//   opacity: 0.9; // メッセージで隠れてしまってる領域を透かして表示
+
+//   >span {
+//     opacity: 0;
+//   }
+// }
+
+// .player0_message {
+//   top: 10%;
+//   left: -90%;
+// }
+
+// .player1_message {
+//   top: 13%;
+//   left: 1%;
+// }
+
+// .player2_message {
+//   top: 3%;
+//   left: 95%;
+// }
+
+// .player3_message {
+//   bottom: 13%;
+//   right: 1%;
+// }
+
+// /* 三角形の吹き出しを作る */
+// .message::before {
+//   content: '';
+//   width: 0px;
+//   height: 0px;
+//   border: 15px solid transparent;
+//   position: absolute;
+// }
+
+// .player0_message::before {
+//   top: 196px;
+//   left: 390px;
+//   border-top-color: blue;
+// }
+
+// .player1_message::before {
+//   top: 196px;
+//   left: 50px;
+//   border-top-color: blue;
+// }
+
+// .player2_message::before {
+//   top: 70px;
+//   left: -33px;
+//   border-right-color: blue;
+// }
+
+// .player3_message::before {
+//   top: -33px;
+//   left: 415px;
+//   border-bottom-color: blue;
+// }
+
+// .message_on_off {
+//   opacity: 0;
+// }
+
+// // メッセージを 1 文字ずつ表示するためのアニメーション
+// @keyframes showtext {
+//   0% {
+//     opacity: 0;
+//   }
+
+//   100% {
+//     opacity: 1;
+//   }
+// }
+
+
+// // btn
+
+// .btn {
+//   color: #fff;
+//   font-weight: bold;
+//   text-align: center;
+//   letter-spacing: 0.1em;
+//   background-color: hsl(180, 100%, 50%);
+//   width: 150px;
+//   height: 50px;
+//   border: 3px solid hsl(180, 100%, 30%);
+//   border-radius: 15px;
+//   position: absolute;
+//   transform: translate(-50%, -50%);
+//   z-index: 10;
+// }
+
+// .singleLineBtn {
+//   font-size: 20px;
+//   line-height: 50px;
+// }
+
+// .doubleLineBtn {
+//   font-size: 18px;
+//   line-height: normal;
+// }
+
+// .btn:hover {
+//   cursor: pointer;
+//   background-color: hsl(180, 100%, 40%);
+// }
+
+// .stock>.startBtn,
+// .stock>.openBtn {
+//   top: 50%;
+//   left: 50%;
+// }
+
+// .player0_hand>.exchangeBtn {
+//   top: 80%;
+//   left: 130%;
+// }
+
+// .player1_hand>.exchangeBtn {
+//   top: 80%;
+//   left: 47%;
+// }
+
+// .player2_hand>.exchangeBtn {
+//   top: 80%;
+//   left: 130%;
+// }
+
+// .player3_hand>.exchangeBtn {
+//   top: 80%;
+//   left: 55%;
+// }
+
+// .player0_hand>.backToStartBtn {
+//   top: 80%;
+//   left: 130%;
+// }
+
+// .messageBtn {
+//   top: 90%;
+//   left: 35%;
+//   z-index: 50;
+// }
+
+// .ruleBtn {
+//   top: 90%;
+//   left: 25%;
+//   z-index: 50;
+// }
+
+
+// // javascript
+
+// .selected {
+//   transform: translateY(-20px);
+// }
+
+// #mask.hide {
+//   display: none;
+// }
+
+// .rule_container.hide {
+//   transform: translate(0, -1300px); // 画面外に隠しておく .hide を外したら表示する
+//   opacity: 1 !important;
+// }
+
+// .notClick {
+//   pointer-events: none !important;
+// }

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sevens</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/sevens.css">
+</head>
+
+<body>
+  <div class="information">
+    <span class="info_player00">You: 残り 13 枚 　パス 0 回　 順位 第 0 位</span>
+    <span class="info_player01">player1: 残り 13 枚 　パス 0 回　 順位 第 0 位</span>
+    <span class="info_player02">player2: 残り 13 枚 　パス 0 回　 順位 第 0 位</span>
+    <span class="info_player03">player3: 残り 13 枚 　パス 0 回　 順位 第 0 位</span>
+  </div>
+
+  <span class="messagebtn"></span>
+  <span class="rulebtn"></span>
+
+  <div id="mask" class="hidden"></div>
+
+  <!-- ルール説明領域を配置 -->
+  <section id="ruleBox" class="hidden">
+    <dl>
+      <!--
+      <dt></dt>
+      <dd></dd> -->
+    </dl>
+
+    <!-- ページネーションを配置 -->
+    <div id="page">
+      <span id="pagePrev">&laquo;</span>
+      <span id="pageCurrent"></span>
+      <span id="pageNext">&raquo;</span>
+    </div>
+
+    <div id="close">閉じる</div>
+  </section>
+
+  <div class="container">
+    <div class="player01-wrapper">
+      <div class="player01_text text-none"></div>
+      <div class="player01-face"><img src="img/faces/00.png" alt=""></div>
+      <div class="player01-name"></div>
+      <ul id="player01_hands">
+        <!-- <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li> -->
+      </ul>
+    </div>
+
+    <div class="center_container">
+      <div class="player02-wrapper">
+        <div class="player02_text text-none"></div>
+        <div class="player02-face"><img src="img/faces/00.png" alt=""></div>
+        <div class="player02-name"></div>
+        <ul id="player02_hands">
+          <!-- <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/back.png" height="130" alt=""></li> -->
+        </ul>
+      </div>
+
+      <ul id="table">
+        <!-- <div class="startbtn">START</div> -->
+        <!-- <div class="setting_box">
+          <p>- 難易度 設定 -</p>
+          <div class="setting_box__container">
+            <div class="difficultybtn btn_check">設定しない</div>
+            <div class="difficultybtn btn_not_check">やさしい</div>
+            <div class="difficultybtn btn_not_check">普通</div>
+            <div class="difficultybtn btn_not_check">難しい</div>
+          </div>
+        </div> -->
+        <!-- <li class=""><img src=" img/cards/01.png" alt="" height="130">
+            </li>
+            <li class=""><img src="img/cards/02.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/03.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/04.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/05.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/06.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/07.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/08.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/09.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/10.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/11.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/12.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/13.png" alt="" height="130"></li>
+
+            <li class=""><img src="img/cards/14.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/15.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/16.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/17.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/18.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/19.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/20.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/21.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/22.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/23.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/24.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/25.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/26.png" alt="" height="130"></li>
+
+            <li class=""><img src="img/cards/27.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/28.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/29.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/30.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/31.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/32.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/33.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/34.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/35.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/36.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/37.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/38.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/39.png" alt="" height="130"></li>
+
+            <li class=""><img src="img/cards/40.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/41.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/42.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/43.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/44.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/45.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/46.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/47.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/48.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/49.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/50.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/51.png" alt="" height="130"></li>
+            <li class=""><img src="img/cards/52.png" alt="" height="130"></li> -->
+      </ul>
+
+      <div class="player00-wrapper">
+        <ul id="player00_hands">
+          <!-- <div class="passbtn">PASS</div> -->
+          <!-- <li class=""><img src="img/cards/01.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/02.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/03.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/04.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/05.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/06.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/07.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/08.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/09.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/10.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/11.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/12.png" height="130" alt=""></li>
+          <li class=""><img src="img/cards/13.png" height="130" alt=""></li> -->
+        </ul>
+        <div class="player00-name"></div>
+        <div class="player00_text text-none"></div>
+      </div>
+    </div>
+
+    <div class="player03-wrapper">
+      <ul id="player03_hands">
+        <!-- <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li>
+        <li class=""><img src="img/cards/side_back.png" height="75" alt=""></li> -->
+      </ul>
+      <div class="player03-face"><img src="img/faces/00.png" alt=""></div>
+      <div class="player03-name"></div>
+      <div class="player03_text text-none"></div>
+    </div>
+  </div>
+
+  <script src="js/sevens.js"></script>
+</body>
+
+</html>

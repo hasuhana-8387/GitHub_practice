@@ -9,6 +9,8 @@
   <style>
     @charset "utf-8";
 
+    /* 未完了 スクロールバーをデザインする */
+
     /* reset */
 
     body,
@@ -30,7 +32,7 @@
     }
 
 
-    /* sp menu 360px 前提でデザインし直す */
+    /* sp menu 360px ~ */
 
     /* element */
 
@@ -88,8 +90,18 @@
 
     .minigame_container,
     .ui_container {
-      width: 350px;
+      /* sp 360px * container 80% = 288px => 280px */
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 350px;
+      padding: 0 4px;
       margin: 32px auto 0;
+
+      /* box-sizing: border-box;
+      width: 100%;
+      max-width: 1000px;
+      padding: 0 4px; */
+
     }
 
     .minigame_container>p {
@@ -122,9 +134,12 @@
     }
 
 
-    /* pc menu */
+    /* tablet menu 600px ~ */
 
-    @media (min-width: 1000px) {
+
+    /* pc menu 960px ~ */
+
+    @media (min-width: 960px) {
       .ui_container {
         box-sizing: border-box;
         width: 100%;
@@ -138,9 +153,9 @@
         flex-wrap: wrap;
 
         /* 3 列で表示 */
-        /* @media (min-width: 1000px) と max-width: 1000px; を指定してるから */
+        /* @media (min-width: 960px) と max-width: 1000px; を指定してるから */
         /* 以下の処理は必要ない */
-        /* gap: calc((100% - 250px * 3) / 2); */
+        gap: calc((100% - 230px * 3) / 2);
 
         /* container { width: 80%; } */
         /* ui_container { width: 100%; padding: 0 20px; } */
@@ -151,7 +166,8 @@
       }
 
       .ui_container>ul>li {
-        width: 250px;
+        width: 230px;
+        max-width: 230px !important;
         margin-top: 20px !important;
       }
     }
@@ -164,8 +180,9 @@
 
     <div class="minigame_container">
       <h2>ミニゲーム</h2>
-      <p>※画面解像度 1920 x 1080<br>
-        　全画面表示（F11キーで切り替え）推奨</p>
+      <p>※推奨環境<br>
+        　画面解像度 1920 x 1080<br>
+        　全画面表示（F11キーで切り替え）</p>
       <ul>
         <li><a href="#">七並べ</a></li>
         <li><a href="#">ポーカー</a></li>
