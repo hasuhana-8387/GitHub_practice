@@ -5,32 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="common.css">
   <title>学習メモ</title>
   <style>
     @charset "utf-8";
-
-    /* 未完了 スクロールバーをデザインする */
-
-    /* reset */
-
-    body,
-    h1,
-    h2,
-    p {
-      margin: 0;
-      font-weight: normal;
-    }
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
 
     /* sp menu 360px ~ */
 
@@ -46,7 +24,7 @@
       background: hwb(240 80% 0%);
 
       /* 上下いっぱいまで領域を広げるため */
-      height: inherit;
+      height: 100%;
       display: flex;
       flex-direction: column;
     }
@@ -80,7 +58,6 @@
       margin: 0 auto;
 
       /* 上下いっぱいまで領域を広げるため */
-      height: inherit;
       flex: 1;
     }
 
@@ -90,18 +67,14 @@
 
     .minigame_container,
     .ui_container {
-      /* sp 360px * container 80% = 288px => 280px */
+      /* sp 360px * container 80% => min-width 288px - padding 8px => min-contents 280px */
+      /* sp 437.5px * container 80% => min-width 350px - padding 8px => min-contents 342px */
+      /* width-range 288px ~ 350px */
       box-sizing: border-box;
       width: 100%;
       max-width: 350px;
       padding: 0 4px;
       margin: 32px auto 0;
-
-      /* box-sizing: border-box;
-      width: 100%;
-      max-width: 1000px;
-      padding: 0 4px; */
-
     }
 
     .minigame_container>p {
@@ -136,39 +109,70 @@
 
     /* tablet menu 600px ~ */
 
+    @media (min-width: 600px) {
+
+      .minigame_container,
+      .ui_container {
+        padding: 0;
+      }
+
+      .ui_container {
+        /* tb 600px * container 80% => min-width 480px */
+        /* tb 800px * container 80% => max-width 640px */
+        /* ui_container width-range 480px ~ 640px */
+        max-width: 640px;
+      }
+
+      .ui_container>ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      /* .ui_container>ul>li 2 列で表示 */
+
+      .ui_container>ul>li {
+        width: 200px;
+      }
+
+      .ui_container>ul>li:nth-child(odd) {
+        /* (親要素コンテンツ幅 - リスト幅 * 1 行目リスト数) = 余白領域 */
+        /* 余白領域 / 2 = 余白領域の半分をマージンに割り当てる */
+        margin-right: calc((100% - 200px * 2) / 2);
+      }
+
+      .ui_container>ul>li:first-child {
+        margin-top: 20px;
+      }
+
+      .ui_container>ul>li+li {
+        margin-top: 20px;
+      }
+    }
+
 
     /* pc menu 960px ~ */
 
     @media (min-width: 960px) {
       .ui_container {
-        box-sizing: border-box;
-        width: 100%;
-        max-width: 1000px;
-        padding: 0 20px;
+        /* pc 960px * container 80% => min-width 768px */
+        /* pc 1200px * container 80% => max-width 960px */
+        /* ui_container width-range 768px ~ 960px */
+        max-width: 960px;
       }
 
-      .ui_container>ul {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+      /* .ui_container>ul>li 3 列で表示 */
 
-        /* 3 列で表示 */
-        /* @media (min-width: 960px) と max-width: 1000px; を指定してるから */
-        /* 以下の処理は必要ない */
-        gap: calc((100% - 230px * 3) / 2);
-
-        /* container { width: 80%; } */
-        /* ui_container { width: 100%; padding: 0 20px; } */
-        /* if (width = 1000px) => ui_container>ul { width: 1000px * 80% } */
-        /* if (width = 1000px) => gap ((800px - 750px - 40px) / 2)  = 5px */
-        /* 750px = ui_container>ul>li-width 250px * 3 list */
-        /* 40px = ui_container-leftpadding 20px + ui_container-rightpadding 20px */
+      .ui_container>ul>li:nth-child(odd) {
+        margin-right: 0;
       }
 
-      .ui_container>ul>li {
-        width: 230px;
-        max-width: 230px !important;
-        margin-top: 20px !important;
+      .ui_container>ul>li:nth-child(3n + 2) {
+        /* (親要素コンテンツ幅 - リスト幅 * 1 行目リスト数) = 余白領域 */
+        /* 余白領域 / 2 = 余白領域の半分をマージンに割り当てる */
+        /* 余白領域 / 2 / 2 = 左右マージンに均等に割り当てる */
+        margin-left: calc(((100% - 200px * 3) / 2) / 2);
+        margin-right: calc(((100% - 200px * 3) / 2) / 2);
       }
     }
   </style>
@@ -184,8 +188,8 @@
         　画面解像度 1920 x 1080<br>
         　全画面表示（F11キーで切り替え）</p>
       <ul>
-        <li><a href="#">七並べ</a></li>
-        <li><a href="#">ポーカー</a></li>
+        <li><a href="minigame/sevens.html">七並べ</a></li>
+        <li><a href="minigame/poker.html">ポーカー</a></li>
       </ul>
     </div>
 

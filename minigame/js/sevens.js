@@ -2568,13 +2568,13 @@
       // メインプレイヤーのパス回数が３回でこれ以上「あえてパス」ができない場合
       if (this.playerTurn === 0 && this.players[0].pass === parseInt(this.restart.passOverCount) &&
         this.players[0].hand.filter(hand => hand.playable).length !== 0) {
-        passbtn.textContent = 'PASS無効';
+        passbtn.textContent = 'PASS 無効';
       }
 
       // メインプレイヤーのパス回数が３回で、出せるカードがなくて、パス超過が確定している場合
       if (this.players[this.playerTurn].pass === parseInt(this.restart.passOverCount) &&
         this.players[this.playerTurn].hand.filter(hand => hand.playable).length === 0) {
-        passbtn.textContent = 'PASS超過';
+        passbtn.textContent = 'PASS 超過';
       }
 
 

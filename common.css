@@ -1,0 +1,43 @@
+    /* reset */
+
+    body,
+    h1,
+    h2,
+    p {
+      margin: 0;
+      font-weight: normal;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+
+    /* scrollbar */
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: hwb(240 80% 0%);
+      border-radius: 10px;
+      box-shadow: none;
+      outline: solid 1px hwb(240 50% 0%);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: hwb(240 50% 0%);
+      background-image: linear-gradient(180deg,
+          hwb(240 50% 0%) 0%,
+          hwb(240 80% 0%) 50%,
+          hwb(240 50% 0%) 99%);
+      border-radius: 10px;
+      box-shadow: none;
+    }

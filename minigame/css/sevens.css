@@ -153,8 +153,6 @@ img {
   flex-direction: column;
   justify-content: center;
 
-  /* height: 1140px; */
-  /* 1200px - 上下スペース 30px * 2 */
   width: 113px;
 
   height: 950px;
@@ -173,9 +171,6 @@ img {
   /* outline: 1px solid blue; */
   display: flex;
   justify-content: center;
-  /* width: 1360px; */
-  /* 100px * 13 + 5px * 12 */
-  /* height: 150px; */
 
   width: 1360px;
   /* 画面解像度 1920 * 1080 */
@@ -186,7 +181,6 @@ img {
 
 #player01_hands>li+li,
 #player03_hands>li+li {
-  /* margin-top: 10px; */
   margin-top: 3.5px;
   /* 画面解像度 1920 * 1080 */
   /* {1020 - (75 * 13)} / 12 */
@@ -194,7 +188,6 @@ img {
 
 #player02_hands>li+li,
 #player00_hands>li+li {
-  /* margin-left: 5px; */
   margin-left: 19.5px;
   /* 画面解像度 1920 * 1080 */
   /* {1360 - (86.666 * 13)} / 12 */
@@ -307,11 +300,6 @@ img {
   justify-content: space-between;
   flex-wrap: wrap;
 
-  /* width: 1360px; */
-  /* 100px * 13 + 5px * 12 */
-  /* height: 660px; */
-  /* 150px * 4 + 20px * 3 */
-
   width: 1360px;
   /* 画面解像度 1920 * 1080 */
   /* 86.6px * 13 + 66px * 12 */
@@ -323,10 +311,6 @@ img {
 }
 
 #table>li {
-  /* width: 100px; */
-  /* margin-right: calc((1360px - 1300px) / 12);
-  margin-bottom: calc((660px - 600px) / 3); */
-
   height: 130px;
   margin-right: calc((1360px - 1126.6px) / 12);
   /* 画面解像度 1920 * 1080 */
@@ -363,9 +347,6 @@ img {
 
 #ruleBox {
   /* table と同じサイズ */
-  /* width: 1360px;
-  height: 660px; */
-
   width: 1360px;
   /* 画面解像度 1920 * 1080 */
   height: 580px;
@@ -486,6 +467,7 @@ img {
 .passbtn,
 .openCardsbtn {
   font-size: 20px;
+  font-weight: bold;
   color: #fff;
   text-align: center;
   line-height: 50px;
@@ -535,7 +517,7 @@ img {
 #pagePrev:hover,
 #pageNext:hover {
   cursor: pointer;
-  background-color: hsl(180, 100%, 45%);
+  background-color: hsl(180, 100%, 40%);
 }
 
 #pageCurrent {
@@ -590,7 +572,7 @@ img {
 }
 
 .btn_not_check {
-  background-color: hsl(180, 100%, 40%);
+  background-color: hsl(180, 100%, 35%);
 }
 
 .shuffleReloadbtn {
@@ -635,7 +617,7 @@ img {
 .passbtn:hover,
 .openCardsbtn:hover {
   cursor: pointer;
-  background-color: hsl(180, 100%, 45%);
+  background-color: hsl(180, 100%, 40%);
 }
 
 .stockCards {
