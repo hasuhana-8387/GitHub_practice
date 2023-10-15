@@ -1,3 +1,35 @@
+<!-- 
+  - setting - 配色変更
+    - UI - の上に配置？
+    暖色系　寒色系　中間色系　などの選択肢を配置。
+    サイト全体に変更が反映される。
+    Local storage を利用する。
+-->
+<!-- 
+  ・コンテナの高さは上下いっぱいまで広げること
+
+  ・レスポンシブに対応させる
+    スマートフォン 360px ~ 599px
+      360px ~ 共通サブコンテナ幅 コンテナ幅に合わせて広げる
+      437.5px ~ 共通サブコンテナ幅 これ以上広げない
+
+      ミニゲームコンテナ アイテム 1 行 1 列で表示
+      UIコンテナ アイテム 1 行 1 列で表示
+
+      共通サブコンテナ幅、ミニゲームコンテナ幅、以降一切変更なし
+
+    タブレット 600px ~ 959px
+      600px ~ UIコンテナ幅 コンテナ幅に合わせて広げる
+      800px ~ UIコンテナ幅 これ以上広げない
+
+      UIコンテナ アイテム 1 行 2 列で表示
+
+    パソコン 960px ~ 
+      960px ~ UIコンテナ幅 コンテナ幅に合わせて広げる
+      1200px ~ UIコンテナ幅 これ以上広げない
+
+      UIコンテナ アイテム 1 行 3 列で表示
+-->
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -12,70 +44,12 @@
 
     /* sp menu 360px ~ */
 
-    /* element */
-
-    html {
-      /* 上下いっぱいまで領域を広げるため */
-      height: 100%;
-    }
-
-    body {
-      font-family: Verdana, 'Arial Black', メイリオ, sans-serif;
-      background: hwb(240 80% 0%);
-
-      /* 上下いっぱいまで領域を広げるため */
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    h2::before {
-      content: "- ";
-    }
-
-    h2::after {
-      content: " -";
-    }
-
-    p {
-      margin-top: 12px;
-    }
-
-    a {
-      transition: all 0.2s;
-    }
-
-
-    /* container */
-
-    .container {
-      text-align: center;
-      width: 80%;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      border-radius: 20px;
-      background: white;
-      margin: 0 auto;
-
-      /* 上下いっぱいまで領域を広げるため */
-      flex: 1;
-    }
+    /* container => common.css */
+    /* common_subcontainer => common.css */
 
 
     /* minigame_container */
     /* ui_container */
-
-    .minigame_container,
-    .ui_container {
-      /* sp 360px * container 80% => min-width 288px - padding 8px => min-contents 280px */
-      /* sp 437.5px * container 80% => min-width 350px - padding 8px => min-contents 342px */
-      /* width-range 288px ~ 350px */
-      box-sizing: border-box;
-      width: 100%;
-      max-width: 350px;
-      padding: 0 4px;
-      margin: 32px auto 0;
-    }
 
     .minigame_container>p {
       text-align: left;
@@ -111,10 +85,7 @@
 
     @media (min-width: 600px) {
 
-      .minigame_container,
-      .ui_container {
-        padding: 0;
-      }
+      /* common_subcontainer => common.css */
 
       .ui_container {
         /* tb 600px * container 80% => min-width 480px */
@@ -182,7 +153,7 @@
   <div class="container">
     <h1>学習メモ</h1>
 
-    <div class="minigame_container">
+    <div class="common_subcontainer minigame_container">
       <h2>ミニゲーム</h2>
       <p>※推奨環境<br>
         　画面解像度 1920 x 1080<br>
@@ -193,7 +164,7 @@
       </ul>
     </div>
 
-    <div class="ui_container">
+    <div class="common_subcontainer ui_container">
       <h2>UI</h2>
       <ul>
         <li><a href="#">ハンバーガーメニュー</a></li>

@@ -1,43 +1,118 @@
-    /* reset */
+@charset "utf-8";
 
-    body,
-    h1,
-    h2,
-    p {
-      margin: 0;
-      font-weight: normal;
-    }
+/* reset */
 
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
+body,
+h1,
+h2,
+p {
+  margin: 0;
+  font-weight: normal;
+}
 
-    a {
-      text-decoration: none;
-    }
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
 
 
-    /* scrollbar */
+/* element */
 
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
+html {
+  /* 上下いっぱいまで領域を広げるため */
+  height: 100%;
+}
 
-    ::-webkit-scrollbar-track {
-      background: hwb(240 80% 0%);
-      border-radius: 10px;
-      box-shadow: none;
-      outline: solid 1px hwb(240 50% 0%);
-    }
+body {
+  font-family: Verdana, 'Arial Black', メイリオ, sans-serif;
+  background: hwb(240 80% 0%);
 
-    ::-webkit-scrollbar-thumb {
-      background: hwb(240 50% 0%);
-      background-image: linear-gradient(180deg,
-          hwb(240 50% 0%) 0%,
-          hwb(240 80% 0%) 50%,
-          hwb(240 50% 0%) 99%);
-      border-radius: 10px;
-      box-shadow: none;
-    }
+  /* 上下いっぱいまで領域を広げるため */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+h2::before {
+  content: "- ";
+}
+
+h2::after {
+  content: " -";
+}
+
+p {
+  margin-top: 12px;
+}
+
+a {
+  transition: all 0.2s;
+  color: hwb(240 0% 0%);
+}
+
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hwb(240 80% 0%);
+  border-radius: 10px;
+  box-shadow: none;
+  outline: solid 1px hwb(240 50% 0%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hwb(240 50% 0%);
+  background-image: linear-gradient(180deg,
+      hwb(240 50% 0%) 0%,
+      hwb(240 80% 0%) 50%,
+      hwb(240 50% 0%) 99%);
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+
+/* sp menu 360px ~ */
+
+/* container */
+
+.container {
+  text-align: center;
+  width: 80%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+  background: white;
+  margin: 0 auto;
+
+  /* 上下いっぱいまで領域を広げるため */
+  flex: 1;
+}
+
+.common_subcontainer {
+  /* sp 360px * container 80% => min-width 288px - padding 8px => min-contents 280px */
+  /* sp 437.5px * container 80% => max-width 350px - padding 8px => max-contents 342px */
+  /* width-range 288px ~ 350px */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 350px;
+  padding: 0 4px;
+  margin: 32px auto 0;
+}
+
+
+/* tablet menu 600px ~ */
+
+@media (min-width: 600px) {
+  .common_subcontainer {
+    padding: 0;
+  }
+}
