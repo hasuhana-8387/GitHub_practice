@@ -1,0 +1,167 @@
+@charset "utf-8";
+
+/* Hamburger menu 02 */
+/* クリックで多数のメニューが展開 */
+
+/* Reference study site */
+/* URL: https://photopizza.design/css_hamburger_menu/ */
+
+/* 詳細な挙動についてここに記載する */
+
+
+
+.hamburger_menu_02>.implement_container input[type="checkbox"] {
+  display: none;
+}
+
+/* .container {
+  position: relative;
+  background: #fff;
+  width: 320px;
+  height: 528px;
+  margin: 50px auto;
+} */
+
+.hamburger_menu_02>.implement_container .status-bar {
+  background: #ddd;
+  height: 20px;
+  width: 100%;
+}
+
+.hamburger_menu_02>.implement_container .skeleton {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  width: calc(100% - 20px);
+  height: 80px;
+  margin: 15px auto;
+}
+
+.hamburger_menu_02>.implement_container .skeleton__image {
+  background: #eee;
+  width: 60px;
+  height: 60px;
+}
+
+.hamburger_menu_02>.implement_container .skeleton__text-container {
+  width: 75%;
+  margin-left: 10px;
+}
+
+.hamburger_menu_02>.implement_container .skeleton__title {
+  background: #eee;
+  width: 40%;
+  height: 15px;
+}
+
+.hamburger_menu_02>.implement_container .skeleton__text {
+  background: #eee;
+  width: 100%;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.hamburger_menu_02>.implement_container .btn {
+  background: #e74c3c;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+
+.hamburger_menu_02>.implement_container .btn svg {
+  position: relative;
+  top: 1px;
+  right: 1px;
+}
+
+.hamburger_menu_02>.implement_container .btn--large {
+  width: 60px;
+  height: 60px;
+}
+
+.hamburger_menu_02>.implement_container .btn--menu:after,
+.hamburger_menu_02>.implement_container .btn--menu:before {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  position: absolute;
+  top: 29px;
+  left: 18px;
+  transition: transform 100ms;
+}
+
+.hamburger_menu_02>.implement_container .btn--menu:after {
+  transform: translateY(-5px);
+}
+
+.hamburger_menu_02>.implement_container .btn--menu:before {
+  transform: translateY(5px);
+}
+
+.hamburger_menu_02>.implement_container .btn--share {
+  background: #f39c12;
+}
+
+.hamburger_menu_02>.implement_container .btn--star {
+  background: #2ecc71;
+}
+
+.hamburger_menu_02>.implement_container .btn--comment {
+  background: #16a085;
+}
+
+.hamburger_menu_02>.implement_container .actions-menu {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.hamburger_menu_02>.implement_container .actions-menu .btn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  opacity: 0;
+  transition: top 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    left 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    opacity 200ms;
+}
+
+.hamburger_menu_02>.implement_container .actions-menu .btn--menu {
+  position: absolute;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.hamburger_menu_02>.implement_container .btn--menu,
+.hamburger_menu_02>.implement_container #actionMenuButton:checked+.actions-menu>.btn {
+  opacity: 1;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hamburger_menu_02>.implement_container #actionMenuButton:checked+.actions-menu>.btn--menu:after {
+  transform: rotate(45deg);
+}
+
+.hamburger_menu_02>.implement_container #actionMenuButton:checked+.actions-menu>.btn--menu:before {
+  transform: rotate(-45deg);
+}
+
+.hamburger_menu_02>.implement_container #actionMenuButton:checked+.actions-menu>.btn--share {
+  top: -70px;
+}
+
+.hamburger_menu_02>.implement_container #actionMenuButton:checked+.actions-menu>.btn--star {
+  top: -50px;
+  left: -50px;
+}
+
+.hamburger_menu_02>.implement_container #actionMenuButton:checked+.actions-menu>.btn--comment {
+  left: -70px;
+}

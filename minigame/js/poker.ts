@@ -194,6 +194,7 @@
 
       this.createMessageBtn();
       this.createRuleBtn();
+      this.createBackTopPageBtn();
       this.createRuleBox();
     }
 
@@ -262,6 +263,23 @@
         } else {
           return;
         }
+      });
+    }
+
+
+
+    // トップページに戻るボタンを表示
+    createBackTopPageBtn() {
+      const backTopPageBtn = document.querySelector<HTMLDivElement>('.backTopPageBtn');
+      this._tool.nullCheck(backTopPageBtn);
+
+      backTopPageBtn!.innerHTML = 'TOPページに<br>戻る';
+
+      backTopPageBtn!.addEventListener('click', () => {
+        if (!confirm('トップページに戻りますか？')) {
+          return;
+        }
+        window.location.href = '../index.html';
       });
     }
 

@@ -1,0 +1,349 @@
+@charset "utf-8";
+
+/* Hamburger menu 07 */
+/* 超絶技巧なメニューボタン */
+
+/* Reference study site */
+/* URL: https://photopizza.design/css_hamburger_menu/ */
+
+/* 詳細な挙動についてここに記載する */
+
+
+
+/* body {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  margin: 0;
+  background: linear-gradient(to right, #4568dc, #b06ab3);
+} */
+
+/* Common Css must add */
+
+.hamburger_menu_07>.implement_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.hamburger_menu_07>.implement_container svg {
+  height: 40px;
+  position: absolute;
+  width: 40px;
+  cursor: pointer;
+  /*   border: 1px solid black; */
+  background-color: #fff;
+}
+
+.hamburger_menu_07>.implement_container .plate {
+  height: 41px;
+  width: 41px;
+}
+
+.hamburger_menu_07>.implement_container .burger {
+  filter: url(#gooeyness);
+}
+
+.hamburger_menu_07>.implement_container .x {
+  transform: scale(0);
+  transition: transform 400ms;
+}
+
+.hamburger_menu_07>.implement_container .line {
+  fill: none;
+  stroke: red;
+  stroke-width: 6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: 50%;
+  transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms,
+    transform 500ms 200ms;
+}
+
+.hamburger_menu_07>.implement_container .x .line {
+  stroke-width: 5.5px;
+}
+
+/* Common Css must add end */
+
+/* First Menu CSS Only */
+.hamburger_menu_07>.implement_container .plate1 .line2 {
+  stroke-dasharray: 40 200;
+  stroke-dashoffset: 0px;
+}
+
+.hamburger_menu_07>.implement_container .plate1 .line3 {
+  stroke-dasharray: 40 179;
+  stroke-dashoffset: 0px;
+}
+
+.hamburger_menu_07>.implement_container .active .line {
+  transition: stroke-dasharray 500ms, stroke-dashoffset 500ms, transform 500ms;
+}
+
+.hamburger_menu_07>.implement_container .active.plate1 .line1 {
+  transform: scale(0, 1);
+  transition: transform 500ms 100ms;
+}
+
+.hamburger_menu_07>.implement_container .active.plate1 .line2 {
+  stroke-dasharray: 5px 200;
+  stroke-dashoffset: -164px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate1 .line3 {
+  stroke-dasharray: 5px 179;
+  stroke-dashoffset: -142px;
+}
+
+.hamburger_menu_07>.implement_container .active .x {
+  transform: scale(1);
+  transition: transform 400ms 350ms;
+}
+
+/* First Menu CSS Only end */
+
+/* Second Menu CSS Only */
+.hamburger_menu_07>.implement_container .plate2 .line1 {
+  stroke-dasharray: 21 185.62753295898438;
+  transition-delay: 0;
+}
+
+.hamburger_menu_07>.implement_container .plate2 .line2 {
+  stroke-dasharray: 21 178.6514129638672;
+  transition-delay: 30ms;
+}
+
+.hamburger_menu_07>.implement_container .plate2 .line3 {
+  stroke-dasharray: 21 197.92425537109375;
+  transition-delay: 60ms;
+}
+
+.hamburger_menu_07>.implement_container .plate2 .line4 {
+  stroke-dasharray: 21 190.6597137451172;
+  transition-delay: 90ms;
+}
+
+.hamburger_menu_07>.implement_container .plate2 .line5 {
+  stroke-dasharray: 21 208.52874755859375;
+  transition-delay: 120ms;
+}
+
+.hamburger_menu_07>.implement_container .plate2 .line6 {
+  stroke-dasharray: 21 186.59703063964844;
+  transition-delay: 150ms;
+}
+
+.hamburger_menu_07>.implement_container .active.plate2 .line1 {
+  stroke-dasharray: 5 185.62753295898438;
+  stroke-dashoffset: -155px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate2 .line2 {
+  stroke-dasharray: 5 178.6514129638672;
+  stroke-dashoffset: -150px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate2 .line3 {
+  stroke-dasharray: 5 197.92425537109375;
+  stroke-dashoffset: -190px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate2 .line4 {
+  stroke-dasharray: 5 190.6597137451172;
+  stroke-dashoffset: -180px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate2 .line5 {
+  stroke-dasharray: 5 208.52874755859375;
+  stroke-dashoffset: -160px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate2 .line6 {
+  stroke-dasharray: 5 186.59703063964844;
+  stroke-dashoffset: -186px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate2 .x {
+  transition: transform 400ms 250ms;
+}
+
+/* Second Menu CSS Only */
+
+/* Third Menu Css */
+.hamburger_menu_07>.implement_container .plate3 .line {
+  transition: stroke-dasharray 300ms 200ms, stroke-dashoffset 300ms 200ms,
+    transform 300ms 200ms;
+}
+
+.hamburger_menu_07>.implement_container .plate3 .line1 {
+  stroke-dasharray: 21 109;
+}
+
+.hamburger_menu_07>.implement_container .plate3 .line2 {
+  stroke-dasharray: 21 112;
+}
+
+.hamburger_menu_07>.implement_container .plate3 .line3 {
+  stroke-dasharray: 21 102;
+}
+
+.hamburger_menu_07>.implement_container .plate3 .line4 {
+  stroke-dasharray: 21 103;
+}
+
+.hamburger_menu_07>.implement_container .plate3 .line5 {
+  stroke-dasharray: 21 110;
+}
+
+.hamburger_menu_07>.implement_container .plate3 .line6 {
+  stroke-dasharray: 21 115;
+}
+
+.hamburger_menu_07>.implement_container .plate3 .x {
+  transition: transform 400ms 50ms;
+}
+
+.hamburger_menu_07>.implement_container .active.plate3 .line {
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms, transform 400ms;
+}
+
+.hamburger_menu_07>.implement_container .active.plate3 .line1 {
+  stroke-dasharray: 5 109;
+  stroke-dashoffset: -95px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate3 .line2 {
+  stroke-dasharray: 5 112;
+  stroke-dashoffset: -96px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate3 .line3 {
+  stroke-dasharray: 5 102;
+  stroke-dashoffset: -79px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate3 .line4 {
+  stroke-dasharray: 5 103;
+  stroke-dashoffset: -78px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate3 .line5 {
+  stroke-dasharray: 5 110;
+  stroke-dashoffset: -63px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate3 .line6 {
+  stroke-dasharray: 5 115;
+  stroke-dashoffset: -64px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate3 .x {
+  transition: transform 400ms 100ms;
+}
+
+/* Third Menu Css end */
+
+/* Forth Menu Css */
+.hamburger_menu_07>.implement_container .plate4 .x {
+  transition: transform 400ms;
+}
+
+.hamburger_menu_07>.implement_container .plate4 .line {
+  transform-origin: 50%;
+  transition: transform 400ms 100ms;
+}
+
+.hamburger_menu_07>.implement_container .active.plate4 .line {
+  transition: transform 400ms;
+}
+
+.hamburger_menu_07>.implement_container .active.plate4 .line1 {
+  transform: translateX(18px) translateY(-3px) rotate(-45deg) scale(0.7);
+}
+
+.hamburger_menu_07>.implement_container .active.plate4 .line2 {
+  transform: translateX(-18px) translateY(-3px) rotate(45deg) scale(0.7);
+}
+
+.hamburger_menu_07>.implement_container .active.plate4 .line3 {
+  transform: translateY(0px) rotate(45deg) scale(0.7);
+}
+
+.hamburger_menu_07>.implement_container .active.plate4 .line4 {
+  transform: translateY(0px) rotate(-45deg) scale(0.7);
+}
+
+.hamburger_menu_07>.implement_container .active.plate4 .line5 {
+  transform: translateX(18px) translateY(3px) rotate(45deg) scale(0.7);
+}
+
+.hamburger_menu_07>.implement_container .active.plate4 .line6 {
+  transform: translateX(-18px) translateY(3px) rotate(-45deg) scale(0.7);
+}
+
+.hamburger_menu_07>.implement_container .active.plate4 .x {
+  transition: transform 400ms 100ms;
+  transform: scale(1);
+}
+
+/* Fourth Menu Css end */
+
+/* Fifth Menu Css */
+.hamburger_menu_07>.implement_container .plate5 .line {
+  transition: stroke-dasharray 400ms 100ms, stroke-dashoffset 400ms 100ms,
+    transform 400ms 100ms;
+}
+
+.hamburger_menu_07>.implement_container .plate5 .line1 {
+  stroke-dasharray: 40 40;
+}
+
+.hamburger_menu_07>.implement_container .plate5 .line2 {
+  stroke-dasharray: 21 39;
+}
+
+.hamburger_menu_07>.implement_container .plate5 .line3 {
+  stroke-dasharray: 21 39;
+}
+
+.hamburger_menu_07>.implement_container .plate5 .line4 {
+  stroke-dasharray: 40 40;
+}
+
+.hamburger_menu_07>.implement_container .plate5 .x {
+  transition: transform 400ms 50ms;
+}
+
+.hamburger_menu_07>.implement_container .active.plate5 .line {
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms, transform 400ms;
+}
+
+.hamburger_menu_07>.implement_container .active.plate5 .line1 {
+  stroke-dasharray: 1 40;
+  stroke-dashoffset: -33px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate5 .line2 {
+  stroke-dasharray: 5 39;
+  stroke-dashoffset: -37px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate5 .line3 {
+  stroke-dasharray: 5 39;
+  stroke-dashoffset: -37px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate5 .line4 {
+  stroke-dasharray: 1 40;
+  stroke-dashoffset: -33px;
+}
+
+.hamburger_menu_07>.implement_container .active.plate5 .x {
+  transition: transform 400ms 50ms;
+}
+
+/* Fifth Menu Css end */

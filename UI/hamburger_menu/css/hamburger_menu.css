@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+/* Hamburger menu common */
+
+/* Reference study site */
+/* URL: https://photopizza.design/css_hamburger_menu/ */
+
+/* sp menu 360px ~ */
+
+.back_top_page,
+.pagetop {
+  position: fixed;
+  z-index: 10;
+  cursor: pointer;
+  transition: 0.2s;
+  user-select: none;
+  right: 10px;
+}
+
+.pagetop {
+  bottom: 130px;
+
+  /*   デフォルトは非表示 */
+  opacity: 0;
+  pointer-events: none;
+}
+
+.back_top_page {
+  bottom: 10px;
+}
+
+.back_top_page a,
+.pagetop a {
+  color: #fff;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  background: hwb(240 50% 0%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagetop a {
+  font-size: 28px;
+  border-radius: 50%;
+}
+
+.back_top_page a {
+  font-size: 16px;
+  border-radius: 8px;
+  letter-spacing: 0.1em;
+}
+
+.back_top_page a:hover,
+.pagetop a:hover {
+  box-shadow: 0 0 10px hwb(240 0% 0%);
+  background: hwb(240 50% 0%);
+  background-image: linear-gradient(180deg,
+      hwb(240 50% 0%) 0%,
+      hwb(240 80% 0%) 50%,
+      hwb(240 50% 0%) 99%);
+}
+
+.pagetop a span {
+  transition: 0.5s;
+}
+
+.pagetop a:hover span {
+  transform: translateY(-10px);
+}
+
+.common_subcontainer+.common_subcontainer {
+  padding-top: 12px;
+  border-top: solid 3px hwb(240 50% 0%);
+  margin: 50px auto 0;
+}
+
+.common_subcontainer:last-child {
+  margin: 50px auto 50px;
+}
+
+.common_subcontainer>p {
+  text-align: left;
+}
+
+.implement_container {
+  margin-top: 30px;
+  background: #ddd;
+  position: relative;
+  height: 300px;
+}
+
+/* tablet menu 600px ~ */
+@media (min-width: 600px) {
+
+  .back_top_page,
+  .pagetop {
+    right: 5%;
+  }
+
+  .pagetop {
+    bottom: 20%;
+  }
+
+  .back_top_page {
+    bottom: 5%;
+  }
+}
+
+/* pc menu 960px ~ */
+@media (min-width: 960px) {}

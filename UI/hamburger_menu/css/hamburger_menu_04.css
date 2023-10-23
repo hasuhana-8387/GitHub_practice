@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+/* Hamburger menu 04 */
+/* おしゃれなアニメーションでクローズボタンに */
+
+/* Reference study site */
+/* URL: https://photopizza.design/css_hamburger_menu/ */
+
+/* 詳細な挙動についてここに記載する */
+
+
+
+/* body {
+  background: #ccc;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+} */
+
+.hamburger_menu_04>.implement_container {
+  display: flex;
+}
+
+.hamburger_menu_04>.implement_container .burger-wrapper {
+  cursor: pointer;
+  margin: auto;
+  width: 50px;
+  height: 40px;
+}
+
+.hamburger_menu_04>.implement_container .burger-wrapper .hamburger {
+  background: black;
+  width: 50px;
+  height: 5px;
+  position: relative;
+  transition: background 10ms 300ms ease;
+  transform: translateY(20px);
+
+  /* 修正 */
+  text-align: left;
+}
+
+.hamburger_menu_04>.implement_container .burger-wrapper .hamburger:before,
+.hamburger_menu_04>.implement_container .burger-wrapper .hamburger:after {
+  transition: top 300ms 350ms ease, transform 300ms 50ms ease;
+  position: absolute;
+  background: black;
+  width: 50px;
+  height: 5px;
+  content: "";
+}
+
+.hamburger_menu_04>.implement_container .burger-wrapper .hamburger:before {
+  top: -15px;
+}
+
+.hamburger_menu_04>.implement_container .burger-wrapper .hamburger:after {
+  top: 15px;
+}
+
+.hamburger_menu_04>.implement_container .menu-trigger:checked~.burger-wrapper .hamburger {
+  background: transparent;
+}
+
+.hamburger_menu_04>.implement_container .menu-trigger:checked~.burger-wrapper .hamburger:after,
+.hamburger_menu_04>.implement_container .menu-trigger:checked~.burger-wrapper .hamburger:before {
+  transition: top 300ms 50ms ease, transform 300ms 350ms ease;
+  top: 0;
+}
+
+.hamburger_menu_04>.implement_container .menu-trigger:checked~.burger-wrapper .hamburger:before {
+  transform: rotate(45deg);
+}
+
+.hamburger_menu_04>.implement_container .menu-trigger:checked~.burger-wrapper .hamburger:after {
+  transform: rotate(-45deg);
+}
+
+.hamburger_menu_04>.implement_container .hidden {
+  display: none;
+}

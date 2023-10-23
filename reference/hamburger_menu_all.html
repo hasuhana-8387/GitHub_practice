@@ -1,0 +1,3777 @@
+<!-- Hamburger menu 01 -->
+<!-- クリックでメニューが下に展開するパターン -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Hamburger menu All</title>
+  <style>
+    @charset "utf-8";
+
+    body {
+      margin: 0;
+      font-family: "Futura", Helvetica, sans-serif;
+    }
+
+    /* Navbar & Navmenu color */
+    :root {
+      --background-navbar: rgba(55, 55, 55, 0.98);
+    }
+
+    .header {
+      background: var(--background-navbar);
+      position: fixed;
+      width: 100%;
+      height: 52px;
+    }
+
+    /* Nav items */
+    .menu {
+      list-style: none;
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 0;
+      margin-top: 52px;
+      padding: 0 0 10px 0;
+      clear: both;
+      background: var(--background-navbar);
+      transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+      transform: scale(1, 0);
+      transform-origin: top;
+    }
+
+    /* Hamburger menu button */
+    .menu-btn:checked~.menu {
+      transform: scale(1, 1);
+      transform-origin: top;
+      transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    }
+
+    /* Hamburger menbu text */
+    .menu a {
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 2px;
+      font-size: 16px;
+      text-transform: capitalize;
+      color: #ddd;
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .menu li {
+      border-top: 1px solid rgb(75, 75, 75);
+      padding: 15px 0;
+      margin: 0 54px;
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .menu-btn:checked~.menu a,
+    .menu-btn:checked~.menu li {
+      opacity: 1;
+      transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    .menu-icon {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      padding: 24px 14px;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    .navicon {
+      background: #ddd;
+      display: block;
+      height: 3px;
+      width: 26px;
+      position: relative;
+      transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    }
+
+    .navicon:before,
+    .navicon:after {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      background: #ddd;
+      transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    }
+
+    .navicon:before {
+      top: 9px;
+    }
+
+    .navicon:after {
+      bottom: 9px;
+    }
+
+    /* Hamburger Menu Animation Start */
+    .menu-btn:checked~.menu-icon .navicon:before {
+      transform: rotate(-45deg);
+    }
+
+    .menu-btn:checked~.menu-icon .navicon:after {
+      transform: rotate(45deg);
+    }
+
+    .menu-btn:checked~.menu-icon:not(.steps) .navicon:before {
+      top: 0;
+    }
+
+    .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+      bottom: 0;
+    }
+
+    .menu-btn:checked~.menu-icon .navicon {
+      background: rgba(0, 0, 0, 0);
+      transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    }
+
+    /* Hamburger Menu Animation End */
+
+    /* Navbar Container */
+    .navtext-container {
+      width: 100%;
+      height: 52px;
+      position: absolute;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Navbar Text */
+    .navtext {
+      position: absolute;
+      text-transform: uppercase;
+      color: #ddd;
+      letter-spacing: 4px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="navtext-container">
+      <div class="navtext">company</div>
+    </div>
+    <input type="checkbox" class="menu-btn" id="menu-btn">
+    <label for="menu-btn" class="menu-icon"><span class="navicon"></span></label>
+    <ul class="menu">
+      <li class="top"><a href="#home">home</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+
+  </header>
+
+</body>
+
+</html>
+
+
+
+<!-- Hamburger menu 02 -->
+<!-- クリックで多数のメニューが展開 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: #eee;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .container {
+      position: relative;
+      background: #fff;
+      width: 320px;
+      height: 528px;
+      margin: 50px auto;
+    }
+
+    .status-bar {
+      background: #ddd;
+      height: 20px;
+      width: 100%;
+    }
+
+    .skeleton {
+      position: relative;
+      display: flex;
+      flex-flow: row wrap;
+      width: calc(100% - 20px);
+      height: 80px;
+      margin: 15px auto;
+    }
+
+    .skeleton__image {
+      background: #eee;
+      width: 60px;
+      height: 60px;
+    }
+
+    .skeleton__text-container {
+      width: 75%;
+      margin-left: 10px;
+    }
+
+    .skeleton__title {
+      background: #eee;
+      width: 40%;
+      height: 15px;
+    }
+
+    .skeleton__text {
+      background: #eee;
+      width: 100%;
+      height: 35px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      background: #e74c3c;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+    }
+
+    .btn svg {
+      position: relative;
+      top: 1px;
+      right: 1px;
+    }
+
+    .btn--large {
+      width: 60px;
+      height: 60px;
+    }
+
+    .btn--menu:after,
+    .btn--menu:before {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      position: absolute;
+      top: 29px;
+      left: 18px;
+      transition: transform 100ms;
+    }
+
+    .btn--menu:after {
+      transform: translateY(-5px);
+    }
+
+    .btn--menu:before {
+      transform: translateY(5px);
+    }
+
+    .btn--share {
+      background: #f39c12;
+    }
+
+    .btn--star {
+      background: #2ecc71;
+    }
+
+    .btn--comment {
+      background: #16a085;
+    }
+
+    .actions-menu {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      right: 15px;
+      bottom: 15px;
+    }
+
+    .actions-menu .btn {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      opacity: 0;
+      transition: top 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        left 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        opacity 200ms;
+    }
+
+    .actions-menu .btn--menu {
+      position: absolute;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .btn--menu,
+    #actionMenuButton:checked+.actions-menu>.btn {
+      opacity: 1;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #actionMenuButton:checked+.actions-menu>.btn--menu:after {
+      transform: rotate(45deg);
+    }
+
+    #actionMenuButton:checked+.actions-menu>.btn--menu:before {
+      transform: rotate(-45deg);
+    }
+
+    #actionMenuButton:checked+.actions-menu>.btn--share {
+      top: -70px;
+    }
+
+    #actionMenuButton:checked+.actions-menu>.btn--star {
+      top: -50px;
+      left: -50px;
+    }
+
+    #actionMenuButton:checked+.actions-menu>.btn--comment {
+      left: -70px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="status-bar"></div>
+
+    <div class="skeleton">
+      <div class="skeleton__image"></div>
+      <div class="skeleton__text-container">
+        <div class="skeleton__title"></div>
+        <div class="skeleton__text"></div>
+      </div>
+    </div>
+
+    <div class="skeleton">
+      <div class="skeleton__image"></div>
+      <div class="skeleton__text-container">
+        <div class="skeleton__title"></div>
+        <div class="skeleton__text"></div>
+      </div>
+    </div>
+
+    <div class="skeleton">
+      <div class="skeleton__image"></div>
+      <div class="skeleton__text-container">
+        <div class="skeleton__title"></div>
+        <div class="skeleton__text"></div>
+      </div>
+    </div>
+
+    <div class="skeleton">
+      <div class="skeleton__image"></div>
+      <div class="skeleton__text-container">
+        <div class="skeleton__title"></div>
+        <div class="skeleton__text"></div>
+      </div>
+    </div>
+
+    <div class="skeleton">
+      <div class="skeleton__image"></div>
+      <div class="skeleton__text-container">
+        <div class="skeleton__title"></div>
+        <div class="skeleton__text"></div>
+      </div>
+    </div>
+
+    <div class="skeleton">
+      <div class="skeleton__image"></div>
+      <div class="skeleton__text-container">
+        <div class="skeleton__title"></div>
+        <div class="skeleton__text"></div>
+      </div>
+    </div>
+
+    <input type="checkbox" id="actionMenuButton" />
+
+    <div class="actions-menu">
+
+      <button class="btn btn--share">
+        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="#ffffff" d="M21,11L14,4V8C7,9 4,14 3,19C5.5,15.5 9,13.9 14,13.9V18L21,11Z" />
+        </svg>
+      </button>
+      <button class="btn btn--star">
+        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="#ffffff"
+            d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+        </svg>
+      </button>
+      <button class="btn btn--comment">
+        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="#ffffff"
+            d="M19,3A2,2 0 0,1 21,5V19C21,20.11 20.1,21 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M16.7,9.35C16.92,9.14 16.92,8.79 16.7,8.58L15.42,7.3C15.21,7.08 14.86,7.08 14.65,7.3L13.65,8.3L15.7,10.35L16.7,9.35M7,14.94V17H9.06L15.12,10.94L13.06,8.88L7,14.94Z" />
+        </svg>
+      </button>
+      <label for="actionMenuButton" class="btn btn--large btn--menu" />
+
+    </div>
+
+  </div>
+</body>
+
+</html>
+
+
+
+<!-- Hamburger menu 03 -->
+<!-- クリックでサイドからぬるっとメニューが出現 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *::after,
+    *::before {
+      box-sizing: inherit;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    body {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 16px;
+      font-smooth: auto;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #444;
+      overflow-x: hidden;
+    }
+
+    .menu {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 250ms ease;
+      cursor: pointer;
+      z-index: 200;
+    }
+
+    .menu span {
+      position: relative;
+      display: block;
+      width: 50%;
+      height: 2px;
+      background-color: #444;
+      float: left;
+      transform-origin: center center;
+      transition: transform 250ms ease;
+      z-index: 200;
+    }
+
+    .menu span:nth-of-type(1) {
+      transform: translateY(-5px);
+    }
+
+    .menu span:nth-of-type(3) {
+      transform: translateY(5px);
+    }
+
+    #menu {
+      display: none;
+    }
+
+    #menu:checked~.menu {
+      background-color: transparent;
+      transform: rotate(360deg);
+      transition: transform 250ms ease;
+    }
+
+    #menu:checked~.menu span {
+      background-color: white;
+      transition: transform 250ms ease;
+    }
+
+    #menu:checked~.menu span:nth-of-type(1) {
+      transform: translateY(1px) rotate(45deg);
+    }
+
+    #menu:checked~.menu span:nth-of-type(2) {
+      display: none;
+    }
+
+    #menu:checked~.menu span:nth-of-type(3) {
+      transform: translateY(-1px) rotate(-45deg);
+    }
+
+    #menu:checked~.nav {
+      left: 0px;
+      transition: left 500ms ease;
+    }
+
+    #menu:checked~main {
+      transform: translateX(250px);
+      transition: transform 500ms ease;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: -210px;
+      width: 300px;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #444;
+      transition: left 500ms ease;
+      z-index: 0;
+    }
+
+    .nav ul {
+      position: relative;
+      list-style-type: none;
+      margin: 100px 0;
+      padding: 0;
+    }
+
+    .nav ul li {
+      position: relative;
+      display: block;
+      border-bottom: 5px solid white;
+    }
+
+    .nav ul li a {
+      position: relative;
+      display: block;
+      margin: 0;
+      padding: 15px 20px;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav ul li a:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      transition: width 250ms ease;
+      z-index: -1;
+    }
+
+    .nav ul li a:hover {
+      color: #444;
+    }
+
+    .nav ul li a:hover:before {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      transition: width 250ms ease;
+    }
+
+    .container {
+      width: 75%;
+      margin: 0 auto;
+    }
+
+    main {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 0;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transform: translateX(0px);
+      transition: transform 500ms ease;
+      z-index: 0;
+    }
+
+    main header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 300px;
+      background-color: whitesmoke;
+    }
+
+    main header h1 {
+      color: #ccc;
+      z-index: 3;
+    }
+
+    main section {
+      position: relative;
+      display: block;
+      margin: 0;
+      padding: 50px 0;
+      background-color: white;
+      z-index: 100;
+    }
+
+    main section p {
+      margin-bottom: 30px;
+    }
+
+    main .img {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 300px;
+      background-color: #444;
+    }
+
+    main .img h1 {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    main footer {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 20px 20px 20px;
+      background-color: #444;
+    }
+
+    main footer::after {
+      clear: both;
+      content: "";
+      display: block;
+    }
+
+    main footer .logo {
+      font-size: 28px;
+      color: whitesmoke;
+      line-height: 0;
+      margin-bottom: 8px;
+      margin-right: 4px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      main footer .logo {
+        float: left;
+        margin-bottom: 0;
+      }
+    }
+
+    main footer ul {
+      line-height: 1.5;
+      margin: 0 0 16px 0;
+      padding: 0;
+    }
+
+    main footer ul::after {
+      clear: both;
+      content: "";
+      display: block;
+    }
+
+    @media screen and (min-width: 1024px) {
+      main footer ul {
+        float: left;
+        line-height: 1.8;
+        margin-bottom: 0;
+        margin-left: 16px;
+      }
+
+      main footer ul::after {
+        clear: both;
+        content: "";
+        display: block;
+      }
+    }
+
+    main footer ul li {
+      list-style: none;
+      padding-right: 16px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      main footer ul li {
+        display: inline;
+        text-align: left;
+      }
+    }
+
+    main footer ul li a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    main footer ul li a:focus,
+    main footer ul li a:hover {
+      color: white;
+    }
+
+    @media screen and (min-width: 1024px) {
+      main footer .secondary-links {
+        float: right;
+      }
+    }
+
+    main footer .secondary-links li a {
+      font-size: 12px;
+      font-weight: 100 !important;
+    }
+
+    main footer .secondary-links .social {
+      margin: 1em 0 0 0;
+    }
+
+    @media screen and (min-width: 1024px) {
+      main footer .secondary-links .social {
+        float: right;
+        margin-top: 0;
+      }
+    }
+
+    main footer .secondary-links .social li {
+      float: left;
+      font-size: 1em;
+      line-height: 0;
+      margin: 0;
+      padding-right: 0.7em;
+    }
+
+    main footer .secondary-links .social li:last-child {
+      padding-right: 0;
+    }
+
+    main footer .secondary-links .social li>a {
+      position: relative;
+      display: block;
+      width: 30px;
+      height: 30px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      color: #444;
+      text-align: center;
+      line-height: 30px;
+    }
+
+    main footer .secondary-links .social li>a:hover {
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" id="menu" />
+  <label for="menu" class="menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <nav class="nav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Works</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <main>
+    <header>
+      <h1><i class="fa fa-picture-o" aria-hidden="true"></i></h1>
+    </header>
+    <section>
+      <div class="container">
+        <p>Busey ipsum dolor sit amet. You ever roasted doughnuts?I wrestled a bear once. A 750lbs black bear.The best
+          way to communicate is compatible. Compatible communication is listening with open ears and an open mind, and
+          not being fearful or judgemental about what you're hearing. It's OK to get Rib-grease on your face, because
+          you're allowing people to see that you're proud of these ribs. Have you urinated? Have you drained your
+          bladder? Are you free? Because if you haven't it will only come out later. I'm giving you some information
+          that your bodily fluids may penetrate your clothing fibre's without warning. Did you feel that? Look at me -
+          I'm not out of breath anymore!</p>
+
+        <p>When you get lost in your imaginatory vagueness, your foresight will become a nimble vagrant. It's OK to get
+          Rib-grease on your face, because you're allowing people to see that you're proud of these ribs. Go with the
+          feeling of the nature. Take it easy. Know why you're here. And remember to balance your internal energy with
+          the environment.</p>
+
+        <p>It's OK to get Rib-grease on your face, because you're allowing people to see that you're proud of these
+          ribs. You gotta go through it to see there ain't nothing to it. The magic Indian is a mysterious spiritual
+          force, and we're going to Cathedral Rock, and that's the vortex of the heart. These kind of things only happen
+          for the first time once. I would like to give you a backstage pass to my imagination. When you get lost in
+          your imaginatory vagueness, your foresight will become a nimble vagrant. It's OK to get Rib-grease on your
+          face, because you're allowing people to see that you're proud of these ribs.</p>
+      </div>
+    </section>
+    <div class="img">
+      <h1><i class="fa fa-picture-o" aria-hidden="true"></i></h1>
+    </div>
+    <section>
+      <div class="container">
+        <p>Have you urinated? Have you drained your bladder? Are you free? Because if you haven't it will only come out
+          later. I'm giving you some information that your bodily fluids may penetrate your clothing fibre's without
+          warning. Did you feel that? Look at me - I'm not out of breath anymore! When you get lost in your imaginatory
+          vagueness, your foresight will become a nimble vagrant. It's OK to get Rib-grease on your face, because you're
+          allowing people to see that you're proud of these ribs. Go with the feeling of the nature. Take it easy. Know
+          why you're here. And remember to balance your internal energy with the environment.</p>
+
+        <p>Busey ipsum dolor sit amet. You ever roasted doughnuts? I wrestled a bear once. A 750lbs black bear. The best
+          way to communicate is compatible.</p>
+
+        <p>It's OK to get Rib-grease on your face, because you're allowing people to see that you're proud of these
+          ribs. You gotta go through it to see there ain't nothing to it. The magic Indian is a mysterious spiritual
+          force, and we're going to Cathedral Rock, and that's the vortex of the heart. Compatible communication is
+          listening with open ears and an open mind, and not being fearful or judgemental about what you're hearing.
+          It's OK to get Rib-grease on your face, because you're allowing people to see that you're proud of these ribs.
+        </p>
+      </div>
+    </section>
+    <footer>
+      <div class="logo">
+        <i class="fa fa-picture-o" aria-hidden="true"></i>
+      </div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Works</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+      <div class="secondary-links">
+        <ul>
+          <li><a href="#">Terms and Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+
+        <ul class="social">
+          <li><a href="#">
+              <i class="fa fa-github"></i>
+            </a></li>
+          <li><a href="#">
+              <i class="fa fa-twitter"></i>
+            </a></li>
+          <li><a href="#">
+              <i class="fa fa-codepen"></i>
+            </a></li>
+        </ul>
+      </div>
+    </footer>
+  </main>
+</body>
+
+</html>
+
+
+
+<!-- Hamburger menu 04 -->
+<!-- おしゃれなアニメーションでクローズボタンに -->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: #ccc;
+      display: flex;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .burger-wrapper {
+      cursor: pointer;
+      margin: auto;
+      width: 50px;
+      height: 40px;
+    }
+
+    .burger-wrapper .hamburger {
+      background: black;
+      width: 50px;
+      height: 5px;
+      position: relative;
+      transition: background 10ms 300ms ease;
+      transform: translateY(20px);
+    }
+
+    .burger-wrapper .hamburger:before,
+    .burger-wrapper .hamburger:after {
+      transition: top 300ms 350ms ease, transform 300ms 50ms ease;
+      position: absolute;
+      background: black;
+      width: 50px;
+      height: 5px;
+      content: "";
+    }
+
+    .burger-wrapper .hamburger:before {
+      top: -15px;
+    }
+
+    .burger-wrapper .hamburger:after {
+      top: 15px;
+    }
+
+    .menu-trigger:checked~.burger-wrapper .hamburger {
+      background: transparent;
+    }
+
+    .menu-trigger:checked~.burger-wrapper .hamburger:after,
+    .menu-trigger:checked~.burger-wrapper .hamburger:before {
+      transition: top 300ms 50ms ease, transform 300ms 350ms ease;
+      top: 0;
+    }
+
+    .menu-trigger:checked~.burger-wrapper .hamburger:before {
+      transform: rotate(45deg);
+    }
+
+    .menu-trigger:checked~.burger-wrapper .hamburger:after {
+      transform: rotate(-45deg);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <input class="menu-trigger hidden" id="togglenav" type="checkbox" />
+  <label class="burger-wrapper" for="togglenav">
+    <div class="hamburger"></div>
+  </label>
+</body>
+
+</html>
+
+
+
+<!-- Hamburger menu 05 -->
+<!-- クリックすると上からメニュー② -->
+
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4em;
+      background: #2d303a;
+      border-bottom: 2px solid #3c4356;
+    }
+
+    .logotype {
+      font-family: sans-serif;
+      font-size: 24px;
+      color: #ffffff;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    @media screen and (max-width: 48em) {
+      nav nav {
+        display: inline;
+      }
+    }
+
+    .menu__box {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+    }
+
+    @media screen and (max-width: 48em) {
+      .menu__box {
+        flex-direction: column;
+        position: fixed;
+        visibility: hidden;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 15em;
+        margin: -600px 0 0 0;
+        padding: 0.6em 0;
+        text-align: center;
+        background-color: #2d303a;
+        box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        transition-duration: 0.5s;
+      }
+    }
+
+    .red {
+      color: #f06c64;
+    }
+
+    .menu__item {
+      display: flex;
+      flex-direction: column;
+      padding: 0 1em 0 1.9em;
+      color: #ffffff;
+      font-family: sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    @media screen and (max-width: 48em) {
+      .menu__item {
+        display: block;
+        padding: 12px 24px;
+        color: #ffffff;
+        font-size: 18px;
+        transition-duration: 0.5s;
+      }
+
+      .menu__item:hover {
+        background-color: #4f5464;
+      }
+    }
+
+    #menu__toggle {
+      opacity: 0;
+    }
+
+    #menu__toggle:checked~.menu__btn>span {
+      transform: rotate(45deg);
+    }
+
+    #menu__toggle:checked~.menu__btn>span::before {
+      top: 0;
+      transform: rotate(0);
+      background: #f06c64;
+    }
+
+    #menu__toggle:checked~.menu__btn>span::after {
+      top: 0;
+      transform: rotate(90deg);
+      background: #f06c64;
+    }
+
+    #menu__toggle:checked~.menu__box {
+      visibility: visible;
+      left: 0;
+      margin: 0;
+    }
+
+    .menu__btn {
+      transition-duration: 0.25s;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      position: relative;
+      bottom: 2px;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .menu__btn span {
+      display: inline-block;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: #ffffff;
+    }
+
+    .menu__btn span::before {
+      display: inline-block;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: #ffffff;
+      content: "";
+      top: -8px;
+      transition-duration: 0.25s;
+    }
+
+    .menu__btn span::after {
+      display: inline-block;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: #ffffff;
+      content: "";
+      top: 8px;
+      transition-duration: 0.25s;
+    }
+
+    @media screen and (min-width: 48em) {
+      .menu__btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logotype">LOGO<span class="red">*</span></div>
+    <!--The hamburger appears, when the screen resolution becomes 760px-->
+    <nav>
+      <input id="menu__toggle" type="checkbox" />
+      <label class="menu__btn" for="menu__toggle">
+        <span></span>
+      </label>
+      <ul class="menu__box">
+        <li><a class="menu__item" href="#"><span class="red">Home</span></a></li>
+        <li><a class="menu__item" href="#">Services</a></li>
+        <li><a class="menu__item" href="#">Portfolio</a></li>
+        <li><a class="menu__item" href="#">About</a></li>
+        <li><a class="menu__item" href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+</body>
+
+</html>
+
+
+
+<!-- Hamburger menu 06 -->
+<!-- クリックするとサイドからメニュー② -->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+    }
+
+    body {
+      padding: 0 5rem;
+      background: #222;
+    }
+
+    header {
+      width: 100%;
+      height: 100px;
+      background: #333;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .logo {
+      font-weight: 800;
+      color: white;
+      font-size: clamp(1.5rem, 5vw, 3rem);
+    }
+
+    .span-container,
+    .checkbox {
+      width: 45px;
+      height: 45px;
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .checkbox {
+      opacity: 0;
+      z-index: 100;
+    }
+
+    .span-container {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      z-index: 90;
+    }
+
+    .span-container span {
+      width: 100%;
+      height: 3px;
+      background: white;
+      transition: all 250ms ease-out;
+      transform-origin: 0 0;
+    }
+
+    .checkbox:checked~.span-container span:nth-last-child(1) {
+      transform: rotate(-45deg) translate(-1px, 0px);
+    }
+
+    .checkbox:checked~.span-container span:nth-last-child(2) {
+      transform: rotate(0deg) scale(0.2, 0.2);
+      opacity: 0;
+    }
+
+    .checkbox:checked~.span-container span:nth-last-child(3) {
+      transform: rotate(45deg) translate(0px, -1px);
+    }
+
+    .nav-container {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+      background: #444;
+      transition: all 250ms ease-out;
+      transform: translateX(-100%);
+    }
+
+    .nav-container a {
+      text-decoration: none;
+      color: white;
+      font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+      margin: 1rem auto;
+    }
+
+    .nav-container a:hover {
+      color: salmon;
+    }
+
+    .checkbox:checked~.nav-container {
+      transform: translateX(0%);
+    }
+
+    @media screen and (min-width: 1000px) {
+
+      .checkbox,
+      .span-container {
+        display: none;
+      }
+
+      .nav-container {
+        position: relative;
+        left: none;
+        top: none;
+        width: auto;
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        z-index: 50;
+        background: transparent;
+        transition: none;
+        transform: none;
+      }
+
+      .nav-container a {
+        margin-right: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">LOGO</div>
+    <input type="checkbox" class="checkbox">
+    <div class="span-container">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-container">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+  </header>
+</body>
+
+</html>
+
+
+
+<!-- Hamburger menu 07 -->
+<!-- 超絶技巧なメニューボタン -->
+<!-- svgのパスをstroke-dasharrayやstroke-dashoffsetなどのcssプロパティでアニメーションさせることにより実現させています。 -->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      align-items: center;
+      display: flex;
+      height: 100vh;
+      justify-content: space-around;
+      margin: 0;
+      background: linear-gradient(to right, #4568dc, #b06ab3);
+    }
+
+    /* Common Css must add */
+    svg {
+      height: 40px;
+      position: absolute;
+      width: 40px;
+      cursor: pointer;
+      /*   border: 1px solid black; */
+      background-color: #fff;
+    }
+
+    .plate {
+      height: 41px;
+      width: 41px;
+    }
+
+    .burger {
+      filter: url(#gooeyness);
+    }
+
+    .x {
+      transform: scale(0);
+      transition: transform 400ms;
+    }
+
+    .line {
+      fill: none;
+      stroke: red;
+      stroke-width: 6px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transform-origin: 50%;
+      transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms,
+        transform 500ms 200ms;
+    }
+
+    .x .line {
+      stroke-width: 5.5px;
+    }
+
+    /* Common Css must add end */
+
+    /* First Menu CSS Only */
+    .plate1 .line2 {
+      stroke-dasharray: 40 200;
+      stroke-dashoffset: 0px;
+    }
+
+    .plate1 .line3 {
+      stroke-dasharray: 40 179;
+      stroke-dashoffset: 0px;
+    }
+
+    .active .line {
+      transition: stroke-dasharray 500ms, stroke-dashoffset 500ms, transform 500ms;
+    }
+
+    .active.plate1 .line1 {
+      transform: scale(0, 1);
+      transition: transform 500ms 100ms;
+    }
+
+    .active.plate1 .line2 {
+      stroke-dasharray: 5px 200;
+      stroke-dashoffset: -164px;
+    }
+
+    .active.plate1 .line3 {
+      stroke-dasharray: 5px 179;
+      stroke-dashoffset: -142px;
+    }
+
+    .active .x {
+      transform: scale(1);
+      transition: transform 400ms 350ms;
+    }
+
+    /* First Menu CSS Only end */
+
+    /* Second Menu CSS Only */
+    .plate2 .line1 {
+      stroke-dasharray: 21 185.62753295898438;
+      transition-delay: 0;
+    }
+
+    .plate2 .line2 {
+      stroke-dasharray: 21 178.6514129638672;
+      transition-delay: 30ms;
+    }
+
+    .plate2 .line3 {
+      stroke-dasharray: 21 197.92425537109375;
+      transition-delay: 60ms;
+    }
+
+    .plate2 .line4 {
+      stroke-dasharray: 21 190.6597137451172;
+      transition-delay: 90ms;
+    }
+
+    .plate2 .line5 {
+      stroke-dasharray: 21 208.52874755859375;
+      transition-delay: 120ms;
+    }
+
+    .plate2 .line6 {
+      stroke-dasharray: 21 186.59703063964844;
+      transition-delay: 150ms;
+    }
+
+    .active.plate2 .line1 {
+      stroke-dasharray: 5 185.62753295898438;
+      stroke-dashoffset: -155px;
+    }
+
+    .active.plate2 .line2 {
+      stroke-dasharray: 5 178.6514129638672;
+      stroke-dashoffset: -150px;
+    }
+
+    .active.plate2 .line3 {
+      stroke-dasharray: 5 197.92425537109375;
+      stroke-dashoffset: -190px;
+    }
+
+    .active.plate2 .line4 {
+      stroke-dasharray: 5 190.6597137451172;
+      stroke-dashoffset: -180px;
+    }
+
+    .active.plate2 .line5 {
+      stroke-dasharray: 5 208.52874755859375;
+      stroke-dashoffset: -160px;
+    }
+
+    .active.plate2 .line6 {
+      stroke-dasharray: 5 186.59703063964844;
+      stroke-dashoffset: -186px;
+    }
+
+    .active.plate2 .x {
+      transition: transform 400ms 250ms;
+    }
+
+    /* Second Menu CSS Only */
+
+    /* Third Menu Css */
+    .plate3 .line {
+      transition: stroke-dasharray 300ms 200ms, stroke-dashoffset 300ms 200ms,
+        transform 300ms 200ms;
+    }
+
+    .plate3 .line1 {
+      stroke-dasharray: 21 109;
+    }
+
+    .plate3 .line2 {
+      stroke-dasharray: 21 112;
+    }
+
+    .plate3 .line3 {
+      stroke-dasharray: 21 102;
+    }
+
+    .plate3 .line4 {
+      stroke-dasharray: 21 103;
+    }
+
+    .plate3 .line5 {
+      stroke-dasharray: 21 110;
+    }
+
+    .plate3 .line6 {
+      stroke-dasharray: 21 115;
+    }
+
+    .plate3 .x {
+      transition: transform 400ms 50ms;
+    }
+
+    .active.plate3 .line {
+      transition: stroke-dasharray 400ms, stroke-dashoffset 400ms, transform 400ms;
+    }
+
+    .active.plate3 .line1 {
+      stroke-dasharray: 5 109;
+      stroke-dashoffset: -95px;
+    }
+
+    .active.plate3 .line2 {
+      stroke-dasharray: 5 112;
+      stroke-dashoffset: -96px;
+    }
+
+    .active.plate3 .line3 {
+      stroke-dasharray: 5 102;
+      stroke-dashoffset: -79px;
+    }
+
+    .active.plate3 .line4 {
+      stroke-dasharray: 5 103;
+      stroke-dashoffset: -78px;
+    }
+
+    .active.plate3 .line5 {
+      stroke-dasharray: 5 110;
+      stroke-dashoffset: -63px;
+    }
+
+    .active.plate3 .line6 {
+      stroke-dasharray: 5 115;
+      stroke-dashoffset: -64px;
+    }
+
+    .active.plate3 .x {
+      transition: transform 400ms 100ms;
+    }
+
+    /* Third Menu Css end */
+
+    /* Forth Menu Css */
+    .plate4 .x {
+      transition: transform 400ms;
+    }
+
+    .plate4 .line {
+      transform-origin: 50%;
+      transition: transform 400ms 100ms;
+    }
+
+    .active.plate4 .line {
+      transition: transform 400ms;
+    }
+
+    .active.plate4 .line1 {
+      transform: translateX(18px) translateY(-3px) rotate(-45deg) scale(0.7);
+    }
+
+    .active.plate4 .line2 {
+      transform: translateX(-18px) translateY(-3px) rotate(45deg) scale(0.7);
+    }
+
+    .active.plate4 .line3 {
+      transform: translateY(0px) rotate(45deg) scale(0.7);
+    }
+
+    .active.plate4 .line4 {
+      transform: translateY(0px) rotate(-45deg) scale(0.7);
+    }
+
+    .active.plate4 .line5 {
+      transform: translateX(18px) translateY(3px) rotate(45deg) scale(0.7);
+    }
+
+    .active.plate4 .line6 {
+      transform: translateX(-18px) translateY(3px) rotate(-45deg) scale(0.7);
+    }
+
+    .active.plate4 .x {
+      transition: transform 400ms 100ms;
+      transform: scale(1);
+    }
+
+    /* Fourth Menu Css end */
+
+    /* Fifth Menu Css */
+    .plate5 .line {
+      transition: stroke-dasharray 400ms 100ms, stroke-dashoffset 400ms 100ms,
+        transform 400ms 100ms;
+    }
+
+    .plate5 .line1 {
+      stroke-dasharray: 40 40;
+    }
+
+    .plate5 .line2 {
+      stroke-dasharray: 21 39;
+    }
+
+    .plate5 .line3 {
+      stroke-dasharray: 21 39;
+    }
+
+    .plate5 .line4 {
+      stroke-dasharray: 40 40;
+    }
+
+    .plate5 .x {
+      transition: transform 400ms 50ms;
+    }
+
+    .active.plate5 .line {
+      transition: stroke-dasharray 400ms, stroke-dashoffset 400ms, transform 400ms;
+    }
+
+    .active.plate5 .line1 {
+      stroke-dasharray: 1 40;
+      stroke-dashoffset: -33px;
+    }
+
+    .active.plate5 .line2 {
+      stroke-dasharray: 5 39;
+      stroke-dashoffset: -37px;
+    }
+
+    .active.plate5 .line3 {
+      stroke-dasharray: 5 39;
+      stroke-dashoffset: -37px;
+    }
+
+    .active.plate5 .line4 {
+      stroke-dasharray: 1 40;
+      stroke-dashoffset: -33px;
+    }
+
+    .active.plate5 .x {
+      transition: transform 400ms 50ms;
+    }
+
+    /* Fifth Menu Css end */
+  </style>
+</head>
+
+<body>
+  <!-- First Menu -->
+  <div class="plate plate1" onclick="this.classList.toggle('active')">
+    <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line line1" d="M 30,65 H 70" />
+      <path class="line line2"
+        d="M 70,50 H 30 C 30,50 18.644068,50.320751 18.644068,36.016949 C 18.644068,21.712696 24.988973,6.5812347 38.79661,11.016949 C 52.604247,15.452663 46.423729,62.711864 46.423729,62.711864 L 50.423729,49.152542 L 50.423729,16.101695" />
+      <path class="line line3"
+        d="M 30,35 H 70 C 70,35 80.084746,36.737688 80.084746,25.423729 C 80.084746,19.599612 75.882239,9.3123528 64.711864,13.559322 C 53.541489,17.806291 54.423729,62.711864 54.423729,62.711864 L 50.423729,49.152542 V 16.101695" />
+    </svg>
+    <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line" d="M 34,32 L 66,68" />
+      <path class="line" d="M 66,32 L 34,68" />
+    </svg>
+  </div>
+  <!-- First Menu end -->
+
+  <!-- Second Menu -->
+  <div class="plate plate2" onclick="this.classList.toggle('active')">
+    <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line line1"
+        d="M 50,65 H 70 C 70,65 75,65.198488 75,70.762712 C 75,73.779026 74.368822,78.389831 66.525424,78.389831 C 22.092231,78.389831 -18.644068,-30.508475 -18.644068,-30.508475" />
+      <path class="line line2"
+        d="M 50,35 H 70 C 70,35 81.355932,35.300135 81.355932,25.635593 C 81.355932,20.906215 78.841706,14.830508 72.881356,14.830508 C 35.648232,14.830508 -30.508475,84.322034 -30.508475,84.322034" />
+      <path class="line line3"
+        d="M 50,50 H 30 C 30,50 12.288136,47.749959 12.288136,60.169492 C 12.288136,67.738339 16.712974,73.305085 40.677966,73.305085 C 73.791674,73.305085 108.47458,-19.915254 108.47458,-19.915254" />
+      <path class="line line4"
+        d="M 50,50 H 70 C 70,50 81.779661,50.277128 81.779661,36.607372 C 81.779661,28.952694 77.941689,25 69.067797,25 C 39.95532,25 -16.949153,119.91525 -16.949153,119.91525" />
+      <path class="line line5"
+        d="M 50,65 H 30 C 30,65 17.79661,64.618439 17.79661,74.152543 C 17.79661,80.667556 25.093813,81.355932 38.559322,81.355932 C 89.504001,81.355932 135.59322,-21.186441 135.59322,-21.186441" />
+      <path class="line line6"
+        d="M 50,35 H 30 C 30,35 16.525424,35.528154 16.525424,24.152542 C 16.525424,17.535987 22.597755,13.559322 39.40678,13.559322 C 80.617882,13.559322 94.067797,111.01695 94.067797,111.01695" />
+    </svg>
+    <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line" d="M 34,32 L 66,68" />
+      <path class="line" d="M 66,32 L 34,68" />
+    </svg>
+  </div>
+  <!-- Second Menu end -->
+
+  <!-- Third Menu -->
+  <div class="plate plate3" onclick="this.classList.toggle('active')">
+    <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line line1" d="M 50,35 H 30 C 6.9919512,35 5.5084746,123.72881 5.5084746,123.72881" />
+      <path class="line line2" d="M 50,35 H 70 C 98.006349,35 92.796611,119.91525 92.796611,119.91525" />
+      <path class="line line3" d="M 50,50 H 30 C 8.2796577,50 5.9322035,138.1356 5.9322035,138.1356" />
+      <path class="line line4" d="M 50,50 H 70 C 91.152643,50 91.949152,133.21754 91.949152,133.21754" />
+      <path class="line line5"
+        d="M 50,65 C 50,65 47.570314,65 30,65 C 4.9857853,65 9.3220337,147.88136 9.3220337,147.88136" />
+      <path class="line line6" d="M 50,65 H 70 C 91.937316,65 88.559322,144.91525 88.559322,144.91525" />
+    </svg>
+    <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line" d="M 34,32 L 66,68" />
+      <path class="line" d="M 66,32 L 34,68" />
+    </svg>
+  </div>
+  <!-- Third Menu end -->
+
+  <!-- Fourth Menu -->
+  <div class="plate plate4" onclick="this.classList.toggle('active')">
+    <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line line1" d="M 50,35 H 30" />
+      <path class="line line2" d="M 50,35 H 70" />
+      <path class="line line3" d="M 50,50 H 30" />
+      <path class="line line4" d="M 50,50 H 70" />
+      <path class="line line5" d="M 50,65 H 30" />
+      <path class="line line6" d="M 50,65 H 70" />
+    </svg>
+    <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line" d="M 34,32 L 66,68" />
+      <path class="line" d="M 66,32 L 34,68" />
+    </svg>
+  </div>
+  <!-- Fourth Menu end -->
+
+  <!-- Fifth Menu -->
+  <div class="plate plate5" onclick="this.classList.toggle('active')">
+    <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line line1" d="M 30,35 H 70 " />
+      <path class="line line2" d="M 50,50 H 30 L 34,32" />
+      <path class="line line3" d="M 50,50 H 70 L 66,68" />
+      <path class="line line4" d="M 30,65 H 70 " />
+    </svg>
+    <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+      <path class="line" d="M 34,32 L 66,68" />
+      <path class="line" d="M 66,32 L 34,68" />
+    </svg>
+  </div>
+  <!-- Fifth Menu end -->
+</body>
+
+</html>
+
+
+
+<!-- Hamburger menu 08 -->
+<!-- クリックすると全画面メニューがオーバーレイ -->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: #87cc77;
+      margin: 0;
+      font-family: arial;
+      width: 100vw;
+      height: 100vh;
+      animation: bugfix infinite 1s;
+      -webkit-animation: bugfix infinite 1s;
+    }
+
+    @keyframes bugfix {
+      from {
+        padding: 0;
+      }
+
+      to {
+        padding: 0;
+      }
+    }
+
+    @-webkit-keyframes bugfix {
+      from {
+        padding: 0;
+      }
+
+      to {
+        padding: 0;
+      }
+    }
+
+    #overlay-button {
+      position: absolute;
+      right: 2em;
+      top: 3em;
+      padding: 26px 11px;
+      z-index: 5;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    #overlay-button span {
+      height: 4px;
+      width: 35px;
+      border-radius: 2px;
+      background-color: white;
+      position: relative;
+      display: block;
+      transition: all .2s ease-in-out;
+    }
+
+    #overlay-button span:before {
+      top: -10px;
+      visibility: visible;
+    }
+
+    #overlay-button span:after {
+      top: 10px;
+    }
+
+    #overlay-button span:before,
+    #overlay-button span:after {
+      height: 4px;
+      width: 35px;
+      border-radius: 2px;
+      background-color: white;
+      position: absolute;
+      content: "";
+      transition: all .2s ease-in-out;
+    }
+
+    #overlay-button:hover span,
+    #overlay-button:hover span:before,
+    #overlay-button:hover span:after {
+      background: #fff;
+    }
+
+    input[type=checkbox] {
+      display: none;
+
+    }
+
+    input[type=checkbox]:checked~#overlay {
+      visibility: visible;
+    }
+
+    input[type=checkbox]:checked~#overlay-button:hover span,
+    input[type=checkbox]:checked~#overlay-button span {
+      background: transparent;
+
+
+    }
+
+    input[type=checkbox]:checked~#overlay-button span:before {
+      transform: rotate(45deg) translate(7px, 7px);
+
+    }
+
+    input[type=checkbox]:checked~#overlay-button span:after {
+      transform: rotate(-45deg) translate(7px, -7px);
+
+
+    }
+
+    #overlay {
+      height: 100vh;
+      width: 100vw;
+      background: #ec6451;
+      z-index: 2;
+      visibility: hidden;
+      position: fixed;
+    }
+
+    #overlay.active {}
+
+    #overlay ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      height: 100vh;
+      padding-left: 0;
+      list-style-type: none;
+    }
+
+    #overlay ul li {
+      padding: 1em;
+    }
+
+    #overlay ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+
+    #overlay ul li a:hover {
+      color: #000 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" id="overlay-input" />
+  <label for="overlay-input" id="overlay-button"><span></span></label>
+  <div id="overlay">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</body>
+
+</html>
+
+
+
+<!-- Hamburger menu 09 -->
+<!-- 大人気の全画面タイプ② -->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 300;
+      font-stretch: normal;
+      src: url(https://fonts.gstatic.com/s/opensans/v36/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4gaVc.ttf) format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Pacifico';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ-6H6Mw.ttf) format('truetype');
+    }
+
+    .flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+    }
+
+    a,
+    a:visited,
+    a:hover,
+    a:active {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-weight: 400;
+      font-size: 3em;
+      text-align: center;
+    }
+
+    .outer-menu {
+      position: fixed;
+      top: 10vh;
+      left: 0;
+      z-index: 1;
+    }
+
+    .outer-menu .checkbox-toggle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
+      opacity: 0;
+    }
+
+    .outer-menu .checkbox-toggle:checked+.hamburger>div {
+      transform: rotate(135deg);
+    }
+
+    .outer-menu .checkbox-toggle:checked+.hamburger>div:before,
+    .outer-menu .checkbox-toggle:checked+.hamburger>div:after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    .outer-menu .checkbox-toggle:checked+.hamburger>div:after {
+      opacity: 0;
+    }
+
+    .outer-menu .checkbox-toggle:checked~.menu {
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .outer-menu .checkbox-toggle:checked~.menu>div {
+      transform: scale(1);
+      transition-duration: 0.75s;
+    }
+
+    .outer-menu .checkbox-toggle:checked~.menu>div>div {
+      opacity: 1;
+      transition: opacity 0.4s ease 0.4s;
+    }
+
+    .outer-menu .checkbox-toggle:hover+.hamburger {
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .outer-menu .checkbox-toggle:checked:hover+.hamburger>div {
+      transform: rotate(225deg);
+    }
+
+    .outer-menu .hamburger {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 60px;
+      height: 60px;
+      padding: 0.5em 1em;
+      background: rgba(33, 150, 243, 0.75);
+      border-radius: 0 0.12em 0.12em 0;
+      cursor: pointer;
+      transition: box-shadow 0.4s ease;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .outer-menu .hamburger>div {
+      position: relative;
+      flex: none;
+      width: 100%;
+      height: 2px;
+      background: #FEFEFE;
+      transition: all 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .outer-menu .hamburger>div:before,
+    .outer-menu .hamburger>div:after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: -10px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: inherit;
+      transition: all 0.4s ease;
+    }
+
+    .outer-menu .hamburger>div:after {
+      top: 10px;
+    }
+
+    .outer-menu .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      visibility: hidden;
+      overflow: hidden;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      outline: 1px solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .outer-menu .menu>div {
+      width: 200vw;
+      height: 200vw;
+      color: #FEFEFE;
+      background: rgba(41, 98, 255, 0.97);
+      border-radius: 50%;
+      transition: all 0.4s ease;
+      flex: none;
+      transform: scale(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .outer-menu .menu>div>div {
+      text-align: center;
+      max-width: 90vw;
+      max-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      overflow-y: auto;
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .outer-menu .menu>div>div>ul {
+      list-style: none;
+      padding: 0 1em;
+      margin: 0;
+      display: block;
+      max-height: 100vh;
+    }
+
+    .outer-menu .menu>div>div>ul>li {
+      padding: 0;
+      margin: 1em;
+      font-size: 24px;
+      display: block;
+    }
+
+    .outer-menu .menu>div>div>ul>li>a {
+      position: relative;
+      display: inline;
+      cursor: pointer;
+      transition: color 0.4s ease;
+    }
+
+    .outer-menu .menu>div>div>ul>li>a:hover {
+      color: #e5e5e5;
+    }
+
+    .outer-menu .menu>div>div>ul>li>a:hover:after {
+      width: 100%;
+    }
+
+    .outer-menu .menu>div>div>ul>li>a:after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      bottom: -0.15em;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #e5e5e5;
+      transition: width 0.4s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Your Content</h1>
+  <div class="outer-menu">
+    <input class="checkbox-toggle" type="checkbox" />
+    <div class="hamburger">
+      <div></div>
+    </div>
+    <div class="menu">
+      <div>
+        <div>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+
+<!-- Hamburger menu 10 -->
+<!-- クリックすると左側のメニューが展開 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300);
+
+    html,
+    body {
+      margin: 0;
+      font-family: "Roboto";
+      background: #f1f1f1;
+      overflow: auto;
+    }
+
+    #cont:target>menu-fixed {
+      width: 120px;
+      background: #111;
+      transition: all 0.3s;
+    }
+
+    #cont:target>menu-fixed>a .material-icons.back {
+      display: none;
+    }
+
+    #cont:target>menu-fixed>.menu li {
+      text-align: center;
+      width: 40%;
+    }
+
+    #cont:target>menu-fixed>.menu li>p {
+      display: none;
+    }
+
+    #menu-fixed {
+      width: 120px;
+      z-index: 2;
+      height: 100%;
+      background: #0F0F0F;
+      position: fixed;
+      transition: all 0.3s;
+      box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.19), 8px 0px 10px rgba(0, 0, 0, 0.23);
+      text-align: center;
+      overflow: auto;
+    }
+
+    #menu-fixed .material-icons.back {
+      display: none;
+      color: white;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      font-size: 36px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    #menu-fixed .material-icons.back:hover {
+      color: #009688;
+      transition: color 0.3s;
+    }
+
+    #menu-fixed:target {
+      width: 280px;
+      background: #000;
+      transition: all 0.3s ease-out;
+    }
+
+    #menu-fixed:target>.notes {
+      transition: all 0.2s;
+      z-index: 0;
+      opacity: 0;
+    }
+
+    #menu-fixed:target>a .material-icons.back {
+      display: block;
+    }
+
+    #menu-fixed:target>a>.logo {
+      width: 60%;
+      height: 47px;
+      margin: auto;
+    }
+
+    #menu-fixed:target>a>.logo>span {
+      display: none;
+    }
+
+    #menu-fixed:target>a>.logo>p {
+      display: block;
+    }
+
+    #menu-fixed:target>.menu li {
+      text-align: left;
+      width: 60%;
+    }
+
+    #menu-fixed:target>.menu li:hover::after {
+      content: "";
+      display: block;
+      position: absolute;
+      background: rgba(38, 166, 154, 0.1);
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-radius: 4px;
+    }
+
+    #menu-fixed:target>.menu li:hover>p {
+      color: white;
+    }
+
+    #menu-fixed:target>.menu li>p {
+      display: inline-block;
+    }
+
+    #menu-fixed .logo {
+      width: 100%;
+      height: 70px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    #menu-fixed .logo p {
+      display: none;
+      color: #999;
+      font-size: 23px;
+      padding-bottom: 0;
+      font-weight: 300;
+    }
+
+    #menu-fixed .logo span {
+      width: 10px;
+      height: 10px;
+      backrground: #0A0A0A;
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 25px;
+      transform: rotateZ(45deg);
+      -webkit-transform: rotateZ(45deg);
+      border: 8px solid white;
+      transition: all 0.2s;
+    }
+
+    #menu-fixed .logo:hover~p {
+      color: white;
+      transition: all 0.3s;
+    }
+
+    #menu-fixed .logo:hover>span {
+      width: 0;
+      height: 0;
+      border-left: 15px solid white;
+      border-right: 15px solid rgba(0, 0, 0, 0);
+      border-top: 15px solid rgba(0, 0, 0, 0);
+      border-bottom: 15px solid rgba(0, 0, 0, 0);
+      transition: all 0.2s;
+      transform: rotateZ(0deg) translateX(10px);
+      -webkit-transform: rotateZ(0deg) translateX(10px);
+    }
+
+    #menu-fixed .logo:hover>span::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 8px solid #111;
+      border-right: 8px solid rgba(0, 0, 0, 0);
+      border-top: 8px solid rgba(0, 0, 0, 0);
+      border-bottom: 8px solid rgba(0, 0, 0, 0);
+      left: -15px;
+      position: absolute;
+      top: -8px;
+    }
+
+    #menu-fixed .pmenu {
+      margin: 0;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+    #menu-fixed hr {
+      width: 75%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    #menu-fixed .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    #menu-fixed .menu li {
+      padding: 15px;
+      width: 40%;
+      margin: auto;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom-style: dotted;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    #menu-fixed .menu li:last-child {
+      border: none;
+    }
+
+    #menu-fixed .menu li:hover {
+      background: #000;
+      transition: all 0.3s;
+    }
+
+    #menu-fixed .menu li:hover>.material-icons {
+      color: white;
+    }
+
+    #menu-fixed .menu li .material-icons {
+      color: #999;
+    }
+
+    #menu-fixed .menu li p {
+      display: none;
+      margin: auto;
+      color: #888;
+      font-size: 14px;
+      font-weight: 300;
+      position: absolute;
+      padding-left: 30px;
+      line-height: 30px;
+    }
+
+    .material-icons.info {
+      color: #999;
+      position: absolute;
+      margin: 0;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+    }
+
+    #page {
+      width: 700px;
+      height: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 50px;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    #page div {
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      background: white;
+      z-index: 1;
+    }
+
+    a:link,
+    a:visited {
+      text-decoration: none;
+    }
+
+    .notes {
+      position: fixed;
+      width: 100px;
+      height: 70px;
+      top: 20px;
+      left: 130px;
+      z-index: 5;
+      background: #009688;
+      border-radius: 10px;
+      transition: all 0.6s;
+    }
+
+    .notes::after {
+      content: "";
+      display: block;
+      position: fixed;
+      width: 0px;
+      height: 0px;
+      top: 50px;
+      left: 115px;
+      border-top: 8px solid rgba(0, 0, 0, 0);
+      border-bottom: 8px solid rgba(0, 0, 0, 0);
+      border-left: 8px solid rgba(0, 0, 0, 0);
+      border-right: 8px solid #009688;
+    }
+
+    .notes p {
+      color: #222;
+      padding: 12px;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cont">
+    <div id="menu-fixed">
+      <div class="notes">
+        <p>Expand the menu!</p>
+      </div>
+      <a href="#cont">
+        <i class="material-icons back">&#xE314;</i>
+      </a>
+      <a href="#menu-fixed">
+        <div class="logo">
+          <span></span>
+          <p>TITLE</p>
+        </div>
+        <p class="pmenu">MENU</p>
+      </a>
+      <hr>
+      <ul class="menu">
+        <li><i class="material-icons">&#xE88A;</i>
+          <p>Home</p>
+        </li>
+        <li><i class="material-icons">&#xE87A;</i>
+          <p>Explore</p>
+        </li>
+        <li><i class="material-icons">&#xE8CC;</i>
+          <p>Shop</p>
+        </li>
+        <li><i class="material-icons">&#xE8B8;</i>
+          <p>Settings</p>
+        </li>
+        <li><i class="material-icons">&#xE8B6;</i>
+          <p>Search</p>
+        </li>
+      </ul>
+      <i class="material-icons info">&#xE88E;</i>
+    </div>
+  </div>
+
+  <div id="page">
+    <div></div>
+  </div>
+</body>
+
+</html>
+
+
+
+<!-- Hamburger menu 11 -->
+<!-- ホバーでサイドのメニューが展開 -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+      font-family: "Open Sans", arial;
+      background: url('https://static.tumblr.com/94eb957a00fd03c0c2f7d26decd71578/u1rhacw/osAmyyh1q/tumblr_static_tumblr_static_gaussian_blur_gradient_desktop_1680x943_wallpaper-393751.jpg');
+      color: #fff;
+      font-weight: 300;
+
+    }
+
+
+    @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+    .logo {}
+
+    .settings {
+
+      height: 73px;
+      float: left;
+      background: url(https://s3.postimg.org/bqfooag4z/startific.jpg);
+      background-repeat: no-repeat;
+      width: 250px;
+      margin: 0px;
+      text-align: center;
+      font-size: 20px;
+      font-family: 'Strait', sans-serif;
+    }
+
+    /* ScrolBar  */
+    .scrollbar {
+
+      height: 90%;
+      width: 100%;
+      overflow-y: hidden;
+      overflow-x: hidden;
+    }
+
+    .scrollbar:hover {
+
+      height: 90%;
+      width: 100%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+    /* Scrollbar Style */
+
+
+
+    #style-1::-webkit-scrollbar-track {
+      border-radius: 2px;
+    }
+
+    #style-1::-webkit-scrollbar {
+      width: 5px;
+      background-color: #F7F7F7;
+    }
+
+    #style-1::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      background-color: #BFBFBF;
+    }
+
+    /* Scrollbar End */
+
+
+
+
+    .fa-lg {
+      font-size: 1em;
+
+    }
+
+    .fa {
+      position: relative;
+      display: table-cell;
+      width: 55px;
+      height: 36px;
+      text-align: center;
+      top: 12px;
+      font-size: 20px;
+
+    }
+
+
+
+    .main-menu:hover,
+    nav.main-menu.expanded {
+      width: 250px;
+      overflow: hidden;
+      opacity: 1;
+
+    }
+
+    .main-menu {
+      background: #F7F7F7;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      width: 55px;
+      overflow: hidden;
+      -webkit-transition: width .2s linear;
+      transition: width .2s linear;
+      -webkit-transform: translateZ(0) scale(1, 1);
+      box-shadow: 1px 0 15px rgba(0, 0, 0, 0.07);
+      opacity: 1;
+    }
+
+    .main-menu>ul {
+      margin: 7px 0;
+
+    }
+
+    .main-menu li {
+      position: relative;
+      display: block;
+      width: 250px;
+
+
+
+    }
+
+    .main-menu li>a {
+      position: relative;
+      width: 255px;
+      display: table;
+      border-collapse: collapse;
+      border-spacing: 0;
+      color: #8a8a8a;
+      font-size: 13px;
+      text-decoration: none;
+      -webkit-transform: translateZ(0) scale(1, 1);
+      -webkit-transition: all .14s linear;
+      transition: all .14s linear;
+      font-family: 'Strait', sans-serif;
+      border-top: 1px solid #f2f2f2;
+
+      text-shadow: 1px 1px 1px #fff;
+    }
+
+
+
+    .main-menu .nav-icon {
+
+      position: relative;
+      display: table-cell;
+      width: 55px;
+      height: 36px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 18px;
+
+    }
+
+    .main-menu .nav-text {
+
+      position: relative;
+      display: table-cell;
+      vertical-align: middle;
+      width: 190px;
+      font-family: 'Titillium Web', sans-serif;
+    }
+
+    .main-menu .share {}
+
+
+
+    .main-menu .fb-like {
+
+      left: 180px;
+      position: absolute;
+      top: 15px;
+    }
+
+    .main-menu>ul.logout {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+    }
+
+    .no-touch .scrollable.hover {
+      overflow-y: hidden;
+
+    }
+
+    .no-touch .scrollable.hover:hover {
+      overflow-y: auto;
+      overflow: visible;
+
+    }
+
+
+    /* Logo Hover Property */
+
+
+    .settings:hover,
+    settings:focus {
+      background: url(https://s17.postimg.org/74cl7s05b/logo_hover.jpg);
+      -webkit-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
+      -moz-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
+      -o-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
+      transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
+    }
+
+    .settings:active,
+    settings:focus {
+      background: url(https://s3.postimg.org/bqfooag4z/startific.jpg);
+      -webkit-transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0;
+      -moz-transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0;
+      -o-transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0;
+      transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0;
+    }
+
+
+    a:hover,
+    a:focus {
+      text-decoration: none;
+      border-left: 0px solid #F7F7F7;
+
+
+
+    }
+
+    nav {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+
+    }
+
+    nav ul,
+    nav li {
+      outline: 0;
+      margin: 0;
+      padding: 0;
+      text-transform: uppercase;
+    }
+
+
+
+
+    /* Darker element side menu Start*/
+
+
+    .darkerli {
+      background-color: #ededed;
+      text-transform: capitalize;
+    }
+
+    .darkerlishadow {
+      background-color: #ededed;
+      text-transform: capitalize;
+      -webkit-box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+      -moz-box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+      box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+    }
+
+
+    .darkerlishadowdown {
+      background-color: #ededed;
+      text-transform: capitalize;
+      -webkit-box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+      -moz-box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+      box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+    }
+
+    /* Darker element side menu End*/
+
+
+
+
+    .main-menu li:hover>a,
+    nav.main-menu li.active>a,
+    .dropdown-menu>li>a:hover,
+    .dropdown-menu>li>a:focus,
+    .dropdown-menu>.active>a,
+    .dropdown-menu>.active>a:hover,
+    .dropdown-menu>.active>a:focus,
+    .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+    .dashboard-page nav.dashboard-menu ul li.active a {
+      color: #fff;
+      background-color: #00bbbb;
+      text-shadow: 0px 0px 0px;
+    }
+
+    .area {
+      float: left;
+      background: #e2e2e2;
+      width: 100%;
+      height: 100%;
+    }
+
+    @font-face {
+      font-family: 'Titillium Web';
+      font-style: normal;
+      font-weight: 300;
+      src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+    }
+  </style>
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html class="menu">
+  <html>
+
+  <head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content=="IE=edge" />
+    <meta name="google" value="notranslate" />
+    <title>Side Menu</title>
+
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css"
+      href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+
+
+
+    </div>
+    <nav class="main-menu">
+
+
+
+      <div>
+        <a class="logo" href="http://startific.com">
+        </a>
+      </div>
+      <div class="settings"></div>
+      <div class="scrollbar" id="style-1">
+
+        <ul>
+
+          <li>
+            <a href="http://startific.com">
+              <i class="fa fa-home fa-lg"></i>
+              <span class="nav-text">Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://startific.com">
+              <i class="fa fa-user fa-lg"></i>
+              <span class="nav-text">Login</span>
+            </a>
+          </li>
+
+
+          <li>
+            <a href="http://startific.com">
+              <i class="fa fa-envelope-o fa-lg"></i>
+              <span class="nav-text">Contact</span>
+            </a>
+          </li>
+
+
+
+
+          <li>
+            <a href="http://startific.com">
+              <i class="fa fa-heart-o fa-lg"></i>
+
+              <span class="share">
+
+
+                <div class="addthis_default_style addthis_32x32_style">
+
+                  <div style="position:absolute;
+    margin-left: 56px;top:3px;">
+
+
+
+
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" class="share-popup"><img
+                        src="http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png" width="30px"
+                        height="30px"></a>
+
+                    <a href="https://twitter.com/share" target="_blank" class="share-popup"><img
+                        src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png"
+                        width="30px" height="30px"></a>
+
+
+
+
+                    <a href="https://plusone.google.com/_/+1/confirm?hl=en&url=_URL_&title=_TITLE_
+    " target="_blank" class="share-popup"><img
+                        src="http://icons.iconarchive.com/icons/danleech/simple/512/google-plus-icon.png" width="30px"
+                        height="30px"></a>
+
+
+
+                  </div>
+                  <script type="text/javascript">var addthis_config = { "data_track_addressbar": true };</script>
+                  <script type="text/javascript"
+                    src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4ff17589278d8b3a"></script>
+
+
+
+
+
+              </span>
+              <span class="twitter"></span>
+              <span class="google"></span>
+              <span class="fb-like">
+                <iframe
+                  src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2Fstartific&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35"
+                  scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;"
+                  allowTransparency="true"></iframe>
+
+              </span>
+              <span class="nav-text">
+              </span>
+
+            </a>
+
+          </li>
+
+
+
+
+          </li>
+          <li class="darkerlishadow">
+            <a href="http://startific.com">
+              <i class="fa fa-clock-o fa-lg"></i>
+              <span class="nav-text">News</span>
+            </a>
+          </li>
+
+          <li class="darkerli">
+            <a href="http://startific.com">
+              <i class="fa fa-desktop fa-lg"></i>
+              <span class="nav-text">Technology</span>
+            </a>
+          </li>
+
+          <li class="darkerli">
+            <a href="http://startific.com">
+              <i class="fa fa-plane fa-lg"></i>
+              <span class="nav-text">Travel</span>
+            </a>
+          </li>
+
+          <li class="darkerli">
+            <a href="http://startific.com">
+              <i class="fa fa-shopping-cart"></i>
+              <span class="nav-text">Shopping</span>
+            </a>
+          </li>
+
+          <li class="darkerli">
+            <a href="http://startific.com">
+              <i class="fa fa-microphone fa-lg"></i>
+              <span class="nav-text">Film & Music</span>
+            </a>
+          </li>
+
+          <li class="darkerli">
+            <a href="http://startific.com">
+              <i class="fa fa-flask fa-lg"></i>
+              <span class="nav-text">Web Tools</span>
+            </a>
+          </li>
+
+          <li class="darkerli">
+            <a href="http://startific.com">
+              <i class="fa fa-picture-o fa-lg"></i>
+              <span class="nav-text">Art & Design</span>
+            </a>
+          </li>
+
+          <li class="darkerli">
+            <a href="http://startific.com">
+              <i class="fa fa-align-left fa-lg"></i>
+              <span class="nav-text">Magazines
+              </span>
+            </a>
+          </li>
+
+          <li class="darkerli">
+            <a href="http://startific.com">
+              <i class="fa fa-gamepad fa-lg"></i>
+              <span class="nav-text">Games</span>
+            </a>
+          </li>
+
+          <li class="darkerli">
+            <a href="http://startific.com">
+              <i class="fa fa-glass fa-lg"></i>
+              <span class="nav-text">Life & Style
+              </span>
+            </a>
+          </li>
+
+          <li class="darkerlishadowdown">
+            <a href="http://startific.com">
+              <i class="fa fa-rocket fa-lg"></i>
+              <span class="nav-text">Fun</span>
+            </a>
+          </li>
+
+
+        </ul>
+
+
+        <li>
+
+          <a href="http://startific.com">
+            <i class="fa fa-question-circle fa-lg"></i>
+            <span class="nav-text">Help</span>
+          </a>
+        </li>
+
+
+        <ul class="logout">
+          <li>
+            <a href="http://startific.com">
+              <i class="fa fa-lightbulb-o fa-lg"></i>
+              <span class="nav-text">
+                BLOG
+              </span>
+
+            </a>
+          </li>
+        </ul>
+    </nav>
+  </body>
+
+  </html>
+
+
+
+  <!-- Hamburger menu 12 -->
+  <!-- クリックで多数のメニューが展開（特殊アニメーション付き） -->
+
+  <!DOCTYPE html>
+  <html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        background: #29313e;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      a {
+        outline: none !important;
+      }
+
+      .ms-nav-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+      }
+
+      #ms-menu {
+        display: none;
+      }
+
+      .bg-change {
+        position: absolute;
+        bottom: -75px;
+        right: -90px;
+        width: 1px;
+        height: 1px;
+        border-radius: 100% 0% 0% 0%;
+        background: #2D394D;
+        transition: all .25s ease;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.bg-change {
+        width: 3000px;
+        height: 3000px;
+        transition: all .5s ease;
+      }
+
+      .ms-nav {
+        position: absolute;
+        bottom: 75px;
+        right: 75px;
+      }
+
+      .ms-nav>.ms-main {
+        position: relative;
+      }
+
+      .ms-nav>.ms-li {
+        position: absolute;
+        bottom: 0;
+        right: 8px;
+        transition: bottom .5s ease;
+        z-index: 1;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li a {
+        box-shadow: 0px 5px 10px #333333;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li1 {
+        bottom: 150%;
+        transition: bottom .5s ease;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li1 a span {
+        opacity: 1;
+        transition: opacity .5s ease .1s;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-main:after {
+        animation: big-border-bottom-animation .5s ease .1s;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li1:before {
+        animation: border-top-animation .5s ease .2s;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li1:after {
+        animation: border-bottom-animation .5s ease .2s;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li2 {
+        bottom: 265%;
+        transition: bottom .6s ease;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li2 a span {
+        opacity: 1;
+        transition: opacity .6s ease .2s;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li2:before {
+        animation: border-top-animation .5s ease .2s;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li2:after {
+        animation: border-bottom-animation .5s ease .3s;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li3 {
+        bottom: 380%;
+        transition: bottom .7s ease;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li3 a span {
+        opacity: 1;
+        transition: opacity .7s ease .3s;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li3:before {
+        animation: border-top-animation .5s ease .3s;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li3:after {
+        animation: border-bottom-animation .5s ease .4s;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li4 {
+        bottom: 495%;
+        transition: bottom .8s ease;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li4 a span {
+        opacity: 1;
+        transition: opacity .8s ease .4s;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li4:before {
+        animation: border-top-animation .5s ease .4s;
+      }
+
+      .ms-nav .ms-menu-toggle~.ms-li:before {
+        content: '';
+        width: 45px;
+        display: block;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 0px solid #337ab7;
+      }
+
+      .ms-nav .ms-menu-toggle~.ms-li:before {
+        content: '';
+        width: 45px;
+        display: block;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 0px solid #337ab7;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li:before {
+        content: '';
+        width: 45px;
+        display: block;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-left: 24px solid transparent;
+        border-right: 24px solid transparent;
+        border-top: 25px solid #337ab7;
+        z-index: 11;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li:after {
+        content: '';
+        width: 45px;
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-left: 24px solid transparent;
+        border-right: 24px solid transparent;
+        border-bottom: 25px solid #337ab7;
+        transition: border-bottom .3s ease;
+        z-index: 11;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-main:after {
+        content: '';
+        width: 60px;
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-left: 24px solid transparent;
+        border-right: 24px solid transparent;
+        border-bottom: 45px solid #337ab7;
+        transition: border-bottom .3s ease;
+        z-index: 11;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-li-last:after {
+        content: '';
+        width: 45px;
+        display: block;
+        position: absolute;
+        top: -5px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-left: 0px solid transparent;
+        border-right: 0px solid transparent;
+        border-bottom: 0px solid #337ab7;
+      }
+
+      .ms-nav .ms-menu-toggle:checked~.ms-main span {
+        transform: rotate(-45deg);
+        transition: transform .35s ease;
+      }
+
+      .ms-nav .ms-menu-toggle~.ms-main span {
+        transition: transform .35s ease;
+        opacity: 1;
+      }
+
+      .ms-nav>.ms-main>a {
+        box-shadow: 0px 5px 10px #333333;
+      }
+
+      .ms-nav>li a {
+        font-size: 30px;
+        color: #FFFFFF;
+        background: #337ab7;
+        width: 60px;
+        height: 60px;
+        display: block;
+        border-radius: 100%;
+        position: relative;
+        text-align: center;
+      }
+
+      .ms-nav>.ms-main a,
+      .ms-nav>.ms-main>a>label {
+        font-size: 30px;
+        color: #FFFFFF;
+        background: #337ab7;
+        width: 75px;
+        height: 75px;
+        display: block;
+        border-radius: 100%;
+        position: relative;
+        text-align: center;
+        z-index: 19;
+      }
+
+      .ms-nav>li>a span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        height: 30px;
+        width: 30px;
+        opacity: 0;
+        z-index: 12;
+      }
+
+      @keyframes border-top-animation {
+        0% {
+          bottom: 0px;
+        }
+
+        50% {
+          bottom: -14px;
+        }
+
+        100% {
+          bottom: 0px;
+        }
+      }
+
+      @keyframes border-bottom-animation {
+        0% {
+          top: 0px;
+        }
+
+        50% {
+          top: -13px;
+        }
+
+        100% {
+          top: 0px;
+        }
+      }
+
+      @keyframes big-border-bottom-animation {
+        0% {
+          top: 0px;
+        }
+
+        50% {
+          top: -30px;
+        }
+
+        100% {
+          top: 0px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="ms-nav-container">
+            <ul class="ms-nav">
+              <input type="checkbox" id="ms-menu" class="ms-menu-toggle" name="ms-menu-toggle" />
+              <div class="bg-change"></div>
+              <li class="ms-li ms-li3 ms-li-last">
+                <a href="javascript:void(0)">
+                  <span class="fa fa-search"></span>
+                </a>
+              </li>
+              <li class="ms-li ms-li2">
+                <a href="javascript:void(0)">
+                  <span class="fa fa-flask"></span>
+                </a>
+              </li>
+              <li class="ms-li ms-li1 ms-li-first">
+                <a href="javascript:void(0)">
+                  <span class="fa fa-fort-awesome"></span>
+                </a>
+              </li>
+              <li class="ms-main">
+                <a href="javascript:void(0)">
+                  <label class="ms-menu-toggle-lbl" for="ms-menu">
+                    <span class="fa fa-plus"></span>
+                  </label>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  </html>
+
+
+
+  <!-- Hamburger menu 13 -->
+  <!-- クリックしてアトムを感じよう -->
+
+  <!DOCTYPE html>
+  <html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        background: #F26451;
+      }
+
+      img {
+        width: 30px;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        -webkit-filter: grayscale(100%)brightness(3);
+        filter: grayscale(100%)brightness(3);
+      }
+
+      p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 10px;
+        font-family: "Helvetica", sans-serif;
+        text-align: center;
+        margin-top: 45px;
+        margin-left: -85px;
+      }
+
+      button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30px;
+        height: 30px;
+        transition: all 300ms cubic-bezier(.61, .01, .42, 1);
+        cursor: pointer;
+        background: transparent;
+        border: 0px;
+      }
+
+      div {
+        height: 0px;
+        border: 1.5px solid #fff;
+        width: 22px;
+        display: block;
+        position: absolute;
+        transition: all 300ms cubic-bezier(.61, .01, .42, 1);
+        background: #fff;
+      }
+
+      button:hover {
+        transition-delay: 100ms;
+        transform: scale(1.1);
+      }
+
+      button:hover div:nth-child(3):before {
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background: #F26451;
+      }
+
+      button:hover div {
+        border: 2px solid #fff;
+        height: 9px;
+        border-radius: 50%;
+        margin-left: -1px;
+        margin-top: 2px;
+        animation: atom 300ms linear 1;
+        width: 25px;
+        top: 0px;
+        background: transparent;
+      }
+
+      button:focus {
+        outline: 0px;
+      }
+
+      div:nth-child(1) {
+        top: 0px;
+      }
+
+      div:nth-child(2) {
+        top: 8px;
+      }
+
+      div:nth-child(3) {
+        top: 16px;
+      }
+
+      div:nth-child(3):before {
+        opacity: 0;
+        animation: ball 1.5s linear infinite;
+        content: '';
+        border: 2px solid #fff;
+        display: block;
+        position: relative;
+        top: 0.25px;
+      }
+
+      button:hover div:nth-child(1) {
+        transform: rotate(-33deg);
+      }
+
+      button:hover div:nth-child(2) {
+        transform: rotate(90deg);
+      }
+
+      button:hover div:nth-child(3) {
+        transform: rotate(33deg);
+      }
+
+      button:hover div:nth-child(3):before {
+        opacity: 1;
+        transition: opacity 600ms cubic-bezier(.61, .01, .42, 1);
+        ;
+      }
+
+      button:active:hover div:nth-child(3):before,
+      button:active div:nth-child(3):before,
+      button:active div:nth-child(2) {
+        opacity: 0;
+        transition: all 200ms;
+      }
+
+      button:active div {
+        border: 1.5px solid #fff;
+        height: 0px;
+        border-radius: 0%;
+        margin-left: -1px;
+        margin-top: 6px;
+        animation: division 300ms linear 1;
+        width: 25px;
+        top: 0px;
+      }
+
+      button:active div:nth-child(2) {
+        width: 0px;
+      }
+
+      button:active div:nth-child(3) {
+        transform: rotate(45deg);
+      }
+
+      button:active div:nth-child(1) {
+        transform: rotate(-45deg);
+      }
+
+      @keyframes atom {
+        0% {
+          transform: rotate(180deg);
+        }
+      }
+
+      @keyframes division {
+        0% {
+          transform: rotate(180deg);
+        }
+      }
+
+      @keyframes ball {
+        0% {
+          left: -20%;
+          top: 10%;
+        }
+
+        10% {
+          left: 10%;
+          top: -35%;
+        }
+
+        25% {
+          left: 45%;
+          top: -50%;
+        }
+
+        40% {
+          left: 80%;
+          top: -20%;
+        }
+
+        50% {
+          left: 98%;
+          top: 18%;
+        }
+
+        60% {
+          left: 80%;
+          top: 50%;
+        }
+
+        75% {
+          left: 45%;
+          top: 80%;
+        }
+
+        90% {
+          left: 0%;
+          top: 60%;
+        }
+
+        100% {
+          left: -20%;
+          top: 10%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <button>
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+    <p>hover & hold me down</p>
+
+
+    <a target="_blank" href="https://www.alexcoven.com"><img
+        src="https://cdn.dribbble.com/users/338649/avatars/small/3e8ca21ad8f09f79a6ba7f36e21d7557.png?1432757689"></a>
+  </body>
+
+  </html>

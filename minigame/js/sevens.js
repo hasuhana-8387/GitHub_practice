@@ -13,9 +13,6 @@
   // 開発するときには最初から SASS を使って開発すべきだった……。
   // そのほうが拡張性・保守性の高いコードが生成できたはず……。
 
-  //  1920 × 1200 から 1920 × 1080 に変更するのは大変だった。
-  // どうすれば効率的に画面解像度の修正ができるか課題が残る。
-
 
 
   // thinking
@@ -187,10 +184,27 @@
       this.page = 1;
       this.pageMax = 3;
       this.textBox = document.querySelector('#ruleBox>dl');
+      this.createBackTopPagebtn();
       this.createMessagebtn();
       this.createRulebtn();
       this.createRuleBox();
     }
+
+    // トップページに戻るボタンを表示
+    createBackTopPagebtn() {
+      const backTopPagebtn = document.querySelector('.backTopPagebtn');
+
+      backTopPagebtn.innerHTML = 'TOPページに<br>戻る';
+
+      backTopPagebtn.addEventListener('click', () => {
+        if (!confirm('トップページに戻りますか？')) {
+          return;
+        }
+        window.location.href = '../index.html';
+      });
+    }
+
+
 
     // ロード時、メッセージオンオフ切り替えボタンを表示
     createMessagebtn() {

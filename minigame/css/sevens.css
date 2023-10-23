@@ -457,6 +457,7 @@ img {
 }
 
 #close,
+.backTopPagebtn,
 .messagebtn,
 .rulebtn,
 .difficultybtn,
@@ -533,6 +534,14 @@ img {
   bottom: -2%;
 }
 
+.backTopPagebtn {
+  font-size: 18px;
+  top: 77%;
+  left: 5%;
+  z-index: 100;
+  line-height: normal;
+}
+
 .messagebtn {
   font-size: 18px;
   top: 85%;
@@ -607,6 +616,7 @@ img {
 }
 
 #close:hover,
+.backTopPagebtn:hover,
 .messagebtn:hover,
 .rulebtn:hover,
 .difficultybtn:hover,

@@ -558,6 +558,12 @@ img {
   z-index: 50;
 }
 
+.backTopPageBtn {
+  top: 97%;
+  left: 25%;
+  z-index: 50;
+}
+
 .selected {
   transform: translateY(-20px);
 }
