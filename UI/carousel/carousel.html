@@ -1,0 +1,172 @@
+<!-- 
+  Reference study site
+  URL: https://※ドットインストール該当URL
+       https://sinpe-pgm.com/pagetop-button-js/
+ -->
+<!-- 
+  ・よくある カルーセル デザイン
+
+    画像：              横幅いっぱい表示
+    画像の切り替わり方：左へ移動
+    画像の表示間隔：    ３秒程度
+    インジケーター：    画像内 下中央に配置。
+                       普通サイズの丸ボタン。選択状態 濃い目の色、非選択状態 薄めの色。
+    ナビゲーション：    画像内 両端に配置
+    再生一時停止ボタン：ない
+
+    その他：マウスカーソルが画像に乗ってるときは画像の切り替えを停止する。
+            自動再生による画像切り替わりとナビゲーションボタンによる画像切り替わりの
+            バッティング防止対策を施す。
+
+
+  ・実現したい カルーセル デザイン
+
+    画像：              横幅いっぱい表示
+    画像の切り替わり方：フェードイン・フェードアウト
+    画像の表示間隔：    ３秒程度
+    インジケーター：    画像外 下中央に配置。
+                       普通サイズの丸ボタン。選択状態 濃い目の色、非選択状態 薄めの色。
+    ナビゲーション：    画像外 下 インジケーター右隣りに配置
+    再生一時停止ボタン：ナビゲーション右隣りに配置。
+
+    その他：マウスカーソルが画像に乗ってるときは画像の切り替えを停止する。
+            自動再生による画像切り替わりとナビゲーションボタンによる画像切り替わりの
+            バッティング防止対策を施す。
+
+
+  目指したいのはユーザビリティが高く親切な設計が施されてるカルーセル。
+
+  操作ボタンをすべて画像外の同じ場所にまとめて配置。
+
+  ナビゲーションが両端に配置されてるとマウスの移動距離が多くて使いづらい。
+  そのため すべての操作ボタンを画像外の同じ場所に配置して、移動距離を抑えるほうが親切。
+
+  さらにナビゲーションはインジケーターの隣にまとめて配置したほうが、
+  より移動距離を抑えられる。
+
+  再生一時停止ボタンを配置することで特定の画像を見ていたくても、
+  勝手に画像が切り替わってしまうケースを防ぐことができる。
+
+  表示画像に対応したインジケーターには濃い目の色、それ以外のボタンは薄めの色にすることで、
+  今、どのインジケーターの画像が表示されているのかがひと目で分かるようにする。
+
+
+  画像の切り替わり方はフェードイン・フェードアウトを採用する。
+
+  大抵のサイトのカルーセルは画像が横に移動するため、忙しなさを感じる。
+  フェードイン・フェードアウトのほうが目に優しいと感じた。
+
+
+  ほかにはインジケーターのボタンは小さくしすぎると、押しづらくなってしまうため、
+  ユーザビリティが損なわないように適切なサイズにしたほうがよい。
+
+  また、インジケーターは画像外に配置する。
+  画像内に配置すると表示画像との相性によってコントラストが低くなり、
+  インジケーターが目立たなくなることがあるため。
+
+
+  画像が切り替わる間隔はおよそ３秒程度のところが多いと感じた。
+  だけど、３秒程度でも一つの画像の情報を把握するには少々忙しなさを感じた。
+
+  だからといって、それ以上遅くするのもテンポが良くないと感じる。
+  興味のない画像が表示されてるときなどは、次の画像をさっさと表示してほしいと感じるかもしれない。
+
+  とりあえず、３秒程度を目安に画像を切り替えることにする。
+
+
+  以上の点を踏まえたカルーセルを実現したい。
+
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../../common_all.css">
+  <link rel="stylesheet" href="../common_UI.css">
+  <link rel="stylesheet" href="css/common_carousel.css">
+  <link rel="stylesheet" href="css/carousel_01.css">
+  <link rel="stylesheet" href="css/carousel_02.css">
+  <title>Carousel</title>
+</head>
+
+<body>
+  <div class="pagetop">
+    <a href="#"><span>↑</span></a>
+  </div>
+
+  <div class="back_top_page">
+    <a href="../../index.html">TOP<br>ページに<br>戻る</a>
+  </div>
+
+  <div class="container">
+    <h1>カルーセル</h1>
+
+    <!-- Carousel 01 -->
+    <!-- カルーセル オーソドックス -->
+
+    <div class="common_subcontainer carousel_01">
+      <h2>カルーセル オーソドックス</h2>
+      <p>一般的によく見かけるカルーセル</p>
+
+      <div class="implement_container">
+        <section class="carousel">
+          <div class="main-image_container">
+            <ul></ul>
+
+            <!-- インジケーター（ドットボタン） -->
+            <div class="dots"></div>
+
+            <!-- ナビゲーション -->
+            <button class="prev">&lt;</button><!-- 「<」 less than の略 -->
+            <button class="next">&gt;</button><!-- 「>」 greater than の略 -->
+          </div>
+        </section>
+      </div>
+    </div>
+
+
+
+    <!-- Carousel 02 -->
+    <!-- カルーセル オリジナル -->
+
+    <div class="common_subcontainer carousel_02">
+      <h2>カルーセル オリジナル</h2>
+      <p>様々なカルーセルデザインを考察して たどり着いた、個人的主観に基づく理想的なカルーセル</p>
+
+      <div class="implement_container">
+        <section class="carousel">
+          <div class="main-image_container">
+            <ul></ul>
+          </div>
+
+          <nav class="control">
+            <!-- インジケーター（ドットボタン） -->
+            <div class="dots"></div>
+
+            <!-- ナビゲーション -->
+            <ul class="navigation">
+              <li class="prev">&lt;</li><!-- 「<」 less than の略 -->
+              <li class="next">&gt;</li><!-- 「>」 greater than の略 -->
+            </ul>
+
+            <!-- 再生一時停止ボタン -->
+            <ul class="play-pause">
+              <li class="play">Pause</li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+    </div>
+
+  </div> <!-- .container -->
+
+  <script src="../../common_all.js"></script>
+  <script src="js/common_carousel.js"></script>
+  <script src="js/carousel_01.js"></script>
+  <script src="js/carousel_02.js"></script>
+</body>
+
+</html>

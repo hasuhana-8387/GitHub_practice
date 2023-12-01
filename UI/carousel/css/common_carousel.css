@@ -1,11 +1,17 @@
 @charset "utf-8";
 
-/* Hamburger-menu common */
+/* Carousel common */
 
 /* Reference study site */
 /* URL: https://photopizza.design/css_hamburger_menu/ */
 
 /* sp menu 360px ~ */
+
+.common_subcontainer {
+  /* Reference => common_all.css */
+  /* image-max-width 600px / carousel-width 80% = max-width 750px */
+  max-width: 750px;
+}
 
 .common_subcontainer+.common_subcontainer {
   padding-top: 12px;
@@ -19,13 +25,17 @@
 
 .common_subcontainer>p {
   text-align: left;
+  /* width: 350px; */
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .implement_container {
   margin-top: 30px;
   background: #ddd;
   position: relative;
-  height: 300px;
+  /* height: 300px; */
 }
 
 /* tablet menu 600px ~ */

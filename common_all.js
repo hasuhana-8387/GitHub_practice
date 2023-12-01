@@ -1,6 +1,10 @@
 'use strict';
 
 {
+  // Reference study site
+  // ページトップへ戻るボタンの作り方【JavaScript】
+  // URL: https://sinpe-pgm.com/pagetop-button-js/
+
   // スムーススクロール
 
   // IE、Safari対応
@@ -25,10 +29,10 @@
   // スクロールされたら表示
   window.addEventListener("scroll", scroll_event);
   function scroll_event() {
-    if (window.pageYOffset > 100) {
+    if (window.scrollY > 100) {
       pagetop_btn.style.opacity = "1";
       pagetop_btn.style.pointerEvents = "auto";
-    } else if (window.pageYOffset < 100) {
+    } else if (window.scrollY < 100) {
       pagetop_btn.style.opacity = "0";
       pagetop_btn.style.pointerEvents = "none";
     }

@@ -1,0 +1,144 @@
+@charset "utf-8";
+
+/* Carousel 02 */
+/* カルーセル オリジナル */
+
+/* Reference study site */
+/* URL: https://photopizza.design/css_hamburger_menu/ */
+
+/* 詳細な挙動についてここに記載する */
+
+
+
+.carousel_02>.implement_container .carousel {
+  width: 80%;
+  margin: 16px auto;
+}
+
+
+
+/* main-image_container */
+
+.carousel_02>.implement_container .main-image_container {
+  width: 100%;
+  height: 400px;
+  /* height: 220px; */
+  /* overflow: hidden; */
+}
+
+.carousel_02>.implement_container .main-image_container:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
+.carousel_02>.implement_container .main-image_container>ul {
+  height: 100%;
+  position: relative;
+}
+
+.carousel_02>.implement_container .main-image_container li {
+  height: 100%;
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1.0s;
+  transition-timing-function: linear;
+}
+
+.carousel_02>.implement_container .main-image_container li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel_02>.implement_container .hidden {
+  opacity: 0;
+}
+
+
+
+/* control */
+
+.carousel_02>.implement_container .control {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 28px;
+  padding-bottom: 28px;
+  user-select: none;
+  gap: 28px;
+  /* gap: 30px; */
+}
+
+
+
+/* インジケーター */
+
+.carousel_02>.implement_container .control>.dots {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+
+  .carousel_02>.implement_container .control>.dots {
+    width: auto;
+  }
+}
+
+.carousel_02>.implement_container .control>.dots>button {
+  border: none;
+  width: 16px;
+  height: 16px;
+  background: hwb(240 80% 0%);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel_02>.implement_container .control>.dots>button:hover {
+  background: hwb(240 50% 0%);
+}
+
+.carousel_02>.implement_container .control>.dots>button.current {
+  background: hwb(240 50% 0%);
+}
+
+.carousel_02>.implement_container .control>.dots>button+button {
+  margin-left: 8px;
+}
+
+
+
+/* ナビゲーション・再生一時停止ボタン */
+
+.control>.navigation>li,
+.carousel_02>.implement_container .control>.play-pause>li {
+  border: 1px solid hwb(240 50% 0%);
+  border-radius: 16px;
+  font-size: 12px;
+  padding: 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: background .2s;
+  margin-top: -3px;
+}
+
+.control>.navigation>li:hover,
+.carousel_02>.implement_container .control>.play-pause>li:hover {
+  background: hwb(240 50% 0%);
+  color: white;
+}
+
+.carousel_02>.implement_container .control>.navigation {
+  display: flex;
+  gap: 15px;
+}
+
+.control>.navigation>.next,
+.carousel_02>.implement_container .control>.navigation>.prev {
+  width: 30px;
+}
+
+.carousel_02>.implement_container .control>.play-pause>.play {
+  width: 60px;
+}
