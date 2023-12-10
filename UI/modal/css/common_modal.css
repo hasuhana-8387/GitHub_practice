@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+/* modal common */
+
+/* sp menu 360px ~ */
+
+.common_subcontainer+.common_subcontainer {
+  padding-top: 12px;
+  border-top: solid 3px hwb(240 50% 0%);
+  margin: 50px auto 0;
+}
+
+.common_subcontainer:last-child {
+  margin: 50px auto 50px;
+}
+
+.common_subcontainer>p {
+  text-align: left;
+}
+
+.implement_container {
+  margin-top: 30px;
+  background: #ddd;
+  position: relative;
+  height: 300px;
+}
+
+/* tablet menu 600px ~ */
+@media (min-width: 600px) {
+
+  .back_top_page,
+  .pagetop {
+    right: 5%;
+  }
+
+  .pagetop {
+    bottom: 20%;
+  }
+
+  .back_top_page {
+    bottom: 5%;
+  }
+}
+
+/* pc menu 960px ~ */
+@media (min-width: 960px) {}

@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+/* modal 02 */
+/* 中央にふわっと表示されるパターン */
+
+/* Reference study site */
+/* Web制作マガジン by GEOCODE */
+/* URL: https://www.hp-maker.net/magazine/modal/ */
+
+/* 詳細な挙動や課題について ここに記載する */
+
+/*
+  一部 参照元コードを修正
+    Open Modal ボタンをスタイリング。
+    close, color を黒、ホバー時 白に変更。
+*/
+
+.modal_02>.implement_container #open-modal {
+  color: hwb(240 0% 0%);
+  font-size: inherit;
+  text-align: center;
+  width: 200px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  background: hwb(240 80% 0%);
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+  user-select: none;
+
+  /* 領域を上下左右中央に表示する処理 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.modal_02>.implement_container #open-modal:hover {
+  color: white;
+  background: hwb(240 50% 0%);
+}
+
+.modal_02>.implement_container .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  animation-name: modal_02_show;
+  animation-duration: 0.5s
+}
+
+.modal_02>.implement_container .modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 10% auto;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+@keyframes modal_02_show {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+.modal_02>.implement_container .modal-header {
+  padding: 12px;
+  background-color: grey;
+  color: white;
+}
+
+.modal_02>.implement_container .modal-body {
+  padding: 12px;
+}
+
+.modal_02>.implement_container .modal-footer {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 12px;
+}
+
+.modal_02>.implement_container .close {
+  /* color: #aaa; */
+  color: black;
+  float: right;
+  font-size: 16px;
+}
+
+.modal_02>.implement_container .close:hover,
+.modal_02>.implement_container .close:focus {
+  color: white;
+  cursor: pointer;
+}
