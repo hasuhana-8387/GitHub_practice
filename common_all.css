@@ -1,5 +1,35 @@
 @charset "utf-8";
 
+/* 
+  ● あとで sass ファイルでまとめ直したい箇所。
+
+  ・全体のデザインでよく使う配色。
+
+    適用要素 {
+      color: hwb(240 0% 0%);
+      color: hwb(240 50% 0%);
+      color: hwb(240 80% 0%);
+
+      background: hwb(240 0% 0%);
+      background: hwb(240 50% 0%);
+      background: hwb(240 80% 0%);
+    }
+
+    ・クリックできる箇所のデザインで重複する共通コードがある箇所。
+
+    適用要素 {
+      color: hwb(240 0% 0%);
+      background: hwb(240 80% 0%);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    適用要素:hover {
+      color: white;
+      background: hwb(240 50% 0%);
+    }
+*/
+
 /* reset */
 
 body,
