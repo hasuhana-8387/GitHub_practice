@@ -1,0 +1,175 @@
+<!-- 
+  Reference study site
+
+    JavaScriptでモーダルウィンドウを作ろう
+    URL: https://dotinstall.com/lessons/modal_js_v3
+
+    Web制作マガジン by GEOCODE
+    URL: https://www.hp-maker.net/magazine/modal/
+-->
+<!-- 
+  ● モーダルファイルとは関係ない修正事項
+
+  ・ハンバーガーメニューとカルーセルの参照URL
+
+    JavaScriptでハンバーガーメニューを作ろう
+    https://dotinstall.com/lessons/hamburgermenu_js_v2
+    JavaScriptでカルーセルを作ろう
+    https://dotinstall.com/lessons/carousel_js
+
+    スライドショーの該当URLを貼っておく。
+
+
+  ・カルーセル 600px ~ 950px? 背景色の範囲が両端に重なるため、少しだけ両端に余白をつけておきたい。
+
+  ・各プログラミング言語の理解度をおおまかに示した表をトップページに作成する。
+
+    理解度
+      ☆☆☆    ドットインストール様の講座内容を理解した上で、ある程度 臨機応変に対応できる程度
+      ☆☆      ドットインストール様の講座内容を全体的に把握している程度
+      ☆        ドットインストール様の講座内容を一部 理解している程度
+
+      HTML          ☆☆☆
+      CSS           ☆☆☆
+      Sass/SCSS     ☆☆
+
+      JavaScript    ☆☆☆
+      TypeScript    ☆☆
+      React         ☆
+
+      Git/GitHub    ☆
+
+      MySQL         ☆
+      UNIXコマンド  ☆
+
+      PHP           ☆
+      Python        ☆
+      Java          ☆
+
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../../common_all.css">
+  <link rel="stylesheet" href="../common_UI.css">
+  <link rel="stylesheet" href="css/common_modal.css">
+  <link rel="stylesheet" href="css/modal_01.css">
+  <link rel="stylesheet" href="css/modal_02.css">
+  <link rel="stylesheet" href="css/modal_03.css">
+  <title>modal</title>
+  <style>
+    /*
+      モーダルウィンドウ表示中、「TOPページに戻る」ボタンが前面に表示されてクリックできてしまうため、
+      z-index の値を修正。
+      「common_UI.css」 z-index: 10;
+     */
+    .back_top_page,
+    .pagetop {
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pagetop">
+    <a href="#"><span>↑</span></a>
+  </div>
+
+  <div class="back_top_page">
+    <a href="../../index.html">TOP<br>ページに<br>戻る</a>
+  </div>
+
+  <div class="container">
+    <h1>モーダルウィンドウ</h1>
+
+    <!-- modal 01 -->
+    <!-- 上から降りてくるパターン -->
+
+    <div class="common_subcontainer modal_01">
+      <h2>モーダルウィンドウ 01</h2>
+      <p>上から降りてくるパターン</p>
+
+      <div class="implement_container">
+        <div class="open">
+          詳細を見る
+        </div>
+
+        <div class="mask hidden"></div>
+
+        <section class="modal hidden">
+          <p>こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。こんにちは。</p>
+          <div class="close">
+            閉じる
+          </div>
+        </section>
+      </div>
+    </div>
+
+
+
+    <!-- modal 02 -->
+    <!-- 中央にふわっと表示されるパターン -->
+
+    <div class="common_subcontainer modal_02">
+      <h2>モーダルウィンドウ 02</h2>
+      <p>中央にふわっと表示されるパターン</p>
+
+      <div class="implement_container">
+        <button id="open-modal" name="open-modal-btn">Open Modal</button>
+
+        <div id="demo-modal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class='close'>X</span>
+              <h2>Modal Header</h2>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the Modal Body</p>
+              <p>Some other text...</p>
+            </div>
+            <div class="modal-footer">
+              <h3>Modal Footer</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- modal 03 -->
+    <!-- CSS のみで作成したパターン -->
+
+    <div class="common_subcontainer modal_03">
+      <h2>モーダルウィンドウ 03</h2>
+      <p>CSS のみで作成したパターン</p>
+
+      <div class="implement_container">
+        <a href="#openModal" class="openModalBtn">Open Modal</a>
+
+        <div id="openModal" class="modalDialog">
+          <div> <a href="#close" title="Close" class="close">X</a>
+
+            <h2>Modal Box</h2>
+
+            <p>This is a sample modal box that can be created using the powers of CSS3.</p>
+            <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a
+              login/register form for users.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- .container -->
+
+  <script src="../../common_all.js"></script>
+  <script src="js/common_modal.js"></script>
+  <script src="js/modal_01.js"></script>
+  <script src="js/modal_02.js"></script>
+</body>
+
+</html>
