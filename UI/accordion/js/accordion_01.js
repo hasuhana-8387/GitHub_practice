@@ -1,35 +1,28 @@
 'use strict';
 
-/* modal 01 */
-/* 上から降りてくるパターン */
+/* accordion 01 */
+/* アコーディオンUI オーソドックス */
 
 /* Reference study site */
-/* ドットインストール - JavaScriptでモーダルウィンドウを作ろう */
-/* URL: https://dotinstall.com/lessons/modal_js_v3 */
+/* JavaScriptでアコーディオンを作ろう */
+/* URL: https://dotinstall.com/lessons/accordion_js */
 
 /* 詳細な挙動や課題について ここに記載する */
 
 
 
 {
-  const open = document.querySelector('.modal_01>.implement_container .open');
-  const close = document.querySelector('.modal_01>.implement_container .close');
-  const modal = document.querySelector('.modal_01>.implement_container .modal');
-  const mask = document.querySelector('.modal_01>.implement_container .mask');
+  const dts = document.querySelectorAll('.accordion_01>.implement_container dt');
 
-  open.addEventListener('click', () => {
-    modal.classList.remove('hidden');
-    mask.classList.remove('hidden');
-  });
+  dts.forEach(dt => {
+    dt.addEventListener('click', () => {
+      dt.parentNode.classList.toggle('appear');
 
-  close.addEventListener('click', () => {
-    modal.classList.add('hidden');
-    mask.classList.add('hidden');
-  });
-
-  mask.addEventListener('click', () => {
-    // modal.classList.add('hidden');
-    // mask.classList.add('hidden');
-    close.click(); // close の click イベントリスナーのときと同じ処理を行う。
+      dts.forEach(el => {
+        if (dt !== el) {
+          el.parentNode.classList.remove('appear');
+        }
+      });
+    });
   });
 }

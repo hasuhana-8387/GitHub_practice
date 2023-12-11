@@ -1,50 +1,27 @@
 <!-- 
   Reference study site
 
-    JavaScriptでモーダルウィンドウを作ろう
-    URL: https://dotinstall.com/lessons/modal_js_v3
+    JavaScriptでアコーディオンを作ろう
+    URL: https://dotinstall.com/lessons/accordion_js
 
-    Web制作マガジン by GEOCODE
-    URL: https://www.hp-maker.net/magazine/modal/
+    Designmemo（デザインメモ）-初心者向けWebデザインTips- 初心者向けWebデザインのメモサイト
+    URL: https://www.design-memo.com/coding/html-accordion
 -->
 <!-- 
-  ● モーダルファイルとは関係ない修正事項
+  ● アコーディオンファイルとは関係ない修正事項（※解決したら削除しておくこと）
 
-  ・ハンバーガーメニューとカルーセルの参照URL
+  ・スライドショーとカルーセルの参照URL
 
-    JavaScriptでハンバーガーメニューを作ろう
-    https://dotinstall.com/lessons/hamburgermenu_js_v2
+    スライドショーの該当URLを貼っておく。
+    JavaScriptでスライドショーを作ろう
+    https://dotinstall.com/lessons/slideshow_js_v4
+
     JavaScriptでカルーセルを作ろう
     https://dotinstall.com/lessons/carousel_js
 
-    スライドショーの該当URLを貼っておく。
 
-
-  ・カルーセル 600px ~ 950px? 背景色の範囲が両端に重なるため、少しだけ両端に余白をつけておきたい。
-
-  ・各プログラミング言語の理解度をおおまかに示した表をトップページに作成する。
-
-    理解度
-      ☆☆☆    ドットインストール様の講座内容を理解した上で、ある程度 臨機応変に対応できる程度
-      ☆☆      ドットインストール様の講座内容を全体的に把握している程度
-      ☆        ドットインストール様の講座内容を一部 理解している程度
-
-      HTML          ☆☆☆
-      CSS           ☆☆☆
-      Sass/SCSS     ☆☆
-
-      JavaScript    ☆☆☆
-      TypeScript    ☆☆
-      React         ☆
-
-      Git/GitHub    ☆
-
-      MySQL         ☆
-      UNIXコマンド  ☆
-
-      PHP           ☆
-      Python        ☆
-      Java          ☆
+  ・アコーディオン 600px ~ 950px? 背景色の範囲が両端に重なるため、少しだけ両端に余白をつけておきたい。
+  ・おそらくカルーセルも同じ現象あり。
 
 -->
 <!DOCTYPE html>
@@ -56,10 +33,10 @@
   <meta name="robots" content="noindex">
   <link rel="stylesheet" href="../../common_all.css">
   <link rel="stylesheet" href="../common_UI.css">
-  <link rel="stylesheet" href="css/common_carousel.css">
-  <link rel="stylesheet" href="css/carousel_01.css">
-  <link rel="stylesheet" href="css/carousel_02.css">
-  <title>Carousel</title>
+  <link rel="stylesheet" href="css/common_accordion.css">
+  <link rel="stylesheet" href="css/accordion_01.css">
+  <link rel="stylesheet" href="css/accordion_02.css">
+  <title>Accordion</title>
 </head>
 
 <body>
@@ -72,71 +49,65 @@
   </div>
 
   <div class="container">
-    <h1>カルーセル</h1>
+    <h1>アコーディオンUI</h1>
 
-    <!-- Carousel 01 -->
-    <!-- カルーセル オーソドックス -->
+    <!-- Accordion 01 -->
+    <!-- アコーディオンUI オーソドックス -->
 
-    <div class="common_subcontainer carousel_01">
-      <h2>カルーセル オーソドックス</h2>
-      <p>一般的によく見かけるカルーセル</p>
+    <div class="common_subcontainer accordion_01">
+      <h2>アコーディオンUI オーソドックス</h2>
+      <p>一般的によく見かけるアコーディオンUI</p>
 
       <div class="implement_container">
-        <section class="carousel">
-          <div class="main-image_container">
-            <ul></ul>
-
-            <!-- インジケーター（ドットボタン） -->
-            <div class="dots"></div>
-
-            <!-- ナビゲーション -->
-            <button class="prev">&lt;</button><!-- 「<」 less than の略 -->
-            <button class="next">&gt;</button><!-- 「>」 greater than の略 -->
+        <h1>FAQ</h1>
+        <dl>
+          <div>
+            <dt>質問です</dt>
+            <dd>回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。</dd>
           </div>
-        </section>
+          <div>
+            <dt>質問です</dt>
+            <dd>回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。</dd>
+          </div>
+          <div>
+            <dt>質問です</dt>
+            <dd>回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。</dd>
+          </div>
+        </dl>
       </div>
     </div>
 
 
 
-    <!-- Carousel 02 -->
-    <!-- カルーセル オリジナル -->
+    <!-- Accordion 02 -->
+    <!-- アコーディオンUI HTML CSS のみでデザイン -->
 
-    <div class="common_subcontainer carousel_02">
-      <h2>カルーセル オリジナル</h2>
-      <p>様々なカルーセルデザインを考察して たどり着いた、個人的主観に基づく理想的なカルーセル</p>
+    <div class="common_subcontainer accordion_02">
+      <h2>アコーディオンUI　HTML CSS のみでデザイン</h2>
+      <p>details タグと summary タグを<br>用いたアコーディオンUI</p>
 
       <div class="implement_container">
-        <section class="carousel">
-          <div class="main-image_container">
-            <ul></ul>
-          </div>
-
-          <nav class="control">
-            <!-- インジケーター（ドットボタン） -->
-            <div class="dots"></div>
-
-            <!-- ナビゲーション -->
-            <ul class="navigation">
-              <li class="prev">&lt;</li><!-- 「<」 less than の略 -->
-              <li class="next">&gt;</li><!-- 「>」 greater than の略 -->
-            </ul>
-
-            <!-- 再生一時停止ボタン -->
-            <ul class="play-pause">
-              <li class="play">Pause</li>
-            </ul>
-          </nav>
-        </section>
+        <details open>
+          <summary>クリックで開閉</summary>
+          Chromeなど対応しているブラウザで見てください！
+        </details>
+        <details>
+          <summary>クリックで開閉</summary>
+          Chromeなど対応しているブラウザで見てください！
+        </details>
+        <details>
+          <summary>クリックで開閉</summary>
+          Chromeなど対応しているブラウザで見てください！
+        </details>
       </div>
     </div>
 
   </div> <!-- .container -->
 
   <script src="../../common_all.js"></script>
-  <script src="js/common_carousel.js"></script>
-  <script src="js/carousel_01.js"></script>
-  <script src="js/carousel_02.js"></script>
+  <script src="js/common_accordion.js"></script>
+  <script src="js/accordion_01.js"></script>
+  <script src="js/accordion_02.js"></script>
 </body>
 
 </html>
