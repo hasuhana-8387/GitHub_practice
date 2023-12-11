@@ -11,80 +11,132 @@
 
 
 
-.modal_01>.implement_container .open,
-.modal_01>.implement_container .close {
-  color: hwb(240 0% 0%);
-  text-align: center;
-  width: 200px;
-  padding: 12px 0;
-  border-radius: 8px;
-  background: hwb(240 80% 0%);
-  margin: 16px auto 0;
+.carousel_01>.implement_container .carousel {
+  width: 80%;
+  margin: 16px auto;
+}
+
+
+
+/* main-image_container */
+
+.carousel_01>.implement_container .main-image_container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel_01>.implement_container .main-image_container:hover {
+  opacity: .6;
   cursor: pointer;
-  transition: color 0.2s, background 0.2s;
+}
+
+.carousel_01>.implement_container .main-image_container>ul {
+  height: 100%;
+  position: relative;
+  display: flex;
+  transition: transform .3s;
+}
+
+.carousel_01>.implement_container .main-image_container li {
+  height: 100%;
+  min-width: 100%;
+  transition-timing-function: linear;
+}
+
+.carousel_01>.implement_container .main-image_container li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+/* control */
+
+.carousel_01>.implement_container .control {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 28px;
+  padding-bottom: 28px;
   user-select: none;
+  gap: 28px;
+  /* gap: 30px; */
 }
 
-.modal_01>.implement_container .open {
-  margin: 0;
 
-  /* 領域を上下左右中央に表示する処理 */
+
+/* インジケーター */
+
+.carousel_01>.implement_container .dots {
+  width: 100%;
   position: absolute;
-  top: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
 }
 
-.modal_01>.implement_container .open:hover,
-.modal_01>.implement_container .close:hover {
-  color: white;
+@media (min-width: 600px) {
+
+  .carousel_01>.implement_container .dots {
+    width: auto;
+  }
+}
+
+.carousel_01>.implement_container .dots>button {
+  border: none;
+  width: 16px;
+  height: 16px;
+  background: hwb(240 80% 0%);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel_01>.implement_container .dots>button:hover {
   background: hwb(240 50% 0%);
 }
 
-.modal_01>.implement_container .mask {
-  background: rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-
-  /* 領域を画面いっぱいに広げる処理 */
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-
-  z-index: 1;
+.carousel_01>.implement_container .dots>button.current {
+  background: hwb(240 50% 0%);
 }
 
-.modal_01>.implement_container .modal {
-  width: 300px;
-  padding: 20px;
-  border-radius: 8px;
-  background: #fff;
+.carousel_01>.implement_container .dots>button+button {
+  margin-left: 8px;
+}
 
-  /* 領域を上下左右中央に表示する処理 */
-  position: fixed;
+
+
+/* ナビゲーション */
+
+.carousel_01>.implement_container .prev,
+.carousel_01>.implement_container .next {
+  width: 30px;
+  position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateY(-50%);
 
-  transition: transform 0.5s;
-  z-index: 2;
+  border: none;
+  background: hwb(240 80% 0%);
+
+  font-size: 20px;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: background .2s;
 }
 
-.modal_01>.implement_container .modal>p {
-  margin: 0 0 20px;
+.carousel_01>.implement_container .prev {
+  left: 0;
 }
 
-.modal_01>.implement_container .mask.hidden {
-  display: none;
+.carousel_01>.implement_container .next {
+  right: 0;
 }
 
-.modal_01>.implement_container .modal.hidden {
-  /*
-    translateY(-100vh) のみの場合、ウインドウ高さ領域を最小まで縮めていくと modal が表示されてしまうため、
-    念のため、 -100% 加算しておく。
-  */
-  visibility: hidden;
-  transform: translateX(-50%) translateY(calc(-100vh + -100%));
-  transition: transform 0.5s, visibility 0.5s;
+.carousel_01>.implement_container .prev:hover,
+.carousel_01>.implement_container .next:hover {
+  background: hwb(240 50% 0%);
+  color: white;
 }
