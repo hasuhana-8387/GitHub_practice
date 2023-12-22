@@ -1,0 +1,113 @@
+<!-- 
+  Reference study site
+
+    JavaScriptでアコーディオンを作ろう
+    URL: https://dotinstall.com/lessons/accordion_js
+
+    Designmemo（デザインメモ）-初心者向けWebデザインTips- 初心者向けWebデザインのメモサイト
+    URL: https://www.design-memo.com/coding/html-accordion
+-->
+<!-- 
+  ● アコーディオンファイルとは関係ない修正事項（※解決したら削除しておくこと）
+
+  ・スライドショーとカルーセルの参照URL
+
+    スライドショーの該当URLを貼っておく。
+    JavaScriptでスライドショーを作ろう
+    https://dotinstall.com/lessons/slideshow_js_v4
+
+    JavaScriptでカルーセルを作ろう
+    https://dotinstall.com/lessons/carousel_js
+
+
+  ・アコーディオン 600px ~ 950px? 背景色の範囲が両端に重なるため、少しだけ両端に余白をつけておきたい。
+  ・おそらくカルーセルも同じ現象あり。
+
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../../common_all.css">
+  <link rel="stylesheet" href="../common_UI.css">
+  <link rel="stylesheet" href="css/common_accordion.css">
+  <link rel="stylesheet" href="css/accordion_01.css">
+  <link rel="stylesheet" href="css/accordion_02.css">
+  <title>Accordion</title>
+</head>
+
+<body>
+  <div class="pagetop">
+    <a href="#"><span>↑</span></a>
+  </div>
+
+  <div class="back_top_page">
+    <a href="../../index.html">TOP<br>ページに<br>戻る</a>
+  </div>
+
+  <div class="container">
+    <h1>アコーディオンUI</h1>
+
+    <!-- Accordion 01 -->
+    <!-- アコーディオンUI オーソドックス -->
+
+    <div class="common_subcontainer accordion_01">
+      <h2>アコーディオンUI オーソドックス</h2>
+      <p>一般的によく見かけるアコーディオンUI</p>
+
+      <div class="implement_container">
+        <h1>FAQ</h1>
+        <dl>
+          <div>
+            <dt>質問です</dt>
+            <dd>回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。</dd>
+          </div>
+          <div>
+            <dt>質問です</dt>
+            <dd>回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。</dd>
+          </div>
+          <div>
+            <dt>質問です</dt>
+            <dd>回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+
+
+    <!-- Accordion 02 -->
+    <!-- アコーディオンUI HTML CSS のみでデザイン -->
+
+    <div class="common_subcontainer accordion_02">
+      <h2>アコーディオンUI　HTML CSS のみでデザイン</h2>
+      <p>details タグと summary タグを<br>用いたアコーディオンUI</p>
+
+      <div class="implement_container">
+        <details open>
+          <summary>クリックで開閉</summary>
+          Chromeなど対応しているブラウザで見てください！
+        </details>
+        <details>
+          <summary>クリックで開閉</summary>
+          Chromeなど対応しているブラウザで見てください！
+        </details>
+        <details>
+          <summary>クリックで開閉</summary>
+          Chromeなど対応しているブラウザで見てください！
+        </details>
+      </div>
+    </div>
+
+  </div> <!-- .container -->
+
+  <script src="../../common_all.js"></script>
+  <script src="js/common_accordion.js"></script>
+  <script src="js/accordion_01.js"></script>
+  <script src="js/accordion_02.js"></script>
+</body>
+
+</html>
