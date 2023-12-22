@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+/* accordion 02 */
+/* アコーディオンUI HTML CSS のみでデザイン */
+
+/* Reference study site */
+/* Designmemo（デザインメモ）-初心者向けWebデザインTips- 初心者向けWebデザインのメモサイト */
+/* URL: https://www.design-memo.com/coding/html-accordion */
+
+/* 詳細な挙動や課題について ここに記載する */
+
+/*
+  一部 参照元コードを修正
+    details タグのデザインを修正。
+      クリックできる範囲を明確にするために、ホバー時は背景色を変更する。
+*/
+
+.accordion_02>.implement_container {
+  font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+  font-size: 100%;
+}
+
+.accordion_02>.implement_container summary {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  transition: background .8s;
+  cursor: pointer;
+}
+
+.accordion_02>.implement_container summary:hover {
+  background: hwb(200 20% 15%);
+}
+
+.accordion_02>.implement_container details {
+  height: 30px;
+  padding-bottom: 10px;
+  transition: .8s;
+}
+
+.accordion_02>.implement_container details+details {
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
+}
+
+.accordion_02>.implement_container details[open] {
+  height: 80px;
+  background: hwb(200 20% 35%);
+  color: #fff;
+}
