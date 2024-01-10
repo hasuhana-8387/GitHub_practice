@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+/* tab-menu 02 */
+/* タブメニュー HTML CSS のみでデザイン */
+
+/* Reference study site */
+
+/* 【CSS】CSSだけでタブ切り替えを作る方法 - bagelee（ベーグリー） */
+/* URL: https://bagelee.com/design/css/create_tabs_using_only_css/ */
+
+/* 詳細な挙動や課題について ここに記載する */
+
+/* ~ と + と属性セレクタとチェックボックスを組み合わせて実装する。 */
+/* ~ は兄弟要素の弟側に適用される点に注意する。 */
+
+
+
+/*タブ切り替え全体のスタイル*/
+.tab-menu_02>.implement_container .tabs {
+  padding-bottom: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* width: 700px; */
+  width: 90%;
+  margin: 0 auto;
+}
+
+/*タブのスタイル*/
+.tab-menu_02>.implement_container .tab_item {
+  width: calc(100%/3);
+  height: 50px;
+  border-bottom: 3px solid #5ab4bd;
+  background-color: #d9d9d9;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.tab-menu_02>.implement_container .tab_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+.tab-menu_02>.implement_container input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab-menu_02>.implement_container .tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+.tab-menu_02>.implement_container #all:checked~#all_content,
+.tab-menu_02>.implement_container #programming:checked~#programming_content,
+.tab-menu_02>.implement_container #design:checked~#design_content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tab-menu_02>.implement_container .tabs input:checked+.tab_item {
+  background-color: #5ab4bd;
+  color: #fff;
+}
