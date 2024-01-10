@@ -1,14 +1,14 @@
 <!-- 
   Reference study site
 
-    JavaScriptでアコーディオンを作ろう
-    URL: https://dotinstall.com/lessons/accordion_js
+    JavaScriptでタブメニューを作ろう
+    URL: https://dotinstall.com/lessons/tabmenu_js_v3
 
-    Designmemo（デザインメモ）-初心者向けWebデザインTips- 初心者向けWebデザインのメモサイト
-    URL: https://www.design-memo.com/coding/html-accordion
+    【CSS】CSSだけでタブ切り替えを作る方法 - bagelee（ベーグリー）
+    URL: https://bagelee.com/design/css/create_tabs_using_only_css/
 -->
 <!-- 
-  ● アコーディオンファイルとは関係ない修正事項（※解決したら削除しておくこと）
+  ● タブメニューとは関係ない修正事項（※解決したら削除しておくこと）
 
   ・スライドショーとカルーセルの参照URL
 
@@ -20,8 +20,8 @@
     https://dotinstall.com/lessons/carousel_js
 
 
-  ・アコーディオン 600px ~ 950px? 背景色の範囲が両端に重なるため、少しだけ両端に余白をつけておきたい。
-  ・おそらくカルーセルも同じ現象あり。
+  ・タブメニュー 600px ~ 950px? 背景色の範囲が両端に重なるため、少しだけ両端に余白をつけておきたい。
+  ・おそらくカルーセル・アコーディオンも同じ現象あり。
 
 -->
 <!DOCTYPE html>
@@ -33,10 +33,10 @@
   <meta name="robots" content="noindex">
   <link rel="stylesheet" href="../../common_all.css">
   <link rel="stylesheet" href="../common_UI.css">
-  <link rel="stylesheet" href="css/common_accordion.css">
-  <link rel="stylesheet" href="css/accordion_01.css">
-  <link rel="stylesheet" href="css/accordion_02.css">
-  <title>Accordion</title>
+  <link rel="stylesheet" href="css/common_tab-menu.css">
+  <link rel="stylesheet" href="css/tab-menu_01.css">
+  <link rel="stylesheet" href="css/tab-menu_02.css">
+  <title>Tab-menu</title>
 </head>
 
 <body>
@@ -49,65 +49,74 @@
   </div>
 
   <div class="container">
-    <h1>アコーディオンUI</h1>
+    <h1>タブメニュー</h1>
 
-    <!-- Accordion 01 -->
-    <!-- アコーディオンUI オーソドックス -->
+    <!-- Tab-menu 01 -->
+    <!-- タブメニュー オーソドックス -->
 
-    <div class="common_subcontainer accordion_01">
-      <h2>アコーディオンUI オーソドックス</h2>
-      <p>一般的によく見かけるアコーディオンUI</p>
+    <div class="common_subcontainer tab-menu_01">
+      <h2>タブメニュー オーソドックス</h2>
+      <p>一般的によく見かけるタブメニュー</p>
 
       <div class="implement_container">
-        <h1>FAQ</h1>
-        <dl>
-          <div>
-            <dt>質問です</dt>
-            <dd>回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。</dd>
-          </div>
-          <div>
-            <dt>質問です</dt>
-            <dd>回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。</dd>
-          </div>
-          <div>
-            <dt>質問です</dt>
-            <dd>回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。回答です。</dd>
-          </div>
-        </dl>
+        <div class="container">
+          <ul class="menu">
+            <li><a href="#" class="active" data-id="about">サイトの概要</a></li>
+            <li><a href="#" data-id="service">サービス内容</a></li>
+            <li><a href="#" data-id="contact">お問い合わせ</a></li>
+          </ul>
+
+          <section class="content active" id="about">
+            サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。
+          </section>
+
+          <section class="content" id="service">
+            サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。
+          </section>
+
+          <section class="content" id="contact">
+            お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。
+          </section>
+        </div>
       </div>
     </div>
 
 
 
-    <!-- Accordion 02 -->
-    <!-- アコーディオンUI HTML CSS のみでデザイン -->
+    <!-- Tab-menu 02 -->
+    <!-- タブメニュー HTML CSS のみでデザイン -->
 
-    <div class="common_subcontainer accordion_02">
-      <h2>アコーディオンUI　HTML CSS のみでデザイン</h2>
-      <p>details タグと summary タグを<br>用いたアコーディオンUI</p>
+    <div class="common_subcontainer tab-menu_02">
+      <h2>タブメニュー　HTML CSS のみでデザイン</h2>
+      <p>CSS のみを用いたタブメニュー。<br>
+      JavaScript を使わないため、動作が軽い。</p>
 
       <div class="implement_container">
-        <details open>
-          <summary>クリックで開閉</summary>
-          Chromeなど対応しているブラウザで見てください！
-        </details>
-        <details>
-          <summary>クリックで開閉</summary>
-          Chromeなど対応しているブラウザで見てください！
-        </details>
-        <details>
-          <summary>クリックで開閉</summary>
-          Chromeなど対応しているブラウザで見てください！
-        </details>
+        <div class="tabs">
+          <input id="all" type="radio" name="tab_item" checked>
+          <label class="tab_item" for="all">総合</label>
+          <input id="programming" type="radio" name="tab_item">
+          <label class="tab_item" for="programming">プログラミング</label>
+          <input id="design" type="radio" name="tab_item">
+          <label class="tab_item" for="design">デザイン</label>
+          <div class="tab_content" id="all_content">
+            総合の内容がここに入ります
+          </div>
+          <div class="tab_content" id="programming_content">
+            プログラミングの内容がここに入ります
+          </div>
+          <div class="tab_content" id="design_content">
+            デザインの内容がここに入ります
+          </div>
+        </div>
       </div>
-    </div>
 
-  </div> <!-- .container -->
+    </div> <!-- .container -->
 
-  <script src="../../common_all.js"></script>
-  <script src="js/common_accordion.js"></script>
-  <script src="js/accordion_01.js"></script>
-  <script src="js/accordion_02.js"></script>
+    <script src="../../common_all.js"></script>
+    <script src="js/common_tab-menu.js"></script>
+    <script src="js/tab-menu_01.js"></script>
+    <script src="js/tab-menu_02.js"></script>
 </body>
 
 </html>
