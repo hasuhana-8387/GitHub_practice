@@ -1,13 +1,18 @@
 <!-- 
   Reference study site
 
-    JavaScriptでタブメニューを作ろう
-    URL: https://dotinstall.com/lessons/tabmenu_js_v3
+      CSS入門 アニメーション編
+      URL: https://
 
-    【CSS】CSSだけでタブ切り替えを作る方法 - bagelee（ベーグリー）
-    URL: https://bagelee.com/design/css/create_tabs_using_only_css/
+      CSS入門 アニメーション編
+      URL: https://
 -->
 <!-- 
+  ● ローディングアイコンを１つではなくて別種類のものを複数配置したい。
+
+  ● プログレスバー・カレンダーを追加したい。
+
+
   ● タブメニューとは関係ない修正事項（※解決したら削除しておくこと）
 
   ・スライドショーとカルーセルの参照URL
@@ -33,9 +38,9 @@
   <meta name="robots" content="noindex">
   <link rel="stylesheet" href="../../common_all.css">
   <link rel="stylesheet" href="../common_UI.css">
-  <link rel="stylesheet" href="css/common_tab-menu.css">
-  <link rel="stylesheet" href="css/tab-menu_01.css">
-  <link rel="stylesheet" href="css/tab-menu_02.css">
+  <link rel="stylesheet" href="css/common_other-UI.css">
+  <link rel="stylesheet" href="css/other-UI_01.css">
+  <link rel="stylesheet" href="css/other-UI_02.css">
   <title>Tab-menu</title>
 </head>
 
@@ -49,47 +54,31 @@
   </div>
 
   <div class="container">
-    <h1>タブメニュー</h1>
+    <h1>様々な UI</h1>
 
-    <!-- Tab-menu 01 -->
-    <!-- タブメニュー オーソドックス -->
+    <!-- other-UI 01 -->
+    <!-- ローディングアイコン -->
 
-    <div class="common_subcontainer tab-menu_01">
-      <h2>タブメニュー オーソドックス</h2>
-      <p>一般的によく見かけるタブメニュー</p>
+    <div class="common_subcontainer other-UI_01">
+      <h2>ローディングアイコン</h2>
 
       <div class="implement_container">
-        <div class="container">
-          <ul class="menu">
-            <li><a href="#" class="active" data-id="about">サイトの概要</a></li>
-            <li><a href="#" data-id="service">サービス内容</a></li>
-            <li><a href="#" data-id="contact">お問い合わせ</a></li>
-          </ul>
-
-          <section class="content active" id="about">
-            サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。サイトの概要。
-          </section>
-
-          <section class="content" id="service">
-            サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。サービス内容。
-          </section>
-
-          <section class="content" id="contact">
-            お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。お問い合わせ。
-          </section>
-        </div>
+        <div class="loading loadingAnimation"></div>
+        <p>しばらくお待ち下さい。<br>
+          大量のファイルを読み込むフリをしています。<br>
+          クリックで動作の再生・停止を行えます。</p>
       </div>
     </div>
 
 
 
-    <!-- Tab-menu 02 -->
+    <!-- other-UI 02 -->
     <!-- タブメニュー HTML CSS のみでデザイン -->
 
-    <div class="common_subcontainer tab-menu_02">
+    <div class="common_subcontainer other-UI_02">
       <h2>タブメニュー　HTML CSS のみでデザイン</h2>
       <p>CSS のみを用いたタブメニュー。<br>
-      JavaScript を使わないため、動作が軽い。</p>
+        JavaScript を使わないため、動作が軽い。</p>
 
       <div class="implement_container">
         <div class="tabs">
@@ -114,9 +103,9 @@
     </div> <!-- .container -->
 
     <script src="../../common_all.js"></script>
-    <script src="js/common_tab-menu.js"></script>
-    <script src="js/tab-menu_01.js"></script>
-    <script src="js/tab-menu_02.js"></script>
+    <script src="js/common_other-UI.js"></script>
+    <script src="js/other-UI_01.js"></script>
+    <script src="js/other-UI_02.js"></script>
 </body>
 
 </html>

@@ -1,12 +1,12 @@
 @charset "utf-8";
 
-/* tab-menu 01 */
-/* タブメニュー オーソドックス */
+/* other-UI 01 */
+/* ローディングアイコン */
 
 /* Reference study site */
 
-/* JavaScriptでタブメニューを作ろう */
-/* URL: https://dotinstall.com/lessons/tabmenu_js_v3 */
+/* CSS入門 アニメーション編 */
+/* URL: https:// */
 
 /* 詳細な挙動や課題について ここに記載する */
 
@@ -14,51 +14,28 @@
 
 
 
-.tab-menu_01>.implement_container .container {
-  width: 90%;
-  font-size: 14px;
+.other-UI_01>.implement_container .loading {
+  width: 32px;
+  height: 32px;
+  border-top: 8px solid red;
+  border-right: 8px solid blue;
+  border-bottom: 8px solid green;
+  border-left: 8px solid yellow;
+  border-radius: 50%;
+  margin: 0 auto;
+  cursor: pointer;
 }
 
-.tab-menu_01>.implement_container .menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
+.other-UI_01>.implement_container .loadingAnimation {
+  animation: other-UI_01_spin 1000ms infinite linear;
 }
 
-.tab-menu_01>.implement_container .menu li a {
-  display: inline-block;
-  width: 100px;
-  text-align: center;
-  padding: 8px 0;
-  color: #333;
-  text-decoration: none;
-  border-radius: 8px 8px 0 0;
-  /* 左上と右上を角丸にする */
+.other-UI_01>.implement_container p {
+  font-size: 12px;
 }
 
-.tab-menu_01>.implement_container .menu li a.active {
-  background: #333;
-  color: #fff;
-}
-
-/* .menu li a の中で active が適用されていないものにホバーしたときのスタイル */
-.tab-menu_01>.implement_container .menu li a:not(.active):hover {
-  transition: background 0.3s;
-  background: #aaa;
-}
-
-.tab-menu_01>.implement_container .content.active {
-  background: #333;
-  color: #fff;
-  min-height: 150px;
-  /* ある程度高さを揃える */
-  padding: 12px;
-  display: block;
-  border-radius: 0 8px 8px 8px;
-  text-align: left;
-}
-
-.tab-menu_01>.implement_container .content {
-  display: none;
+@keyframes other-UI_01_spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
