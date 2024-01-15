@@ -1,73 +1,71 @@
 @charset "utf-8";
 
-/* tab-menu 02 */
-/* タブメニュー HTML CSS のみでデザイン */
+/* other-UI 02 */
+/* カレンダー */
 
 /* Reference study site */
 
-/* 【CSS】CSSだけでタブ切り替えを作る方法 - bagelee（ベーグリー） */
-/* URL: https://bagelee.com/design/css/create_tabs_using_only_css/ */
+/* JavaScriptでカレンダーを作ろう */
+/* URL: https:// */
 
 /* 詳細な挙動や課題について ここに記載する */
 
-/* ~ と + と属性セレクタとチェックボックスを組み合わせて実装する。 */
-/* ~ は兄弟要素の弟側に適用される点に注意する。 */
+/* 参照元コードのデザインに微修正を加える。 */
+/* カレンダー全体で6週分表示することで、カレンダーの高さを常に統一する。 */
 
 
 
-/*タブ切り替え全体のスタイル*/
-.tab-menu_02>.implement_container .tabs {
-  padding-bottom: 40px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  /* width: 700px; */
-  width: 90%;
+.other-UI_02>.implement_container {
+  font-family: 'Courier New', monospace;
+}
+
+.other-UI_02>.implement_container table {
+  border-collapse: collapse;
+  border: 2px solid #eee;
   margin: 0 auto;
 }
 
-/*タブのスタイル*/
-.tab-menu_02>.implement_container .tab_item {
-  width: calc(100%/3);
-  height: 50px;
-  border-bottom: 3px solid #5ab4bd;
-  background-color: #d9d9d9;
-  line-height: 50px;
-  font-size: 16px;
+.other-UI_02>.implement_container thead,
+.other-UI_02>.implement_container tfoot {
+  background: #fff;
+}
+
+.other-UI_02>.implement_container th,
+.other-UI_02>.implement_container td {
+  padding: 8px;
   text-align: center;
-  color: #565656;
-  display: block;
-  float: left;
+}
+
+.other-UI_02>.implement_container tbody td:first-child {
+  color: red;
+}
+
+.other-UI_02>.implement_container tbody td:last-child {
+  color: blue;
+}
+
+.other-UI_02>.implement_container tfoot {
   font-weight: bold;
-  transition: all 0.2s ease;
 }
 
-.tab-menu_02>.implement_container .tab_item:hover {
-  opacity: 0.75;
+.other-UI_02>.implement_container td.disabled {
+  opacity: 0.3;
 }
 
-/*ラジオボタンを全て消す*/
-.tab-menu_02>.implement_container input[name="tab_item"] {
-  display: none;
+.other-UI_02>.implement_container td.today {
+  font-weight: bold;
 }
 
-/*タブ切り替えの中身のスタイル*/
-.tab-menu_02>.implement_container .tab_content {
-  display: none;
-  padding: 40px 40px 0;
-  clear: both;
-  overflow: hidden;
+.other-UI_02>.implement_container #prev,
+.other-UI_02>.implement_container #next,
+.other-UI_02>.implement_container #today {
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
 }
 
-
-/*選択されているタブのコンテンツのみを表示*/
-.tab-menu_02>.implement_container #all:checked~#all_content,
-.tab-menu_02>.implement_container #programming:checked~#programming_content,
-.tab-menu_02>.implement_container #design:checked~#design_content {
-  display: block;
-}
-
-/*選択されているタブのスタイルを変える*/
-.tab-menu_02>.implement_container .tabs input:checked+.tab_item {
-  background-color: #5ab4bd;
-  color: #fff;
+.other-UI_02>.implement_container #prev:hover,
+.other-UI_02>.implement_container #next:hover,
+.other-UI_02>.implement_container #today:hover {
+  background: #ccc;
 }

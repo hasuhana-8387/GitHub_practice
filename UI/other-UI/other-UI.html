@@ -4,7 +4,7 @@
       CSS入門 アニメーション編
       URL: https://
 
-      CSS入門 アニメーション編
+      JavaScriptでカレンダーを作ろう
       URL: https://
 -->
 <!-- 
@@ -73,31 +73,39 @@
 
 
     <!-- other-UI 02 -->
-    <!-- タブメニュー HTML CSS のみでデザイン -->
+    <!-- カレンダー -->
 
     <div class="common_subcontainer other-UI_02">
-      <h2>タブメニュー　HTML CSS のみでデザイン</h2>
-      <p>CSS のみを用いたタブメニュー。<br>
-        JavaScript を使わないため、動作が軽い。</p>
+      <h2>カレンダー</h2>
 
       <div class="implement_container">
-        <div class="tabs">
-          <input id="all" type="radio" name="tab_item" checked>
-          <label class="tab_item" for="all">総合</label>
-          <input id="programming" type="radio" name="tab_item">
-          <label class="tab_item" for="programming">プログラミング</label>
-          <input id="design" type="radio" name="tab_item">
-          <label class="tab_item" for="design">デザイン</label>
-          <div class="tab_content" id="all_content">
-            総合の内容がここに入ります
-          </div>
-          <div class="tab_content" id="programming_content">
-            プログラミングの内容がここに入ります
-          </div>
-          <div class="tab_content" id="design_content">
-            デザインの内容がここに入ります
-          </div>
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th id="prev">&laquo;</th>
+              <th id="title" colspan="5">2020/05</th>
+              <th id="next">&raquo;</th>
+            </tr>
+            <tr>
+              <th>Sun</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <th id="today" colspan="7">Today</th>
+            </tr>
+          </tfoot>
+        </table>
       </div>
 
     </div> <!-- .container -->
