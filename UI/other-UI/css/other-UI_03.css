@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+/* other-UI 03 */
+/* カレンダー */
+
+/* Reference study site */
+
+/* JavaScriptでカレンダーを作ろう */
+/* URL: https:// */
+
+/* 詳細な挙動や課題について ここに記載する */
+
+/* 参照元コードのデザインに微修正を加える。 */
+/* カレンダー全体で6週分表示することで、カレンダーの高さを常に統一する。 */
+
+
+
+.other-UI_03>.implement_container {
+  font-family: 'Courier New', monospace;
+}
+
+.other-UI_03>.implement_container table {
+  border-collapse: collapse;
+  border: 2px solid #eee;
+  margin: 0 auto;
+}
+
+.other-UI_03>.implement_container thead,
+.other-UI_03>.implement_container tfoot {
+  background: #fff;
+}
+
+.other-UI_03>.implement_container th,
+.other-UI_03>.implement_container td {
+  padding: 8px;
+  text-align: center;
+}
+
+.other-UI_03>.implement_container tbody td:first-child {
+  color: red;
+}
+
+.other-UI_03>.implement_container tbody td:last-child {
+  color: blue;
+}
+
+.other-UI_03>.implement_container tfoot {
+  font-weight: bold;
+}
+
+.other-UI_03>.implement_container td.disabled {
+  opacity: 0.3;
+}
+
+.other-UI_03>.implement_container td.today {
+  font-weight: bold;
+}
+
+.other-UI_03>.implement_container #prev,
+.other-UI_03>.implement_container #next,
+.other-UI_03>.implement_container #today {
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.other-UI_03>.implement_container #prev:hover,
+.other-UI_03>.implement_container #next:hover,
+.other-UI_03>.implement_container #today:hover {
+  background: #ccc;
+}

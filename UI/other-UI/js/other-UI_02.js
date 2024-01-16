@@ -1,172 +1,81 @@
 'use strict';
 
 /* other-UI 02 */
-/* カレンダー */
+/* プログレスバー */
 
 /* Reference study site */
 
-/* JavaScriptでカレンダーを作ろう */
-/* URL: https:// */
+/* コピペで簡単！CSSとJavaScriptで作られた動くオシャレで綺麗なローディング画面アニメーション10選！【ロード画面/画像を使わない】 - WebDesignFacts - */
+/* URL: https://webdesignfacts.net/entry/page-loader/#gsc.tab=0 */
 
 /* 詳細な挙動や課題について ここに記載する */
 
-/* カレンダー全体で6週分表示することで、カレンダーの高さを常に統一する。 */
+/* 元コードの jQuery を JavaScript へ修正する。 */
+
+/* 元コードの setInterval を setTimeout へ修正すると動作がどうなるか検証する。
+   動作の違いは感じないため、どちらの処理のほうが望ましいのか分からない。
+   何となく setTimeout のほうが処理の負荷が少なく安定する印象があるため、 setTimeout を採用してみる。 */
+
+/* また、 WebDesignFacts 様は setInterval の処理を 80ms 、
+   CSS の transition を 100ms に設定しているけど、
+   どうして差を開いておく必要があるのか分からない。
+
+   試しに CSS の transition を 80ms に設定すると、さほど挙動に差異は見られない。
+   どちらかというと、 100ms のほうが何となく滑らかな感じがするため、 WebDesignFacts 様のスタンスを継承する。
+
+   ちなみに ここで極端な値として、 10ms に設定すると、プログレスバーがいっぱいになる前に数字が100%になり、
+   その後、急速にプログレスバーがいっぱいになってしまい不自然な挙動になる。 */
 
 
 
 {
-  const today = new Date();
-  let year = today.getFullYear();
-  let month = today.getMonth();
+  let bar = document.querySelector('#progress_bar');
+  let percentage = parseInt(document.querySelector('#progress_percentage').textContent);
 
+  // setTimeout で処理
 
-
-  function getCalendarHead() {
-    const dates = [];
-    const d = new Date(year, month, 0).getDate();
-    const n = new Date(year, month, 1).getDay();
-
-    for (let i = 0; i < n; i++) {
-      dates.unshift({
-        date: d - i,
-        isToday: false,
-        isDisabled: true,
-      });
-    }
-
-    return dates;
+  function stopProgress() {
+    clearTimeout(timeoutId);
   }
 
+  let timeoutId;
 
-
-  function getCalendarBody() {
-    const dates = [];
-    const lastDate = new Date(year, month + 1, 0).getDate();
-
-    for (let i = 1; i <= lastDate; i++) {
-      dates.push({
-        date: i,
-        isToday: false,
-        isDisabled: false,
-      });
-    }
-
-    if (year === today.getFullYear() && month === today.getMonth()) {
-      dates[today.getDate() - 1].isToday = true;
-    }
-
-    return dates;
-  }
-
-
-
-  function getCalendarTail() {
-    const dates = [];
-    const lastDay = new Date(year, month + 1, 0).getDay();
-
-    for (let i = 1; i < 7 - lastDay + 14; i++) {
-      // weeksMaxCount(最大6週分)に対応するために、+2週分 date プロパティを確保しておく。
-      dates.push({
-        date: i,
-        isToday: false,
-        isDisabled: true,
-      });
-    }
-
-    return dates;
-  }
-
-
-
-  function clearCalendar() {
-    const tbody = document.querySelector('tbody');
-
-    while (tbody.firstChild) {
-      tbody.removeChild(tbody.firstChild);
-    }
-  }
-
-
-
-  function renderTitle() {
-    const title = `${year}/${String(month + 1).padStart(2, '0')}`;
-    document.getElementById('title').textContent = title;
-  }
-
-
-
-  function renderWeeks() {
-    const dates = [
-      ...getCalendarHead(),
-      ...getCalendarBody(),
-      ...getCalendarTail(),
-    ];
-
-    const weeks = [];
-    const weeksMaxCount = 6;
-    // カレンダー全体を通して高さを統一するための処理
-    // 最大で6週分必要。月初が土曜日に始まる場合など
-    // 最小は4週分。2月の月初が日曜日に始まる場合など（※稀なケース）
-
-    for (let i = 0; i < weeksMaxCount; i++) {
-      weeks.push(dates.splice(0, 7));
-    }
-
-    weeks.forEach(week => {
-      const tr = document.createElement('tr');
-
-      week.forEach(date => {
-        const td = document.createElement('td');
-
-        td.textContent = date.date;
-        if (date.isToday) {
-          td.classList.add('today');
+  function showClock() {
+    timeoutId = setTimeout(() => {
+      percentage++;
+      if (percentage <= 100) {
+        document.querySelector('#progress_percentage').textContent = percentage + '%';
+        if (percentage > 10) {
+          bar.style.width = percentage + '%';
         }
-        if (date.isDisabled) {
-          td.classList.add('disabled');
-        }
-
-        tr.appendChild(td);
-      });
-
-      document.querySelector('tbody').appendChild(tr);
-
-    });
+        showClock();
+      }
+      else {
+        stopProgress()
+      }
+    }, 80);
   }
 
-
-
-  function createCalendar() {
-    clearCalendar();
-    renderTitle();
-    renderWeeks();
-  }
+  showClock();
 
 
 
-  document.getElementById('prev').addEventListener('click', () => {
-    month--;
-    if (month < 0) {
-      year--;
-      month = 11;
-    }
-    createCalendar();
-  });
+  // setInterval で処理
 
-  document.getElementById('next').addEventListener('click', () => {
-    month++;
-    if (month > 11) {
-      year++;
-      month = 0;
-    }
-    createCalendar();
-  });
+  // function stopProgress() {
+  //   clearTimeout(progress);
+  // }
 
-  document.getElementById('today').addEventListener('click', () => {
-    year = today.getFullYear();
-    month = today.getMonth();
-    createCalendar();
-  });
-
-  createCalendar();
+  // let progress = setTimeout(() => {
+  //   percentage++;
+  //   if (percentage <= 100) {
+  //     document.querySelector('#progress_percentage').textContent = percentage + '%';
+  //     if (percentage > 10) {
+  //       bar.style.width = percentage + '%';
+  //     }
+  //   }
+  //   else {
+  //     stopProgress()
+  //   }
+  // }, 80);
 }

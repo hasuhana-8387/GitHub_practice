@@ -4,6 +4,9 @@
       CSS入門 アニメーション編
       URL: https://
 
+      コピペで簡単！CSSとJavaScriptで作られた動くオシャレで綺麗なローディング画面アニメーション10選！【ロード画面/画像を使わない】 - WebDesignFacts -
+      URL: https://webdesignfacts.net/entry/page-loader/#gsc.tab=0
+
       JavaScriptでカレンダーを作ろう
       URL: https://
 -->
@@ -41,6 +44,7 @@
   <link rel="stylesheet" href="css/common_other-UI.css">
   <link rel="stylesheet" href="css/other-UI_01.css">
   <link rel="stylesheet" href="css/other-UI_02.css">
+  <link rel="stylesheet" href="css/other-UI_03.css">
   <title>Tab-menu</title>
 </head>
 
@@ -73,47 +77,75 @@
 
 
     <!-- other-UI 02 -->
-    <!-- カレンダー -->
+    <!-- プログレスバー -->
 
     <div class="common_subcontainer other-UI_02">
-      <h2>カレンダー</h2>
+      <h2>プログレスバー</h2>
 
       <div class="implement_container">
-        <table>
-          <thead>
-            <tr>
-              <th id="prev">&laquo;</th>
-              <th id="title" colspan="5">2020/05</th>
-              <th id="next">&raquo;</th>
-            </tr>
-            <tr>
-              <th>Sun</th>
-              <th>Mon</th>
-              <th>Tue</th>
-              <th>Wed</th>
-              <th>Thu</th>
-              <th>Fri</th>
-              <th>Sat</th>
-            </tr>
-          </thead>
+        <div id="loader_container">
 
-          <tbody>
-          </tbody>
+          <div id="bar_container">
+            <div id="progress_bar">
+              <div id="progress_percentage">
+                10%
+              </div><!--of #progress_percentage-->
+            </div><!--of #progress_bar-->
+          </div><!--of #bar_container-->
 
-          <tfoot>
-            <tr>
-              <th id="today" colspan="7">Today</th>
-            </tr>
-          </tfoot>
-        </table>
+          <div id="text_container">
+            Loading
+            <span>Please Wait...</span>
+          </div><!--of #text_container-->
+
+        </div><!--of #loader_container-->
       </div>
 
-    </div> <!-- .container -->
 
-    <script src="../../common_all.js"></script>
-    <script src="js/common_other-UI.js"></script>
-    <script src="js/other-UI_01.js"></script>
-    <script src="js/other-UI_02.js"></script>
+
+      <!-- other-UI 03 -->
+      <!-- カレンダー -->
+
+      <div class="common_subcontainer other-UI_03">
+        <h2>カレンダー</h2>
+
+        <div class="implement_container">
+          <table>
+            <thead>
+              <tr>
+                <th id="prev">&laquo;</th>
+                <th id="title" colspan="5">2020/05</th>
+                <th id="next">&raquo;</th>
+              </tr>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <th id="today" colspan="7">Today</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+      </div> <!-- .container -->
+
+      <script src="../../common_all.js"></script>
+      <script src="js/common_other-UI.js"></script>
+      <script src="js/other-UI_01.js"></script>
+      <script src="js/other-UI_02.js"></script>
+      <script src="js/other-UI_03.js"></script>
 </body>
 
 </html>
