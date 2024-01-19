@@ -6,7 +6,7 @@
 /* Reference study site */
 
 /* JavaScriptでカレンダーを作ろう */
-/* URL: https:// */
+/* URL: https://dotinstall.com/lessons/calendar_js */
 
 /* 詳細な挙動や課題について ここに記載する */
 

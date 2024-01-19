@@ -12,6 +12,8 @@
 
 /* 元コードの jQuery を JavaScript へ修正する。 */
 
+/* クリックイベントに対応させる。 */
+
 /* 元コードの setInterval を setTimeout へ修正すると動作がどうなるか検証する。
    動作の違いは感じないため、どちらの処理のほうが望ましいのか分からない。
    何となく setTimeout のほうが処理の負荷が少なく安定する印象があるため、 setTimeout を採用してみる。 */
@@ -29,10 +31,12 @@
 
 
 {
+  let barContainer = document.querySelector('#bar_container');
   let bar = document.querySelector('#progress_bar');
   let percentage = parseInt(document.querySelector('#progress_percentage').textContent);
+  let textContainer = document.querySelector('#text_container');
 
-  // setTimeout で処理
+  // setTimeout で処理 + クリックイベントに対応させる
 
   function stopProgress() {
     clearTimeout(timeoutId);
@@ -52,11 +56,36 @@
       }
       else {
         stopProgress()
+
+        barContainer.classList.add('clickable');
+        textContainer.textContent = 'Completed!';
+
+        let textContainer_span = document.createElement('span');
+        textContainer_span.textContent = 'Restart loading by click.';
+
+        textContainer.appendChild(textContainer_span);
       }
     }, 80);
   }
 
   showClock();
+
+  barContainer.addEventListener('click', () => {
+    if (percentage <= 100) {
+      return;
+    }
+
+    barContainer.classList.remove('clickable');
+    textContainer.textContent = 'Loading';
+
+    let textContainer_span = document.createElement('span');
+    textContainer_span.textContent = 'Please Wait...';
+
+    textContainer.appendChild(textContainer_span);
+
+    percentage = 10;
+    showClock();
+  });
 
 
 

@@ -6,7 +6,7 @@
 /* Reference study site */
 
 /* JavaScriptでカレンダーを作ろう */
-/* URL: https:// */
+/* URL: https://dotinstall.com/lessons/calendar_js */
 
 /* 詳細な挙動や課題について ここに記載する */
 
@@ -21,7 +21,7 @@
 
 .other-UI_03>.implement_container table {
   border-collapse: collapse;
-  border: 2px solid #eee;
+  border: 6px solid #fff;
   margin: 0 auto;
 }
 
@@ -54,6 +54,7 @@
 
 .other-UI_03>.implement_container td.today {
   font-weight: bold;
+  background: #ccc;
 }
 
 .other-UI_03>.implement_container #prev,
