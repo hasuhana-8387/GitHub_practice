@@ -1,0 +1,222 @@
+@charset "utf-8";
+
+/* other-UI 01 */
+/* ローディングアイコン */
+
+/* Reference study site */
+
+/* CSS入門 アニメーション編 */
+/* URL: https://dotinstall.com/lessons/basic_css_animation_v3 */
+
+/* CSSだけで実装できる、シンプルなローディングアニメーションを5つ作ってみた */
+/* URL: https://kuzlog.com/2017/02/08/1009/ */
+
+/* 詳細な挙動や課題について ここに記載する */
+
+/* 参照元コードのデザインに修正を加える。 */
+
+
+
+.other-UI_01>.implement_container .all-loading_container {
+  display: flex;
+  height: 150px;
+}
+
+.other-UI_01>.implement_container hr {
+  margin: 0;
+}
+
+.other-UI_01>.implement_container .loading1-Wrap {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 48px auto;
+  cursor: pointer;
+}
+
+.other-UI_01>.implement_container .loading1_1,
+.other-UI_01>.implement_container .loading1_2,
+.other-UI_01>.implement_container .loading1_3,
+.other-UI_01>.implement_container .loading1_4,
+.other-UI_01>.implement_container .loading1_5,
+.other-UI_01>.implement_container .loading1_6,
+.other-UI_01>.implement_container .loading1_7,
+.other-UI_01>.implement_container .loading1_8 {
+  position: absolute;
+  border: 4px solid #fff;
+  border-radius: 100%;
+}
+
+.other-UI_01>.implement_container .loading1_1 {
+  top: 0;
+  left: 20px;
+}
+
+.other-UI_01>.implement_container .loading1_1_animation {
+  animation: loading1 1s infinite;
+}
+
+.other-UI_01>.implement_container .loading1_2 {
+  top: 5px;
+  right: 5px;
+}
+
+.other-UI_01>.implement_container .loading1_2_animation {
+  animation: loading1 1s infinite 0.125s;
+}
+
+.other-UI_01>.implement_container .loading1_3 {
+  top: 20px;
+  right: 0;
+}
+
+.other-UI_01>.implement_container .loading1_3_animation {
+  animation: loading1 1s infinite 0.25s;
+}
+
+.other-UI_01>.implement_container .loading1_4 {
+  bottom: 5px;
+  right: 5px;
+}
+
+.other-UI_01>.implement_container .loading1_4_animation {
+  animation: loading1 1s infinite 0.375s;
+}
+
+.other-UI_01>.implement_container .loading1_5 {
+  bottom: 0;
+  left: 20px;
+}
+
+.other-UI_01>.implement_container .loading1_5_animation {
+  animation: loading1 1s infinite 0.5s;
+}
+
+.other-UI_01>.implement_container .loading1_6 {
+  bottom: 5px;
+  left: 5px;
+}
+
+.other-UI_01>.implement_container .loading1_6_animation {
+  animation: loading1 1s infinite 0.625s;
+}
+
+.other-UI_01>.implement_container .loading1_7 {
+  top: 20px;
+  left: 0;
+}
+
+.other-UI_01>.implement_container .loading1_7_animation {
+  animation: loading1 1s infinite 0.75s;
+}
+
+.other-UI_01>.implement_container .loading1_8 {
+  top: 5px;
+  left: 5px;
+}
+
+.other-UI_01>.implement_container .loading1_8_animation {
+  animation: loading1 1s infinite 0.875s;
+}
+
+@keyframes loading1 {
+  0% {
+    border-color: #333;
+  }
+
+  100% {
+    border-color: #fff;
+  }
+}
+
+
+
+.other-UI_01>.implement_container .loading2 {
+  width: 32px;
+  height: 32px;
+  border-top: 8px solid red;
+  border-right: 8px solid blue;
+  border-bottom: 8px solid green;
+  border-left: 8px solid yellow;
+  border-radius: 50%;
+  margin: 48px auto;
+  cursor: pointer;
+}
+
+.other-UI_01>.implement_container .loading2_animation {
+  animation: loading2_animation 1000ms infinite linear;
+}
+
+@keyframes loading2_animation {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.other-UI_01>.implement_container .loading3-Wrap {
+  display: flex;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: 48px auto;
+  cursor: pointer;
+}
+
+.other-UI_01>.implement_container .loading3_1,
+.other-UI_01>.implement_container .loading3_2,
+.other-UI_01>.implement_container .loading3_3,
+.other-UI_01>.implement_container .loading3_4,
+.other-UI_01>.implement_container .loading3_5 {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border: 1px solid #333;
+  background: #333;
+  border-radius: 50%;
+  transform-origin: center 20px;
+}
+
+.other-UI_01>.implement_container .loading3_1_animation {
+  animation: loading3_animation 1.6s infinite ease-in-out;
+}
+
+.other-UI_01>.implement_container .loading3_2_animation {
+  animation: loading3_animation 1.6s infinite 0.15s ease-in-out;
+}
+
+.other-UI_01>.implement_container .loading3_3_animation {
+  animation: loading3_animation 1.6s infinite 0.3s ease-in-out;
+}
+
+.other-UI_01>.implement_container .loading3_4_animation {
+  animation: loading3_animation 1.6s infinite 0.45s ease-in-out;
+}
+
+.other-UI_01>.implement_container .loading3_5_animation {
+  animation: loading3_animation 1.6s infinite 0.6s ease-in-out;
+}
+
+@keyframes loading3_animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  85% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.other-UI_01>.implement_container p {
+  font-size: 12px;
+}

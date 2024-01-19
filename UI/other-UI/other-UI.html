@@ -1,0 +1,181 @@
+<!-- 
+  Reference study site
+
+    CSS入門 アニメーション編
+    URL: https://dotinstall.com/lessons/basic_css_animation_v3
+
+    CSSだけで実装できる、シンプルなローディングアニメーションを5つ作ってみた
+    URL: https://kuzlog.com/2017/02/08/1009/
+
+    コピペで簡単！CSSとJavaScriptで作られた動くオシャレで綺麗なローディング画面アニメーション10選！【ロード画面/画像を使わない】 - WebDesignFacts -
+    URL: https://webdesignfacts.net/entry/page-loader/#gsc.tab=0
+
+    JavaScriptでカレンダーを作ろう
+    URL: https://dotinstall.com/lessons/calendar_js
+-->
+<!-- 
+  ● ローディングアイコンを１つではなくて別種類のものを複数配置したい。
+
+  ● プログレスバー・カレンダーを追加したい。
+
+
+  ● タブメニューとは関係ない修正事項（※解決したら削除しておくこと）
+
+  ・スライドショーとカルーセルの参照URL
+
+    スライドショーの該当URLを貼っておく。
+    JavaScriptでスライドショーを作ろう
+    https://dotinstall.com/lessons/slideshow_js_v4
+
+    JavaScriptでカルーセルを作ろう
+    https://dotinstall.com/lessons/carousel_js
+
+
+  ・タブメニュー 600px ~ 950px? 背景色の範囲が両端に重なるため、少しだけ両端に余白をつけておきたい。
+  ・おそらくカルーセル・アコーディオンも同じ現象あり。
+
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../../common_all.css">
+  <link rel="stylesheet" href="../common_UI.css">
+  <link rel="stylesheet" href="css/common_other-UI.css">
+  <link rel="stylesheet" href="css/other-UI_01.css">
+  <link rel="stylesheet" href="css/other-UI_02.css">
+  <link rel="stylesheet" href="css/other-UI_03.css">
+  <title>Tab-menu</title>
+</head>
+
+<body>
+  <div class="pagetop">
+    <a href="#"><span>↑</span></a>
+  </div>
+
+  <div class="back_top_page">
+    <a href="../../index.html">TOP<br>ページに<br>戻る</a>
+  </div>
+
+  <div class="container">
+    <h1>様々な UI</h1>
+
+    <!-- other-UI 01 -->
+    <!-- ローディングアイコン -->
+
+    <div class="common_subcontainer other-UI_01">
+      <h2>ローディングアイコン</h2>
+
+      <div class="implement_container">
+        <div class="all-loading_container">
+          <div class="loading1-Wrap">
+            <div class="loading1_1 loading1_1_animation"></div>
+            <div class="loading1_2 loading1_2_animation"></div>
+            <div class="loading1_3 loading1_3_animation"></div>
+            <div class="loading1_4 loading1_4_animation"></div>
+            <div class="loading1_5 loading1_5_animation"></div>
+            <div class="loading1_6 loading1_6_animation"></div>
+            <div class="loading1_7 loading1_7_animation"></div>
+            <div class="loading1_8 loading1_8_animation"></div>
+          </div>
+          <hr />
+
+          <div class="loading2 loading2_animation"></div>
+          <hr />
+
+          <div class="loading3-Wrap">
+            <div class="loading3_1 loading3_1_animation"></div>
+            <div class="loading3_2 loading3_2_animation"></div>
+            <div class="loading3_3 loading3_3_animation"></div>
+            <div class="loading3_4 loading3_4_animation"></div>
+            <div class="loading3_5 loading3_5_animation"></div>
+          </div>
+        </div>
+        <p>
+          しばらくお待ち下さい。<br>
+          大量のファイルを読み込むフリをしています。<br>
+          クリックで動作の再生・停止を行えます。
+        </p>
+      </div>
+    </div>
+
+
+
+    <!-- other-UI 02 -->
+    <!-- プログレスバー -->
+
+    <div class="common_subcontainer other-UI_02">
+      <h2>プログレスバー</h2>
+
+      <div class="implement_container">
+        <div id="loader_container">
+
+          <div id="bar_container">
+            <div id="progress_bar">
+              <div id="progress_percentage">
+                10%
+              </div><!--of #progress_percentage-->
+            </div><!--of #progress_bar-->
+          </div><!--of #bar_container-->
+
+          <div id="text_container">
+            Loading
+            <span>Please Wait...</span>
+          </div><!--of #text_container-->
+
+        </div><!--of #loader_container-->
+      </div>
+    </div>
+
+
+
+    <!-- other-UI 03 -->
+    <!-- カレンダー -->
+
+    <div class="common_subcontainer other-UI_03">
+      <h2>カレンダー</h2>
+
+      <div class="implement_container">
+        <table>
+          <thead>
+            <tr>
+              <th id="prev">&laquo;</th>
+              <th id="title" colspan="5">2020/05</th>
+              <th id="next">&raquo;</th>
+            </tr>
+            <tr>
+              <th>Sun</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <th id="today" colspan="7">Today</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+  </div> <!-- .container -->
+
+  <script src="../../common_all.js"></script>
+  <script src="js/common_other-UI.js"></script>
+  <script src="js/other-UI_01.js"></script>
+  <script src="js/other-UI_02.js"></script>
+  <script src="js/other-UI_03.js"></script>
+</body>
+
+</html>
