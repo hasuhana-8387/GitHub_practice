@@ -61,7 +61,7 @@
         textContainer.textContent = 'Completed!';
 
         let textContainer_span = document.createElement('span');
-        textContainer_span.textContent = 'Restart loading by click.';
+        textContainer_span.textContent = 'Click to restart loading.';
 
         textContainer.appendChild(textContainer_span);
       }
