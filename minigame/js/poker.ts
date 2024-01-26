@@ -1805,16 +1805,19 @@
         // ストックの位置にボタンを配置
         this._tool.createDoubleLineBtn(
           document.querySelector('.stock')!,
-          'startBtn',
+          'startPokerBtn',
           'ポーカー<br>開 始！'
         );
 
-        const startBtn = document.querySelector<HTMLElement>('.startBtn');
-        this._tool.nullCheck(startBtn);
+        const startPokerBtn = document.querySelector<HTMLDivElement>('.startPokerBtn');
+        this._tool.nullCheck(startPokerBtn);
 
-        startBtn!.addEventListener('click', () => {
-          // ゲーム開始ボタンを消去
-          startBtn!.remove();
+        startPokerBtn!.addEventListener('click', () => {
+          // ボタンを消去
+          const stock_div = document.querySelectorAll('.stock>div');
+          stock_div.forEach((div) => {
+            div.remove();
+          });
 
           // メッセージを非表示
           this._message.hideMessage();
@@ -1826,6 +1829,20 @@
           // サブプレイヤーが思考して意思決定を行う
           console.log(`プレイヤー ${this.playerTurn} のターン！`);
           this.subPlayerThought();
+        });
+
+
+        this._tool.createDoubleLineBtn(
+          document.querySelector('.stock')!,
+          'backToStartBtn',
+          'カードを<br>配り直す'
+        );
+
+        const backToStartBtn = document.querySelector<HTMLDivElement>('.backToStartBtn');
+        this._tool.nullCheck(backToStartBtn);
+
+        backToStartBtn!.addEventListener('click', () => {
+          this.click_backToStartBtn();
         });
       }, 11000);
     }
@@ -2492,6 +2509,40 @@
           handArea.appendChild(li);
         }
       );
+    }
+
+
+
+    public click_backToStartBtn() {
+      // ボタンを消去
+      const stock_div = document.querySelectorAll('.stock>div');
+      stock_div.forEach((div) => {
+        div.remove();
+      });
+
+      // 結果リストを画面外に移動
+      const resultList = document.querySelector<HTMLDivElement>('.result_list');
+      resultList!.style.top = '-1300px';
+
+      // 手札 捨て札を非表示
+      for (let i = 0; i < this._players.length; i++) {
+        this.handAreas[i]!.classList.add('hide');
+        this.discardAreas[i]!.classList.add('hide');
+      }
+
+      // メッセージを非表示
+      this._message.hideMessage();
+
+      // 1 秒後にゲームを初期化して、カードを配り直す。
+      setTimeout(() => {
+        // 手札 捨て札を表示
+        for (let i = 0; i < this._players.length; i++) {
+          this.handAreas[i]!.classList.remove('hide');
+          this.discardAreas[i]!.classList.remove('hide');
+        }
+
+        new Poker();
+      }, 1000);
     }
 
 
@@ -3762,11 +3813,7 @@
         const resultList = document.querySelector<HTMLDivElement>('.result_list');
 
         // 画面解像度に応じて条件分岐
-        if (window.screen.height === 1200) {
-          resultList!.style.top = '26.5%'; // 画面解像度 1920 * 1200
-        } else {
-          resultList!.style.top = '19%'; // 画面解像度 1920 * 1080 を前提とする
-        }
+        resultList!.style.top = '19%'; // 画面解像度 1920 * 1080 を前提とする
       }, 17000);
 
 
@@ -3793,103 +3840,77 @@
         this._tool.nullCheck(backToStartBtn);
 
         backToStartBtn!.addEventListener('click', () => {
-          // ボタンを消去
-          backToStartBtn!.remove();
+          this.click_backToStartBtn();
 
-          // 結果リストを画面外に移動
-          const resultList = document.querySelector<HTMLDivElement>('.result_list');
-          resultList!.style.top = '-1300px';
 
-          // 手札 捨て札を非表示
-          for (let i = 0; i < this._players.length; i++) {
-            this.handAreas[i]!.classList.add('hide');
-            this.discardAreas[i]!.classList.add('hide');
+          // ※以下 没コード 画像サイズの異なるデータを挿入すると、どれほど面倒なことになるかのサンプル
+          {
+            // ※ 2 周目以降、player 1 & 3 & stock がカードを捨て札に出すとき、微妙に横の位置がずれる。
+            // スタート時のカードを配るストックアニメーションの時点でずれが生じている。
+            // player 1 は捨て札の位置の手前 10px?程度手前で止まってしまう。
+            // player 3 は捨て札の位置から 10px?程度超えて止まる。
+            // stock も本来の表示される横向きのカード画像が 10px?程度 ずれた位置から表示されて手札へ移動する。
+            // => 原因がよく分からない……
+
+            // ※同じ領域でサイズの異なる画像（横向き画像と縦向き画像）を混在させるから
+            // transform の配置調整という面倒な問題が発生する。
+            // 最初から rotate() で調整した上で縦向き画像を配置すべきだった……。
+
+
+
+            // player 1 2 3 は rotate() を初期化する必要がある。 => うまくいかない……。
+
+            // for (let i = 1; i < this._players.length; i++) {
+            //   const playerHandCardsImage = document.querySelectorAll<HTMLImageElement>(`.player${i}_hand>li>img`);
+
+            //   if (i === 2) {
+            //     // player 2
+            //     playerHandCardsImage.forEach((card) => {
+            //       // 180deg のため、 カードが上下反転する。 => 初期化
+            //       // card.style.transform = 'rotate(180deg)';
+            //       card.style.transform = 'rotate(0deg)';
+            //     });
+            //   } else {
+            //     // player 1 & 3 は side_back.png を配置するため、横向きから縦向きに戻す必要がある。
+            //     playerHandCardsImage.forEach((card, index) => {
+            //       // カード画像ファイル要素 (img) の親要素 (li) の設定
+            //       // カードを選択する際に、 top プロパティを有効にするため、
+            //       //  position: relative; が設定されてる。それを初期化する。
+            //       if (card.parentElement === null) {
+            //         this._tool.nullCheck(card.parentElement);
+            //       }
+            //       card.parentElement!.style.position = 'relative';
+            //       card.style.position = 'relative';
+
+            //       // 見た目は width: 100px; を設定することで変わらないように見えるけど、
+            //       // ボックス領域はカード画像サイズから height 100px => 150px 確保していると思われる。
+            //       // そのため、下の要素に向かうにつれて 50px ずつ ずれて配置されてしまうので座標を修正。
+            //       // card.parentElement!.style.top = String(-50 * index) + 'px';
+
+            //       // 上記を初期化
+            //       card.parentElement!.style.top = '0';
+
+            //       // カード画像ファイル要素 (img) の設定
+            //       // card.style.width = '100px';
+            //       // 上記を初期化
+
+            //       card.style.height = '150px';
+
+            //       if (i === 1) {
+            //         // 90deg のため、 100px 下へ移動する。左へ移動ではない。 => 初期化
+            //         // card.style.transform = 'rotate(90deg) translate(100px, 0)';
+            //         card.style.transform = 'translate(0, 0)';
+            //         card.style.transform = 'rotate(0deg)';
+            //       } else if (i === 3) {
+            //         // 270deg のため、 -100px 下へ移動する。左へ移動ではない。 => 初期化
+            //         // card.style.transform = 'rotate(270deg) translate(-100px, 0)';
+            //         card.style.transform = 'translate(0, 0)';
+            //         card.style.transform = 'rotate(0deg)';
+            //       }
+            //     });
+            //   }
+            // }
           }
-
-          // メッセージを非表示
-          this._message.hideMessage();
-
-          // 1 秒後にゲームを初期化して、カードを配り直す。
-          setTimeout(() => {
-            // 手札 捨て札を表示
-            for (let i = 0; i < this._players.length; i++) {
-              this.handAreas[i]!.classList.remove('hide');
-              this.discardAreas[i]!.classList.remove('hide');
-            }
-
-
-            // ※以下 没コード 画像サイズの異なるデータを挿入すると、どれほど面倒なことになるかのサンプル
-            {
-              // ※ 2 周目以降、player 1 & 3 & stock がカードを捨て札に出すとき、微妙に横の位置がずれる。
-              // スタート時のカードを配るストックアニメーションの時点でずれが生じている。
-              // player 1 は捨て札の位置の手前 10px?程度手前で止まってしまう。
-              // player 3 は捨て札の位置から 10px?程度超えて止まる。
-              // stock も本来の表示される横向きのカード画像が 10px?程度 ずれた位置から表示されて手札へ移動する。
-              // => 原因がよく分からない……
-
-              // ※同じ領域でサイズの異なる画像（横向き画像と縦向き画像）を混在させるから
-              // transform の配置調整という面倒な問題が発生する。
-              // 最初から rotate() で調整した上で縦向き画像を配置すべきだった……。
-
-
-
-              // player 1 2 3 は rotate() を初期化する必要がある。 => うまくいかない……。
-
-              // for (let i = 1; i < this._players.length; i++) {
-              //   const playerHandCardsImage = document.querySelectorAll<HTMLImageElement>(`.player${i}_hand>li>img`);
-
-              //   if (i === 2) {
-              //     // player 2
-              //     playerHandCardsImage.forEach((card) => {
-              //       // 180deg のため、 カードが上下反転する。 => 初期化
-              //       // card.style.transform = 'rotate(180deg)';
-              //       card.style.transform = 'rotate(0deg)';
-              //     });
-              //   } else {
-              //     // player 1 & 3 は side_back.png を配置するため、横向きから縦向きに戻す必要がある。
-              //     playerHandCardsImage.forEach((card, index) => {
-              //       // カード画像ファイル要素 (img) の親要素 (li) の設定
-              //       // カードを選択する際に、 top プロパティを有効にするため、
-              //       //  position: relative; が設定されてる。それを初期化する。
-              //       if (card.parentElement === null) {
-              //         this._tool.nullCheck(card.parentElement);
-              //       }
-              //       card.parentElement!.style.position = 'relative';
-              //       card.style.position = 'relative';
-
-              //       // 見た目は width: 100px; を設定することで変わらないように見えるけど、
-              //       // ボックス領域はカード画像サイズから height 100px => 150px 確保していると思われる。
-              //       // そのため、下の要素に向かうにつれて 50px ずつ ずれて配置されてしまうので座標を修正。
-              //       // card.parentElement!.style.top = String(-50 * index) + 'px';
-
-              //       // 上記を初期化
-              //       card.parentElement!.style.top = '0';
-
-              //       // カード画像ファイル要素 (img) の設定
-              //       // card.style.width = '100px';
-              //       // 上記を初期化
-
-              //       card.style.height = '150px';
-
-              //       if (i === 1) {
-              //         // 90deg のため、 100px 下へ移動する。左へ移動ではない。 => 初期化
-              //         // card.style.transform = 'rotate(90deg) translate(100px, 0)';
-              //         card.style.transform = 'translate(0, 0)';
-              //         card.style.transform = 'rotate(0deg)';
-              //       } else if (i === 3) {
-              //         // 270deg のため、 -100px 下へ移動する。左へ移動ではない。 => 初期化
-              //         // card.style.transform = 'rotate(270deg) translate(-100px, 0)';
-              //         card.style.transform = 'translate(0, 0)';
-              //         card.style.transform = 'rotate(0deg)';
-              //       }
-              //     });
-              //   }
-              // }
-            }
-
-
-            new Poker();
-          }, 1000);
         });
       }, 23000);
     }
