@@ -515,9 +515,23 @@ img {
   background-color: hsl(180, 100%, 40%);
 }
 
-.stock > .startBtn,
 .stock > .openBtn {
   top: 50%;
+  left: 50%;
+}
+
+.stock > .startBtn {
+  top: 50%;
+  left: 50%;
+}
+
+.stock > .startPokerBtn {
+  top: 25%;
+  left: 50%;
+}
+
+.stock > .backToStartBtn {
+  top: 75%;
   left: 50%;
 }
 
