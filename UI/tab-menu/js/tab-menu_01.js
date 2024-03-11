@@ -8,7 +8,9 @@
 /* JavaScriptでタブメニューを作ろう */
 /* URL: https://dotinstall.com/lessons/tabmenu_js_v3 */
 
-/* 詳細な挙動や課題について ここに記載する */
+/* 詳細な挙動や課題や修正点などについて ここに記載する
+
+*/
 
 
 

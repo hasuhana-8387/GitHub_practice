@@ -4,12 +4,17 @@
 /* 大人気の全画面タイプ② */
 
 /* Reference study site */
+
+/* 【CSSのみ】おしゃれなデザインのハンバーガーメニュー13選【コピペOK】 - PHOTOPIZZA（フォトピザ） - */
 /* URL: https://photopizza.design/css_hamburger_menu/ */
 
-/* 詳細な挙動についてここに記載する */
+/* 詳細な挙動や課題や修正点などについて ここに記載する
+
+*/
 
 
 
+/* 
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -24,7 +29,7 @@
   font-weight: 400;
   src: url(https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ-6H6Mw.ttf) format('truetype');
 }
-
+ */
 .hamburger_menu_09>.implement_container .flex-center {
   display: flex;
   align-items: center;

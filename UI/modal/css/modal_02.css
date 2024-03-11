@@ -4,16 +4,18 @@
 /* 中央にふわっと表示されるパターン */
 
 /* Reference study site */
+
 /* Web制作マガジン by GEOCODE */
 /* URL: https://www.hp-maker.net/magazine/modal/ */
 
-/* 詳細な挙動や課題について ここに記載する */
+/* 詳細な挙動や課題や修正点などについて ここに記載する
 
-/*
-  一部 参照元コードを修正
-    Open Modal ボタンをスタイリング。
-    close, color を黒、ホバー時 白に変更。
+   一部 参照元コードを修正
+     Open Modal ボタンをスタイリング。
+     close, color を黒、ホバー時 白に変更。
 */
+
+
 
 .modal_02>.implement_container #open-modal {
   color: hwb(240 0% 0%);

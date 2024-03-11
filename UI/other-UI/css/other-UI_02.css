@@ -8,11 +8,12 @@
 /* コピペで簡単！CSSとJavaScriptで作られた動くオシャレで綺麗なローディング画面アニメーション10選！【ロード画面/画像を使わない】 - WebDesignFacts - */
 /* URL: https://webdesignfacts.net/entry/page-loader/#gsc.tab=0 */
 
-/* 詳細な挙動や課題について ここに記載する */
+/* 詳細な挙動や課題や修正点などについて ここに記載する
 
-/* 元コードの jQuery を JavaScript へ修正する。 */
-/* クリックイベントに対応させる。 */
-/* 元コードの setInterval を setTimeout へ修正すると動作がどうなるか検証する。 */
+   元コードの jQuery を JavaScript へ修正する。
+   クリックイベントに対応させる。
+   元コードの setInterval を setTimeout へ修正すると動作がどうなるか検証する。
+*/
 
 
 

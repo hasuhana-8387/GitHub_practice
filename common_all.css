@@ -110,7 +110,7 @@ a {
 }
 
 
-/* sp menu 360px ~ */
+/* sp menu 360px ~ (Samsung Galaxy 360px * 740px) */
 
 /* container */
 
@@ -119,6 +119,8 @@ a {
   width: 80%;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-right: 4px;
+  padding-left: 4px;
   border-radius: 20px;
   background: white;
   margin: 0 auto;
@@ -128,21 +130,16 @@ a {
 }
 
 .common_subcontainer {
-  /* sp 360px * container 80% => min-width 288px - padding 8px => min-contents 280px */
-  /* sp 437.5px * container 80% => max-width 350px - padding 8px => max-contents 342px */
+  /* sp 360px * container 80% => min-width 288px => min-contents 288px */
+  /* sp 437.5px * container 80% => max-width 350px => max-contents 350px */
   /* width-range 288px ~ 350px */
   box-sizing: border-box;
   width: 100%;
   max-width: 350px;
-  padding: 0 4px;
   margin: 32px auto 0;
 }
 
 
 /* tablet menu 600px ~ */
 
-@media (min-width: 600px) {
-  .common_subcontainer {
-    padding: 0;
-  }
-}
+@media (min-width: 600px) {}

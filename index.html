@@ -1,24 +1,19 @@
 <!-- 
-  ● 変更箇所
-  ・タブメニューのリンク追加。
-  ● Git 操作 注意
-  ・直近のコミットメッセージを修正する方法
-    git commit --amend -m "commit message"
-    すでにステージングにファイルが上げられてる状態で行うと、
-    ファイルも最新の状態に変更されてしまう。
+  ● 未実装
+
+    - setting -
+      配色変更
+        暖色系　寒色系　中間色系　などの選択肢を配置。
+        サイト全体に変更が反映される。
+        Local storage を利用する。
 -->
 <!-- 
-  - setting - 配色変更
-    - UI - の上に配置？
-    暖色系　寒色系　中間色系　などの選択肢を配置。
-    サイト全体に変更が反映される。
-    Local storage を利用する。
--->
-<!-- 
+  ● デザイン
+
   ・コンテナの高さは上下いっぱいまで広げること
 
   ・レスポンシブに対応させる
-    スマートフォン 360px ~ 599px
+    スマートフォン 360px ~ 599px (Samsung Galaxy 360px * 740px)
       360px ~ 共通サブコンテナ幅 コンテナ幅に合わせて広げる
       437.5px ~ 共通サブコンテナ幅 これ以上広げない
 
@@ -40,9 +35,8 @@
       UIコンテナ アイテム 1 行 3 列で表示
 -->
 <!-- 
-  ・各プログラミング言語の理解度をおおまかに示した表をトップページに作成する。
+  ● 各プログラミング言語の理解度
 
-    理解度
       ☆☆☆    ドットインストール様の講座内容を理解した上で、ある程度 臨機応変に対応できる程度
       ☆☆      ドットインストール様の講座内容を全体的に把握している程度
       ☆        ドットインストール様の講座内容を一部 理解している程度
@@ -51,25 +45,26 @@
       CSS           ☆☆☆
       Sass/SCSS     ☆☆
       
-      Bootstrap?
       Tailwind CSS  ☆☆
+      Bootstrap     ☆
 
       JavaScript    ☆☆☆
       TypeScript    ☆☆
       React         ☆☆
       Next.js       ☆
 
-      Git/GitHub    ☆
+      Git/GitHub    ☆☆
 
       MySQL         ☆
       UNIXコマンド  ☆
 
-      正規表現?
+      正規表現      ☆
 
       PHP           ☆
       Python        ☆
       Java          ☆
       Ruby          ☆
+      Ruby on Rails ？
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -77,16 +72,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex">
+  <meta name="robots" content="noindex,nofollow,noarchive">
   <link rel="stylesheet" href="common_all.css">
   <title>学習メモ</title>
   <style>
     @charset "utf-8";
 
-    /* sp menu 360px ~ */
+    /* sp menu 360px ~ (Samsung Galaxy 360px * 740px) */
 
-    /* container => common.css */
-    /* common_subcontainer => common.css */
+    /* container => common_all.css */
+    /* common_subcontainer => common_all.css */
 
 
     /* minigame_container */
@@ -126,7 +121,7 @@
 
     @media (min-width: 600px) {
 
-      /* common_subcontainer => common.css */
+      /* common_subcontainer => common_all.css */
 
       .ui_container {
         /* tb 600px * container 80% => min-width 480px */

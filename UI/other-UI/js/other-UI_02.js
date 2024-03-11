@@ -8,17 +8,17 @@
 /* コピペで簡単！CSSとJavaScriptで作られた動くオシャレで綺麗なローディング画面アニメーション10選！【ロード画面/画像を使わない】 - WebDesignFacts - */
 /* URL: https://webdesignfacts.net/entry/page-loader/#gsc.tab=0 */
 
-/* 詳細な挙動や課題について ここに記載する */
+/* 詳細な挙動や課題や修正点などについて ここに記載する
 
-/* 元コードの jQuery を JavaScript へ修正する。 */
+   元コードの jQuery を JavaScript へ修正する。
 
-/* クリックイベントに対応させる。 */
+   クリックイベントに対応させる。
 
-/* 元コードの setInterval を setTimeout へ修正すると動作がどうなるか検証する。
+   元コードの setInterval を setTimeout へ修正すると動作がどうなるか検証する。
    動作の違いは感じないため、どちらの処理のほうが望ましいのか分からない。
-   何となく setTimeout のほうが処理の負荷が少なく安定する印象があるため、 setTimeout を採用してみる。 */
+   何となく setTimeout のほうが処理の負荷が少なく安定する印象があるため、 setTimeout を採用してみる。
 
-/* また、 WebDesignFacts 様は setInterval の処理を 80ms 、
+   また、 WebDesignFacts 様は setInterval の処理を 80ms 、
    CSS の transition を 100ms に設定しているけど、
    どうして差を開いておく必要があるのか分からない。
 
@@ -26,7 +26,8 @@
    どちらかというと、 100ms のほうが何となく滑らかな感じがするため、 WebDesignFacts 様のスタンスを継承する。
 
    ちなみに ここで極端な値として、 10ms に設定すると、プログレスバーがいっぱいになる前に数字が100%になり、
-   その後、急速にプログレスバーがいっぱいになってしまい不自然な挙動になる。 */
+   その後、急速にプログレスバーがいっぱいになってしまい不自然な挙動になる。
+*/
 
 
 

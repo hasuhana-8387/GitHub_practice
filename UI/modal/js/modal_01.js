@@ -4,10 +4,13 @@
 /* 上から降りてくるパターン */
 
 /* Reference study site */
+
 /* ドットインストール - JavaScriptでモーダルウィンドウを作ろう */
 /* URL: https://dotinstall.com/lessons/modal_js_v3 */
 
-/* 詳細な挙動や課題について ここに記載する */
+/* 詳細な挙動や課題や修正点などについて ここに記載する
+
+*/
 
 
 

@@ -1,8 +1,21 @@
 'use strict';
 
-// 課題
-// プログラムに非効率なコードが含まれてるため、あとで全体を整理する。
-// そもそもバッティング対策関数を用意する必要があるのだろうか？
+/* Carousel 02 */
+/* カルーセル オリジナル */
+
+/* Reference study site */
+
+/* JavaScriptでカルーセルを作ろう */
+/* URL: https://dotinstall.com/lessons/carousel_js */
+
+/* 詳細な挙動や課題や修正点などについて ここに記載する
+
+   課題
+   プログラムに非効率なコードが含まれてるため、あとで全体を整理する。
+   そもそもバッティング対策関数を用意する必要があるのだろうか？
+*/
+
+
 
 {
   // メインイメージの要素取得
@@ -34,9 +47,14 @@
 
   // メインイメージのソース情報を管理するための配列
   const mainImagesSrc = [
-    'img/pic1.png',
-    'img/pic2.png',
-    'img/pic3.png',
+    'img/pic1.jpg',
+    'img/pic2.jpg',
+    'img/pic3.jpg',
+    'img/pic4.jpg',
+    'img/pic5.jpg',
+    'img/pic6.jpg',
+    'img/pic7.jpg',
+    'img/pic8.jpg',
   ];
 
   // すべての リストメインイメージ <li><img src="img/pic1.png"></li> を格納・操作するための配列

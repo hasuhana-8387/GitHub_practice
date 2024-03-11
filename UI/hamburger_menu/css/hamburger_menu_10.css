@@ -1,321 +1,355 @@
 @charset "utf-8";
 
 /* Hamburger menu 10 */
-/* クリックすると左側のメニューが展開 */
+/* クリックで多数のメニューが展開（特殊アニメーション付き） */
 
 /* Reference study site */
+
+/* 【CSSのみ】おしゃれなデザインのハンバーガーメニュー13選【コピペOK】 - PHOTOPIZZA（フォトピザ） - */
 /* URL: https://photopizza.design/css_hamburger_menu/ */
 
-/* 詳細な挙動についてここに記載する */
+/* 詳細な挙動や課題や修正点などについて ここに記載する
+
+*/
 
 
 
-/* @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300); */
-
-/* html,
-body {
-  margin: 0;
-  font-family: "Roboto";
-  background: #f1f1f1;
-  overflow: auto;
-} */
-
-.hamburger_menu_10>.implement_container #cont:target>menu-fixed {
-  width: 120px;
-  background: #111;
-  transition: all 0.3s;
-}
-
-.hamburger_menu_10>.implement_container #cont:target>menu-fixed>a .material-icons.back {
-  display: none;
-}
-
-.hamburger_menu_10>.implement_container #cont:target>menu-fixed>.menu li {
-  text-align: center;
-  width: 40%;
-}
-
-.hamburger_menu_10>.implement_container #cont:target>menu-fixed>.menu li>p {
-  display: none;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed {
-  width: 120px;
-  z-index: 2;
-  height: 100%;
-  background: #0F0F0F;
-  position: fixed;
-  transition: all 0.3s;
-  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.19), 8px 0px 10px rgba(0, 0, 0, 0.23);
-  text-align: center;
-  overflow: auto;
-
-  /* 修正 */
-  position: absolute;
-  overflow: visible;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .material-icons.back {
-  display: none;
-  color: white;
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  font-size: 36px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .material-icons.back:hover {
-  color: #009688;
-  transition: color 0.3s;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed:target {
-  width: 280px;
-  background: #000;
-  transition: all 0.3s ease-out;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed:target>.notes {
-  transition: all 0.2s;
-  z-index: 0;
-  opacity: 0;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed:target>a .material-icons.back {
-  display: block;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed:target>a>.logo {
-  width: 60%;
-  height: 47px;
-  margin: auto;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed:target>a>.logo>span {
-  display: none;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed:target>a>.logo>p {
-  display: block;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed:target>.menu li {
-  text-align: left;
-  width: 60%;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed:target>.menu li:hover::after {
-  content: "";
-  display: block;
-  position: absolute;
-  background: rgba(38, 166, 154, 0.1);
+/* body {
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  border-radius: 4px;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed:target>.menu li:hover>p {
-  color: white;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed:target>.menu li>p {
-  display: inline-block;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .logo {
-  width: 100%;
-  height: 70px;
-  position: relative;
-  cursor: pointer;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .logo p {
-  display: none;
-  color: #999;
-  font-size: 23px;
-  padding-bottom: 0;
-  font-weight: 300;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .logo span {
-  width: 10px;
-  height: 10px;
-  background: #0A0A0A;
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 25px;
-  transform: rotateZ(45deg);
-  -webkit-transform: rotateZ(45deg);
-  border: 8px solid white;
-  transition: all 0.2s;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .logo:hover~p {
-  color: white;
-  transition: all 0.3s;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .logo:hover>span {
-  width: 0;
-  height: 0;
-  border-left: 15px solid white;
-  border-right: 15px solid rgba(0, 0, 0, 0);
-  border-top: 15px solid rgba(0, 0, 0, 0);
-  border-bottom: 15px solid rgba(0, 0, 0, 0);
-  transition: all 0.2s;
-  transform: rotateZ(0deg) translateX(10px);
-  -webkit-transform: rotateZ(0deg) translateX(10px);
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .logo:hover>span::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border-left: 8px solid #111;
-  border-right: 8px solid rgba(0, 0, 0, 0);
-  border-top: 8px solid rgba(0, 0, 0, 0);
-  border-bottom: 8px solid rgba(0, 0, 0, 0);
-  left: -15px;
-  position: absolute;
-  top: -8px;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .pmenu {
-  margin: 0;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed hr {
-  width: 75%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .menu {
-  list-style: none;
   margin: 0;
   padding: 0;
-  width: 100%;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .menu li {
-  padding: 15px;
-  width: 40%;
-  margin: auto;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom-style: dotted;
-  cursor: pointer;
-  overflow: hidden;
   position: relative;
-  transition: all 0.3s;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .menu li:last-child {
-  border: none;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .menu li:hover {
-  background: #000;
-  transition: all 0.3s;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .menu li:hover>.material-icons {
-  color: white;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .menu li .material-icons {
-  color: #999;
-}
-
-.hamburger_menu_10>.implement_container #menu-fixed .menu li p {
-  display: none;
-  margin: auto;
-  color: #888;
-  font-size: 14px;
-  font-weight: 300;
-  position: absolute;
-  padding-left: 30px;
-  line-height: 30px;
-}
-
-.hamburger_menu_10>.implement_container .material-icons.info {
-  color: #999;
-  position: absolute;
-  margin: 0;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-}
-
-/* .hamburger_menu_10>.implement_container #page {
-  width: 700px;
-  height: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  position: relative;
-}
-
-.hamburger_menu_10>.implement_container #page div {
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  background: white;
-  z-index: 1;
+  background: #29313e;
 } */
 
-.hamburger_menu_10>.implement_container a:link,
-.hamburger_menu_10>.implement_container a:visited {
-  text-decoration: none;
-}
-
-.hamburger_menu_10>.implement_container .notes {
-  position: fixed;
-  width: 100px;
-  height: 70px;
-  top: 20px;
-  left: 130px;
-  z-index: 5;
-  background: #009688;
-  border-radius: 10px;
-  transition: all 0.6s;
-
-  /* 修正 */
-  position: absolute;
-}
-
-.hamburger_menu_10>.implement_container .notes::after {
-  content: "";
-  display: block;
-  position: fixed;
-  width: 0px;
-  height: 0px;
-  top: 50px;
-  left: 115px;
-  border-top: 8px solid rgba(0, 0, 0, 0);
-  border-bottom: 8px solid rgba(0, 0, 0, 0);
-  border-left: 8px solid rgba(0, 0, 0, 0);
-  border-right: 8px solid #009688;
-
-  /* 修正 */
-  position: absolute;
-  top: 30px;
-  left: -16px;
-}
-
-.hamburger_menu_10>.implement_container .notes p {
-  color: #222;
-  padding: 12px;
+/* ul {
   margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  outline: none !important;
+} */
+
+.hamburger_menu_10>.implement_container .ms-nav-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  /* 修正 */
+  height: 300px;
+}
+
+.hamburger_menu_10>.implement_container #ms-menu {
+  display: none;
+}
+
+.hamburger_menu_10>.implement_container .bg-change {
+  position: absolute;
+  bottom: -75px;
+  right: -90px;
+  width: 1px;
+  height: 1px;
+  border-radius: 100% 0% 0% 0%;
+  /* background: #2D394D; */
+  transition: all .25s ease;
+
+  /* 修正 */
+  bottom: -35px;
+  right: -35px;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.bg-change {
+  width: 3000px;
+  height: 3000px;
+  transition: all .5s ease;
+
+  /* 修正 */
+  width: 350px;
+  height: 350px;
+  background: #2D394D;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav {
+  position: absolute;
+  bottom: 75px;
+  right: 75px;
+
+  /* 修正 */
+  bottom: 35px;
+  right: 35px;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav>.ms-main {
+  position: relative;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav>.ms-li {
+  position: absolute;
+  bottom: 0;
+  right: 8px;
+  transition: bottom .5s ease;
+  z-index: 1;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li a {
+  box-shadow: 0px 5px 10px #333333;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li1 {
+  bottom: 150%;
+  transition: bottom .5s ease;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li1 a span {
+  opacity: 1;
+  transition: opacity .5s ease .1s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-main:after {
+  animation: big-border-bottom-animation .5s ease .1s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li1:before {
+  animation: border-top-animation .5s ease .2s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li1:after {
+  animation: border-bottom-animation .5s ease .2s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li2 {
+  bottom: 265%;
+  transition: bottom .6s ease;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li2 a span {
+  opacity: 1;
+  transition: opacity .6s ease .2s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li2:before {
+  animation: border-top-animation .5s ease .2s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li2:after {
+  animation: border-bottom-animation .5s ease .3s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li3 {
+  bottom: 380%;
+  transition: bottom .7s ease;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li3 a span {
+  opacity: 1;
+  transition: opacity .7s ease .3s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li3:before {
+  animation: border-top-animation .5s ease .3s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li3:after {
+  animation: border-bottom-animation .5s ease .4s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li4 {
+  bottom: 495%;
+  transition: bottom .8s ease;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li4 a span {
+  opacity: 1;
+  transition: opacity .8s ease .4s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li4:before {
+  animation: border-top-animation .5s ease .4s;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle~.ms-li:before {
+  content: '';
+  width: 45px;
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 0px solid #337ab7;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle~.ms-li:before {
+  content: '';
+  width: 45px;
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 0px solid #337ab7;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li:before {
+  content: '';
+  width: 45px;
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-left: 24px solid transparent;
+  border-right: 24px solid transparent;
+  border-top: 25px solid #337ab7;
+  z-index: 11;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li:after {
+  content: '';
+  width: 45px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-left: 24px solid transparent;
+  border-right: 24px solid transparent;
+  border-bottom: 25px solid #337ab7;
+  transition: border-bottom .3s ease;
+  z-index: 11;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-main:after {
+  content: '';
+  width: 60px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-left: 24px solid transparent;
+  border-right: 24px solid transparent;
+  border-bottom: 45px solid #337ab7;
+  transition: border-bottom .3s ease;
+  z-index: 11;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-li-last:after {
+  content: '';
+  width: 45px;
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-left: 0px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 0px solid #337ab7;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle:checked~.ms-main span {
+  transform: rotate(-45deg);
+  transition: transform .35s ease;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav .ms-menu-toggle~.ms-main span {
+  transition: transform .35s ease;
+  opacity: 1;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav>.ms-main>a {
+  box-shadow: 0px 5px 10px #333333;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav>li a {
+  font-size: 30px;
+  color: #FFFFFF;
+  background: #337ab7;
+  width: 60px;
+  height: 60px;
+  display: block;
+  border-radius: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav>.ms-main a,
+.hamburger_menu_10>.implement_container .ms-nav>.ms-main>a>label {
+  font-size: 30px;
+  color: #FFFFFF;
+  background: #337ab7;
+  width: 75px;
+  height: 75px;
+  display: block;
+  border-radius: 100%;
+  position: relative;
+  text-align: center;
+  z-index: 19;
+}
+
+.hamburger_menu_10>.implement_container .ms-nav>li>a span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 30px;
+  width: 30px;
+  opacity: 0;
+  z-index: 12;
+}
+
+@keyframes border-top-animation {
+  0% {
+    bottom: 0px;
+  }
+
+  50% {
+    bottom: -14px;
+  }
+
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes border-bottom-animation {
+  0% {
+    top: 0px;
+  }
+
+  50% {
+    top: -13px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes big-border-bottom-animation {
+  0% {
+    top: 0px;
+  }
+
+  50% {
+    top: -30px;
+  }
+
+  100% {
+    top: 0px;
+  }
 }

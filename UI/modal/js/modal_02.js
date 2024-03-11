@@ -4,16 +4,18 @@
 /* 中央にふわっと表示されるパターン */
 
 /* Reference study site */
+
 /* Web制作マガジン by GEOCODE */
 /* URL: https://www.hp-maker.net/magazine/modal/ */
 
-/* 詳細な挙動や課題について ここに記載する */
+/* 詳細な挙動や課題や修正点などについて ここに記載する
 
-/*
-  一部 参照元コードを修正
-    var -> const
-    getElementById, getElementsByClassName -> querySelector
+   一部 参照元コードを修正
+     var -> const
+     getElementById, getElementsByClassName -> querySelector
 */
+
+
 
 {
   const modal = document.querySelector('.modal_02>.implement_container #demo-modal');

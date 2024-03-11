@@ -1,15 +1,16 @@
 <!-- 
   Reference study site
-  URL: https://photopizza.design/css_hamburger_menu/
-       https://sinpe-pgm.com/pagetop-button-js/
- -->
+
+    【CSSのみ】おしゃれなデザインのハンバーガーメニュー13選【コピペOK】 - PHOTOPIZZA（フォトピザ） -
+    URL: https://photopizza.design/css_hamburger_menu/
+-->
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex">
+  <meta name="robots" content="noindex,nofollow,noarchive">
   <link rel="stylesheet" href="../../common_all.css">
   <link rel="stylesheet" href="../common_UI.css">
   <link rel="stylesheet" href="css/common_hamburger_menu.css">
@@ -23,9 +24,6 @@
   <link rel="stylesheet" href="css/hamburger_menu_08.css">
   <link rel="stylesheet" href="css/hamburger_menu_09.css">
   <link rel="stylesheet" href="css/hamburger_menu_10.css">
-  <link rel="stylesheet" href="css/hamburger_menu_11.css">
-  <link rel="stylesheet" href="css/hamburger_menu_12.css">
-  <link rel="stylesheet" href="css/hamburger_menu_13.css">
   <title>Hamburger menu</title>
 </head>
 
@@ -56,10 +54,10 @@
           <input type="checkbox" class="menu-btn" id="menu-btn">
           <label for="menu-btn" class="menu-icon"><span class="navicon"></span></label>
           <ul class="menu">
-            <li class="top"><a href="#">home</a></li>
-            <li><a href="#">skills</a></li>
-            <li><a href="#">projects</a></li>
-            <li><a href="#">contact</a></li>
+            <li class="top"><a href="#" class="not-page-transition">home</a></li>
+            <li><a href="#" class="not-page-transition">skills</a></li>
+            <li><a href="#" class="not-page-transition">projects</a></li>
+            <li><a href="#" class="not-page-transition">contact</a></li>
           </ul>
         </header>
       </div>
@@ -139,10 +137,10 @@
 
         <nav class="nav">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Works</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="not-page-transition">Home</a></li>
+            <li><a href="#" class="not-page-transition">About</a></li>
+            <li><a href="#" class="not-page-transition">Works</a></li>
+            <li><a href="#" class="not-page-transition">Contact</a></li>
           </ul>
         </nav>
 
@@ -203,11 +201,11 @@
               <span></span>
             </label>
             <ul class="menu__box">
-              <li><a class="menu__item" href="#"><span class="red">Home</span></a></li>
-              <li><a class="menu__item" href="#">Services</a></li>
-              <li><a class="menu__item" href="#">Portfolio</a></li>
-              <li><a class="menu__item" href="#">About</a></li>
-              <li><a class="menu__item" href="#">Contact</a></li>
+              <li><a href="#" class="not-page-transition menu__item"><span class="red">Home</span></a></li>
+              <li><a href="#" class="not-page-transition menu__item">Services</a></li>
+              <li><a href="#" class="not-page-transition menu__item">Portfolio</a></li>
+              <li><a href="#" class="not-page-transition menu__item">About</a></li>
+              <li><a href="#" class="not-page-transition menu__item">Contact</a></li>
             </ul>
           </nav>
         </header>
@@ -233,10 +231,10 @@
             <span></span>
           </div>
           <div class="nav-container">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
+            <a href="#" class="not-page-transition">Home</a>
+            <a href="#" class="not-page-transition">About</a>
+            <a href="#" class="not-page-transition">Services</a>
+            <a href="#" class="not-page-transition">Contact</a>
           </div>
         </header>
       </div>
@@ -358,9 +356,9 @@
         <label for="overlay-input" id="overlay-button"><span></span></label>
         <div id="overlay">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#" class="not-page-transition">Home</a></li>
+            <li><a href="#" class="not-page-transition">About</a></li>
+            <li><a href="#" class="not-page-transition">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -385,10 +383,10 @@
             <div>
               <div>
                 <ul>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Products</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li><a href="#" class="not-page-transition">About</a></li>
+                  <li><a href="#" class="not-page-transition">Products</a></li>
+                  <li><a href="#" class="not-page-transition">Blog</a></li>
+                  <li><a href="#" class="not-page-transition">Contact</a></li>
                 </ul>
               </div>
             </div>
@@ -400,286 +398,45 @@
 
 
     <!-- Hamburger menu 10 -->
-    <!-- クリックすると左側のメニューが展開 -->
+    <!-- クリックで多数のメニューが展開（特殊アニメーション付き） -->
 
     <div class="common_subcontainer hamburger_menu_10">
       <h2>ハンバーガーメニュー 10</h2>
-      <p>クリックすると左側のメニューが展開</p>
-
-      <div class="implement_container">
-        <div id="cont">
-          <div id="menu-fixed">
-            <div class="notes">
-              <p>Expand the menu!</p>
-            </div>
-            <a href="#cont">
-              <i class="material-icons back">&#xE314;</i>
-            </a>
-            <a href="#menu-fixed">
-              <div class="logo">
-                <span></span>
-                <p>TITLE</p>
-              </div>
-              <p class="pmenu">MENU</p>
-            </a>
-            <hr>
-            <ul class="menu">
-              <li><i class="material-icons">&#xE88A;</i>
-                <p>Home</p>
-              </li>
-              <li><i class="material-icons">&#xE87A;</i>
-                <p>Explore</p>
-              </li>
-              <li><i class="material-icons">&#xE8CC;</i>
-                <p>Shop</p>
-              </li>
-              <!-- <li><i class="material-icons">&#xE8B8;</i>
-                <p>Settings</p>
-              </li>
-              <li><i class="material-icons">&#xE8B6;</i>
-                <p>Search</p>
-              </li> -->
-            </ul>
-            <i class="material-icons info">&#xE88E;</i>
-          </div>
-        </div>
-
-        <!-- <div id="page">
-          <div></div>
-        </div> -->
-      </div>
-    </div>
-
-
-
-    <!-- Hamburger menu 11 -->
-    <!-- ホバーでサイドのメニューが展開 -->
-
-    <div class="common_subcontainer hamburger_menu_11">
-      <h2>ハンバーガーメニュー 11</h2>
-      <p>ホバーでサイドのメニューが展開</p>
-
-      <div class="implement_container">
-        <nav class="main-menu">
-          <div>
-            <a class="logo" href="http://startific.com">
-            </a>
-          </div>
-          <div class="settings"></div>
-          <div class="scrollbar" id="style-1">
-            <ul>
-              <li>
-                <a href="http://startific.com">
-                  <i class="fa fa-home fa-lg"></i>
-                  <span class="nav-text">Home</span>
-                </a>
-              </li>
-              <li>
-                <a href="http://startific.com">
-                  <i class="fa fa-user fa-lg"></i>
-                  <span class="nav-text">Login</span>
-                </a>
-              </li>
-              <li>
-                <a href="http://startific.com">
-                  <i class="fa fa-envelope-o fa-lg"></i>
-                  <span class="nav-text">Contact</span>
-                </a>
-              </li>
-              <!-- <li>
-                <a href="http://startific.com">
-                  <i class="fa fa-heart-o fa-lg"></i>
-                  <span class="share">
-                    <div class="addthis_default_style addthis_32x32_style">
-                      <div style="position:absolute; margin-left: 56px;top:3px;">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" class="share-popup">
-                          <img src="http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png"
-                            width="30px" height="30px">
-                        </a>
-                        <a href="https://twitter.com/share" target="_blank" class="share-popup">
-                          <img
-                            src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/512/Twitter_alt.png"
-                            width="30px" height="30px">
-                        </a>
-                        <a href="https://plusone.google.com/_/+1/confirm?hl=en&url=_URL_&title=_TITLE_" target="_blank"
-                          class="share-popup"><img
-                            src="http://icons.iconarchive.com/icons/danleech/simple/512/google-plus-icon.png"
-                            width="30px" height="30px">
-                        </a>
-                      </div>
-                      <script type="text/javascript">var addthis_config = { "data_track_addressbar": true };</script>
-                      <script type="text/javascript"
-                        src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4ff17589278d8b3a"></script>
-                    </div>
-                  </span>
-                  <span class="twitter"></span>
-                  <span class="google"></span>
-                  <span class="fb-like">
-                    <iframe
-                      src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2Fstartific&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35"
-                      scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;"
-                      allowTransparency="true"></iframe>
-                  </span>
-                  <span class="nav-text">
-                  </span>
-                </a>
-              </li>
-              <li class="darkerlishadow">
-                <a href="http://startific.com">
-                  <i class="fa fa-clock-o fa-lg"></i>
-                  <span class="nav-text">News</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="http://startific.com">
-                  <i class="fa fa-desktop fa-lg"></i>
-                  <span class="nav-text">Technology</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="http://startific.com">
-                  <i class="fa fa-plane fa-lg"></i>
-                  <span class="nav-text">Travel</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="http://startific.com">
-                  <i class="fa fa-shopping-cart"></i>
-                  <span class="nav-text">Shopping</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="http://startific.com">
-                  <i class="fa fa-microphone fa-lg"></i>
-                  <span class="nav-text">Film & Music</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="http://startific.com">
-                  <i class="fa fa-flask fa-lg"></i>
-                  <span class="nav-text">Web Tools</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="http://startific.com">
-                  <i class="fa fa-picture-o fa-lg"></i>
-                  <span class="nav-text">Art & Design</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="http://startific.com">
-                  <i class="fa fa-align-left fa-lg"></i>
-                  <span class="nav-text">Magazines
-                  </span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="http://startific.com">
-                  <i class="fa fa-gamepad fa-lg"></i>
-                  <span class="nav-text">Games</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="http://startific.com">
-                  <i class="fa fa-glass fa-lg"></i>
-                  <span class="nav-text">Life & Style
-                  </span>
-                </a>
-              </li>
-              <li class="darkerlishadowdown">
-                <a href="http://startific.com">
-                  <i class="fa fa-rocket fa-lg"></i>
-                  <span class="nav-text">Fun</span>
-                </a>
-              </li>
-            </ul>
-            <li>
-              <a href="http://startific.com">
-                <i class="fa fa-question-circle fa-lg"></i>
-                <span class="nav-text">Help</span>
-              </a>
-            </li>
-            <ul class="logout">
-              <li>
-                <a href="http://startific.com">
-                  <i class="fa fa-lightbulb-o fa-lg"></i>
-                  <span class="nav-text">
-                    BLOG
-                  </span>
-
-                </a>
-              </li>
-            </ul> -->
-        </nav>
-      </div>
-    </div>
-
-
-
-    <!-- Hamburger menu 12 -->
-    <!-- クリックで多数のメニューが展開（特殊アニメーション付き） -->
-
-    <div class="common_subcontainer hamburger_menu_12">
-      <h2>ハンバーガーメニュー 12</h2>
       <p>クリックで多数のメニューが展開<br>（特殊アニメーション付き）</p>
 
       <div class="implement_container">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-xs-12">
-              <div class="ms-nav-container">
-                <ul class="ms-nav">
-                  <input type="checkbox" id="ms-menu" class="ms-menu-toggle" name="ms-menu-toggle" />
-                  <div class="bg-change"></div>
-                  <!-- <li class="ms-li ms-li3 ms-li-last">
+            <div class="ms-nav-container">
+              <ul class="ms-nav">
+                <input type="checkbox" id="ms-menu" class="ms-menu-toggle" name="ms-menu-toggle" />
+                <div class="bg-change"></div>
+                <!-- <li class="ms-li ms-li3 ms-li-last">
                     <a href="javascript:void(0)">
                       <span class="fa fa-search"></span>
                     </a>
                   </li> -->
-                  <li class="ms-li ms-li2">
-                    <a href="javascript:void(0)">
-                      <span class="fa fa-flask"></span>
-                    </a>
-                  </li>
-                  <li class="ms-li ms-li1 ms-li-first">
-                    <a href="javascript:void(0)">
-                      <span class="fa fa-fort-awesome"></span>
-                    </a>
-                  </li>
-                  <li class="ms-main">
-                    <a href="javascript:void(0)">
-                      <label class="ms-menu-toggle-lbl" for="ms-menu">
-                        <span class="fa fa-plus"></span>
-                      </label>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                <li class="ms-li ms-li2">
+                  <a href="javascript:void(0)">
+                    <span class="fa fa-flask"></span>
+                  </a>
+                </li>
+                <li class="ms-li ms-li1 ms-li-first">
+                  <a href="javascript:void(0)">
+                    <span class="fa fa-fort-awesome"></span>
+                  </a>
+                </li>
+                <li class="ms-main">
+                  <a href="javascript:void(0)">
+                    <label class="ms-menu-toggle-lbl" for="ms-menu">
+                      <span class="fa fa-plus"></span>
+                    </label>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-
-
-    <!-- Hamburger menu 13 -->
-    <!-- クリックしてアトムを感じよう -->
-
-    <div class="common_subcontainer hamburger_menu_13">
-      <h2>ハンバーガーメニュー 13</h2>
-      <p>クリックしてアトムを感じよう</p>
-
-      <div class="implement_container">
-        <button>
-          <div></div>
-          <div></div>
-          <div></div>
-        </button>
-        <p>hover & hold me down</p>
-
-        <a target="_blank" href="https://www.alexcoven.com"><img
-            src="https://cdn.dribbble.com/users/338649/avatars/small/3e8ca21ad8f09f79a6ba7f36e21d7557.png?1432757689"></a>
       </div>
     </div>
   </div> <!-- .container -->
