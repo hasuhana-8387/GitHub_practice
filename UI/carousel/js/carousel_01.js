@@ -36,6 +36,12 @@
     playSlideshow();
   });
 
+  // ウインドウサイズを変更したら
+  // メインイメージサイズを変更する
+  window.addEventListener('resize', () => {
+    showCurrentMainImage();
+  });
+
 
 
   // メインイメージのソース情報を管理するための配列
