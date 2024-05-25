@@ -320,7 +320,7 @@
         titleText.push(`プレイヤー情報と設定変更について<br><br>`);
 
         sentenceText.push(
-          `左上にすべてのプレイヤーの情報（残り枚数・パス回数・順位）が表示されます。<br>
+          `左上にすべてのプレイヤーの情報（残り枚数・パス回数・順位）とパス可能回数が表示されます。<br>
        左下の「メッセージ」ボタンから、プレイヤーのセリフの表示・非表示を切り替えることができます。<br><br>
 
        「難易度 設定」ボタンから、難易度を変更することができます。<br>
@@ -1103,8 +1103,9 @@
       this.info_player01 = document.querySelector('.information>.info_player01');
       this.info_player02 = document.querySelector('.information>.info_player02');
       this.info_player03 = document.querySelector('.information>.info_player03');
+      this.info_passOverCount = document.querySelector('.information>.info_passOverCount');
     }
-
+ 
 
     removeContainer() {
       this.elementsRemoveClass('playerTurn');
@@ -2937,6 +2938,14 @@
           残り ${String(this.players[3].hand.length).padStart(2, '0')} 枚　
           パス ${this.players[3].pass} 回　
           順位 第 ${this.players[3].rank} 位`;
+
+      if (this.restart.passOverCount === 'not') {
+        this.info_passOverCount.textContent =
+        `パス可能回数: 無限`;
+        return;
+      }
+      this.info_passOverCount.textContent =
+        `パス可能回数: ${this.restart.passOverCount} 回`;
     }
   } // Sevens クラス ここまで
 
