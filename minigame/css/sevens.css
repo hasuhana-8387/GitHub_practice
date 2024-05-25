@@ -420,7 +420,6 @@ img {
 
 .information {
   width: 900px;
-  background-color: #fff;
   display: flex;
   flex-wrap: wrap;
   position: fixed;
@@ -432,7 +431,8 @@ img {
 .information>.info_player00,
 .information>.info_player01,
 .information>.info_player02,
-.information>.info_player03 {
+.information>.info_player03,
+.information>.info_passOverCount {
   color: hsl(350, 100%, 70%);
   font-weight: bold;
   width: 45%;
@@ -440,6 +440,11 @@ img {
 
 .information>span:nth-of-type(odd) {
   margin-right: 20px;
+}
+
+.information>span.info_passOverCount {
+  margin-left: 423px;
+  margin-right: 0;
 }
 
 .startbtn,

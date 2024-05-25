@@ -21,7 +21,7 @@
   // 七並べは出せるカードがあってもあえてパスすることができるけど、どうするべきか？
   // ５ ６ や ８ ９など低い数値のカードを所持してること
   // 同じ絵柄でほかに数字の少ないまたは大きいカードを所持していないこと
-  // パス３回を超過しないこと
+  // パス可能回数を超過しないこと
   // ほかに出せるカードがないこと
   // ……といった条件をそろえてはじめて、あえてパスするといった戦略が取れる。
   // 戦略を取るとしても、実行は１回だけにしておく？
@@ -64,7 +64,7 @@
   // その後、さらに３秒後に次のターンへ（ this.createPassbtn() 参照）
 
 
-  // パス超過する場合、（ this.createPassbtn() 参照）
+  // パス可能回数を超過する場合、（ this.createPassbtn() 参照）
   // サブプレイヤーがパスする場合、
   // ターンになってからすぐにパスボタンを表示（ this.gameFlow() 参照）
   // ３秒後にパス超過をするメッセージを表示（ this.createPassbtn() 参照）
@@ -82,11 +82,11 @@
 
 
 
-  // パス超過に関するルールの追加 実装済み！
+  // パス可能回数 超過に関するルールの追加 実装済み！
 
   // 出せるカードがない場合はパスする。
   // pass++ する。
-  // pass が３回を超えたらゲームを離脱する。
+  // pass が３回（パス可能回数）を超えたらゲームを離脱する。
   // passOverRank = 4; などの変数を用意して、順位を割り当て後、 passOverRank-- する。
   // そして手札のカードをすべて場に出す。
   // その際に最小値 最大値の判断に支障を来さないように、プロパティを付加したり、条件を適切に設定する。
@@ -134,7 +134,7 @@
   // ボタン配置関係 実装済み！
 
   // 読み込み時に「メッセージオンオフ切り替え」「ルール説明」ボタンを表示
-  // 読み込み時に「START」「難易度変更」「パス超過回数設定」ボタンを表示
+  // 読み込み時に「START」「難易度変更」「パス可能回数設定」ボタンを表示
   // 「START」クリック後、「ゲーム開始」「もう一度シャッフルする」「難易度を指定し直す」ボタンを表示
   // ゲームセット後、「最初に戻る」ボタンを表示
   // ゲーム中は各プレイヤー手札の状況に応じて「PASS」「PASS無効」「PASS超過」ボタンを表示
@@ -149,7 +149,7 @@
   // 設定関係 実装済み！
 
   // 初期設定 ゲーム開始前に条件を指定できるようにする。
-  // パス超過のルールの有無、パス超過の回数指定、難易度の設定
+  // パス可能回数超過のルールの有無、パス可能回数の指定、難易度の設定
   // などを指定できるようにする。
 
 
@@ -171,7 +171,7 @@
   // サブプレイヤーが３人とも離脱後、メインプレイヤーが残りのカードをすべて出すとき、
   // クリックできてしまうのを防止する必要がある。
 
-  // メインプレイヤーがパス超過時、アニメーション完了前にカードをクリックできてしまうため、
+  // メインプレイヤーがパス可能回数超過時、アニメーション完了前にカードをクリックできてしまうため、
   // 対策を講じる必要がある。
 
   // カードを出したら、手札のカードを即座に１枚減らさないとよく見ると不自然
@@ -320,12 +320,12 @@
         titleText.push(`プレイヤー情報と設定変更について<br><br>`);
 
         sentenceText.push(
-          `左上にすべてのプレイヤーの情報（残り枚数・パス回数・順位）が表示されます。<br>
+          `左上にすべてのプレイヤーの情報（残り枚数・パス回数・順位）とパス可能回数が表示されます。<br>
        左下の「メッセージ」ボタンから、プレイヤーのセリフの表示・非表示を切り替えることができます。<br><br>
 
        「難易度 設定」ボタンから、難易度を変更することができます。<br>
-       「パス超過回数」ボタンから、パス超過回数を変更したり、<br>
-       「パス超過 無効」ボタンで、無限にパスできるように変更することができます。<br><br>
+       「パス可能回数」ボタンから、パス可能回数を変更したり、<br>
+       「パス回数 無限」ボタンで、無限にパスできるように変更することができます。<br><br>
 
        （次のページに続きます。）`
         );
@@ -336,7 +336,7 @@
         titleText.push(`始め方について<br><br>`);
 
         sentenceText.push(
-          `「難易度 設定」「パス超過回数 設定」からお好みの設定ボタンをクリックしてください。<br>
+          `「難易度 設定」「パス可能回数 設定」からお好みの設定ボタンをクリックしてください。<br>
         （こだわりがなければ そのままでかまいません。）<br><br>
 
         「START」ボタンをクリックすると、すべてのプレイヤーに均等にカードが配られます。<br><br>
@@ -398,14 +398,14 @@
        ただし、「パス」は３回までとなります！（※パスできる回数は設定から変更可能です。）<br><br>`
         );
 
-        titleText.push(`「パス超過」について<br><br>`);
+        titleText.push(`パス可能回数を超過したとき<br><br>`);
 
         sentenceText.push(
           `パスの回数が３回を超えたら、手札のカードをすべてテーブルに出して、ゲームを離脱します。<br>
-       パス超過で出したカードは出せるカードの「最小の番号」または「最大の番号」に影響を与えません。<br><br>
+       離脱時に出したカードは出せるカードの「最小の番号」または「最大の番号」に影響を与えません。<br><br>
 
        たとえば、テーブルにスペードの「６」「７」「８」のカードが出ているときに、<br>
-       パス超過で手札のカードにあったスペードの「２」を出した場合、<br>
+       離脱によって手札のカードにあったスペードの「２」を出した場合、<br>
        スペードのカードの最小の番号は「６」、最大の番号は「８」のままであり、<br>
        出せるカードは隣り合う番号、スペードの「５」または「９」となります。<br>
        スペードの「２」と隣り合う番号、スペードの「１」や「３」は出せない点にご注意ください。`
@@ -573,14 +573,14 @@
     }
 
 
-    // ロード時、パス超過回数 調整領域を表示
+    // ロード時、パス可能回数 調整領域を表示
     createPassOverCountBox() {
 
       const passOverCountBox = document.createElement('div');
       passOverCountBox.classList.add('setting_box', 'passOverCountBox');
 
       const p = document.createElement('p');
-      p.textContent = 'パス超過回数 設定';
+      p.textContent = 'パス可能回数 設定';
 
       const container = document.createElement('div');
       container.classList.add('setting_box__container');
@@ -592,7 +592,7 @@
       } else {
         btn_not.classList.add('pass_over_btn', 'btn_not_check');
       }
-      btn_not.textContent = 'パス超過 無効';
+      btn_not.textContent = 'パス回数 無限';
 
       btn_not.addEventListener('click', () => {
         this.passOverCount = 'not';
@@ -668,7 +668,7 @@
       this.table.appendChild(passOverCountBox);
 
       // <div class="setting_box passOverCountBox">
-      //   <p>- パス超過回数 設定 -</p>
+      //   <p>- パス可能回数 設定 -</p>
       //   <div class="setting_box__container">
       //     <div class="pass_over_btn btn_check">設定しない</div>
       //     <div class="pass_over_btn btn_not_check">0 回</div>
@@ -711,7 +711,7 @@
     }
 
 
-    // パス超過回数ボタンをクリックしたら、適切に CSS class を適用する
+    // パス可能回数ボタンをクリックしたら、適切に CSS class を適用する
     passOverCountbtnClassRemove(btn_not, btn_0, btn_1, btn_2, btn_3) {
       btn_not.classList.remove('btn_check', 'btn_not_check');
       btn_0.classList.remove('btn_check', 'btn_not_check');
@@ -957,7 +957,7 @@
       const playerText = document.querySelector(`.player0${player}-wrapper>.player0${player}_text`);
       playerText.classList.remove('text-none');
       playerText.innerHTML =
-        `パス ${parseInt(this.restart.passOverCount)} 回超過……。<br>
+        `パス可能回数 ${parseInt(this.restart.passOverCount)} 回を超過……。<br>
          ゲーム離脱します……。`;
     }
 
@@ -1049,7 +1049,7 @@
 
       this.clearPlayer = 0; // ゲーム離脱者（this.rank this.passOverRank 変動時加算）を管理
       this.rank = 0; // 上がったプレイヤーに順位を割り当てる
-      this.passOverRank = this.players.length; // パス超過で離脱したプレイヤーに順位を割り当てる
+      this.passOverRank = this.players.length; // パス可能回数超過によって離脱したプレイヤーに順位を割り当てる
 
       this.playingCardzIndex = 0;
       // 出したカードが手札からテーブル上に移動する際に必ずテーブル上のカードの前面を移動する
@@ -1103,8 +1103,9 @@
       this.info_player01 = document.querySelector('.information>.info_player01');
       this.info_player02 = document.querySelector('.information>.info_player02');
       this.info_player03 = document.querySelector('.information>.info_player03');
+      this.info_passOverCount = document.querySelector('.information>.info_passOverCount');
     }
-
+ 
 
     removeContainer() {
       this.elementsRemoveClass('playerTurn');
@@ -1595,7 +1596,7 @@
       //     y: 0,
       //   },
       //   discard: false, // 捨て札 カードが場に出されてるか どうか 既出なら true 未出なら false 最初はすべて false
-      //   passOver: false, // パス超過によりテーブルに出されたカードに true を割り振る
+      //   passOver: false, // パス可能回数超過によりテーブルに出されたカードに true を割り振る
       // }];
       */
 
@@ -2611,7 +2612,7 @@
 
         // メインプレイヤーの誤操作 防止対策
 
-        // メインプレイヤーの手札に出せるカードがあるのにパス３回超過してしまうのを防止
+        // メインプレイヤーの手札に出せるカードがあるのにパス可能回数超過してしまうのを防止
         if (this.playerTurn === 0 && this.players[0].pass === parseInt(this.restart.passOverCount) &&
           this.players[0].hand.filter(hand => hand.playable).length !== 0) {
           return;
@@ -2734,7 +2735,7 @@
 
 
 
-    // パスを３回超過した場合の処理
+    // パス可能回数を超過した場合の処理
     passOver(xPos, yPos) {
 
       this.playingRestCardAnimation(xPos, yPos);
@@ -2937,6 +2938,14 @@
           残り ${String(this.players[3].hand.length).padStart(2, '0')} 枚　
           パス ${this.players[3].pass} 回　
           順位 第 ${this.players[3].rank} 位`;
+
+      if (this.restart.passOverCount === 'not') {
+        this.info_passOverCount.textContent =
+        `パス可能回数: 無限`;
+        return;
+      }
+      this.info_passOverCount.textContent =
+        `パス可能回数: ${this.restart.passOverCount} 回`;
     }
   } // Sevens クラス ここまで
 
