@@ -10,8 +10,9 @@
 
       ミニゲームコンテナ アイテム 1 行 1 列で表示
       UIコンテナ アイテム 1 行 1 列で表示
+      ライブラリコンテナ アイテム 1 行 1 列で表示
 
-      共通サブコンテナ幅、ミニゲームコンテナ幅、以降一切変更なし
+      共通サブコンテナ幅、ミニゲームコンテナ幅、ライブラリコンテナ幅、以降一切変更なし
 
     タブレット 600px ~ 959px
       600px ~ UIコンテナ幅 コンテナ幅に合わせて広げる
@@ -77,23 +78,27 @@
 
     /* minigame_container */
     /* ui_container */
+    /* library_container */
 
     .minigame_container>p {
       text-align: left;
     }
 
     .minigame_container>ul>li:first-child,
-    .ui_container>ul>li:first-child {
+    .ui_container>ul>li:first-child,
+    .library_container>ul>li:first-child {
       margin-top: 16px;
     }
 
     .minigame_container>ul>li+li,
-    .ui_container>ul>li+li {
+    .ui_container>ul>li+li,
+    .library_container>ul>li+li {
       margin-top: 12px;
     }
 
     .minigame_container>ul a,
-    .ui_container>ul a {
+    .ui_container>ul a,
+    .library_container>ul a {
       display: block;
       padding: 4px 0;
       border-radius: 8px;
@@ -102,7 +107,8 @@
     }
 
     .minigame_container>ul a:hover,
-    .ui_container>ul a:hover {
+    .ui_container>ul a:hover,
+    .library_container>ul a:hover {
       color: white;
       background: hwb(240 50% 0%);
     }
@@ -203,7 +209,7 @@
       </ul>
     </div>
 
-    <div class="common_subcontainer ui_container">
+    <div class="common_subcontainer library_container">
       <h2>Library</h2>
       <ul>
         <li><a href="library/input-form__Vite__React-Hook-Form__Zod/index.html">入力フォーム</a></li>
