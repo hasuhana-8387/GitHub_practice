@@ -113,6 +113,7 @@
             this.createRuleBtn();
             this.createBackTopPageBtn();
             this.createRuleBox();
+            this.cardImageFilePreload();
         }
         // ロード時、メッセージオンオフ切り替えボタンを表示
         createMessageBtn() {
@@ -384,6 +385,69 @@
             const sentence = document.createElement('dd');
             sentence.innerHTML = sentenceText;
             this._textBox.appendChild(sentence);
+        }
+        // 使用するカード画像ファイルをあらかじめ読み込む
+        cardImageFilePreload() {
+            const images = [
+                'img/cards/01.png',
+                'img/cards/02.png',
+                'img/cards/03.png',
+                'img/cards/04.png',
+                'img/cards/05.png',
+                'img/cards/06.png',
+                'img/cards/07.png',
+                'img/cards/08.png',
+                'img/cards/09.png',
+                'img/cards/10.png',
+                'img/cards/11.png',
+                'img/cards/12.png',
+                'img/cards/13.png',
+                'img/cards/14.png',
+                'img/cards/15.png',
+                'img/cards/16.png',
+                'img/cards/17.png',
+                'img/cards/18.png',
+                'img/cards/19.png',
+                'img/cards/20.png',
+                'img/cards/21.png',
+                'img/cards/22.png',
+                'img/cards/23.png',
+                'img/cards/24.png',
+                'img/cards/25.png',
+                'img/cards/26.png',
+                'img/cards/27.png',
+                'img/cards/28.png',
+                'img/cards/29.png',
+                'img/cards/30.png',
+                'img/cards/31.png',
+                'img/cards/32.png',
+                'img/cards/33.png',
+                'img/cards/34.png',
+                'img/cards/35.png',
+                'img/cards/36.png',
+                'img/cards/37.png',
+                'img/cards/38.png',
+                'img/cards/39.png',
+                'img/cards/40.png',
+                'img/cards/41.png',
+                'img/cards/42.png',
+                'img/cards/43.png',
+                'img/cards/44.png',
+                'img/cards/45.png',
+                'img/cards/46.png',
+                'img/cards/47.png',
+                'img/cards/48.png',
+                'img/cards/49.png',
+                'img/cards/50.png',
+                'img/cards/51.png',
+                'img/cards/52.png',
+                'img/cards/back.png',
+                'img/cards/side_back.png',
+            ];
+            images.forEach((image) => {
+                let imgTag = document.createElement('img');
+                imgTag.src = image;
+            });
         }
     }
     // メッセージ関係のメソッドはこちらにまとめておく。
